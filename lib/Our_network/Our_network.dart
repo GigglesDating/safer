@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:giggles_safer_web/Our_network/Desktop_layout.dart';
+import 'package:giggles_safer_web/Our_network/Mobile_layout.dart';
+import 'package:giggles_safer_web/Our_network/Tablet_layout.dart';
+
+class OurNetwork extends StatefulWidget {
+  const OurNetwork({super.key});
+
+  @override
+  State<OurNetwork> createState() => _OurNetworkState();
+}
+
+class _OurNetworkState extends State<OurNetwork> {
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    // final screenHeight = MediaQuery.of(context).size.height;
+    if (screenWidth < 600) {
+      return MobileLayoutNetwork(); // Phones
+    } else if (screenWidth < 1200) {
+      return TabletLayoutNetwork(); // Tablets
+    } else {
+      return DesktopLayoutNetwork(); // Desktops
+    }
+  }
+}
