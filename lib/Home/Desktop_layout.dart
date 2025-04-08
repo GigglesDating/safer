@@ -392,20 +392,20 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                           autoPlay: true,
                           autoPlayInterval: Duration(
                             milliseconds: 1000,
-                          ), // Slower interval (3 seconds)
+                          ), 
                           autoPlayAnimationDuration: Duration(
                             milliseconds: 2000,
-                          ), // Slower animation
+                          ), 
                           autoPlayCurve:
                               Curves
-                                  .linear, // Linear animation for steady movement
-                          pauseAutoPlayOnTouch: false, // Don't pause on touch
+                                  .linear,
+                          pauseAutoPlayOnTouch: false, 
                           pauseAutoPlayOnManualNavigate:
-                              false, // Don't pause on manual navigation
+                              false, 
                           pauseAutoPlayInFiniteScroll:
-                              false, // Don't pause at the end of scroll
+                              false, 
                           enableInfiniteScroll:
-                              true, // Enable infinite scrolling
+                              true, 
                           aspectRatio: 2.0,
                           enlargeCenterPage: false,
                           scrollDirection: Axis.horizontal,
