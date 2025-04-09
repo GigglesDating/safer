@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
 
 class TabletLayoutAbout extends StatefulWidget {
+  const TabletLayoutAbout({super.key});
+
   @override
   State<TabletLayoutAbout> createState() => _TabletLayoutAboutState();
 }
@@ -18,9 +20,17 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
   bool _ishovering2 = false;
   bool _ishovering3 = false;
 
+  void _portraitmode() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
   @override
   void initState() {
     super.initState();
+    _portraitmode();
     // Initialize with your video URL
     _introController = VideoPlayerController.asset('assets/video/PhVideo.mp4')
       ..initialize().then((_) {

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
@@ -13,6 +14,19 @@ class TabletLayoutHome extends StatefulWidget {
 }
 
 class _TabletLayoutHomeState extends State<TabletLayoutHome> {
+  void _portraitmode() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _portraitmode();
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
