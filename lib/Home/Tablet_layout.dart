@@ -38,7 +38,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
             Stack(
               children: [
                 Container(
-                  height: screenHeight * 9.8,
+                  height: screenHeight * 7.9,
                   width: screenWidth,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(244, 0, 0, 0),
@@ -169,7 +169,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                           ),
                         ),
                         Positioned(
-                          bottom: screenHeight * 0.275,
+                          bottom: screenHeight * 0.23,
                           right: screenWidth * 0.228,
                           child: Text(
                             "Introducing Safer",
@@ -193,7 +193,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                           ),
                         ),
                         Positioned(
-                          bottom: screenHeight * 0.075,
+                          bottom: screenHeight * 0.079,
                           right: screenWidth * 0.297,
                           child: ElevatedButton(
                             style: ButtonStyle(
@@ -202,8 +202,8 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                               ),
                               padding: WidgetStatePropertyAll(
                                 EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.021,
-                                  vertical: screenHeight * 0.025,
+                                  horizontal: screenWidth * 0.025,
+                                  vertical: screenHeight * 0.01,
                                 ),
                               ),
                               shape: WidgetStatePropertyAll(

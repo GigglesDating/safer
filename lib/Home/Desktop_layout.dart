@@ -34,7 +34,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
             Stack(
               children: [
                 Container(
-                  height: screenHeight * 6.84,
+                  height: screenHeight * 7,
                   width: screenWidth * 1,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(244, 0, 0, 0),
@@ -390,22 +390,15 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                           height: 50,
                           viewportFraction: 0.12815,
                           autoPlay: true,
-                          autoPlayInterval: Duration(
-                            milliseconds: 1000,
-                          ), 
+                          autoPlayInterval: Duration(milliseconds: 1000),
                           autoPlayAnimationDuration: Duration(
                             milliseconds: 2000,
-                          ), 
-                          autoPlayCurve:
-                              Curves
-                                  .linear,
-                          pauseAutoPlayOnTouch: false, 
-                          pauseAutoPlayOnManualNavigate:
-                              false, 
-                          pauseAutoPlayInFiniteScroll:
-                              false, 
-                          enableInfiniteScroll:
-                              true, 
+                          ),
+                          autoPlayCurve: Curves.linear,
+                          pauseAutoPlayOnTouch: false,
+                          pauseAutoPlayOnManualNavigate: false,
+                          pauseAutoPlayInFiniteScroll: false,
+                          enableInfiniteScroll: true,
                           aspectRatio: 2.0,
                           enlargeCenterPage: false,
                           scrollDirection: Axis.horizontal,

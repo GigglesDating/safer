@@ -59,7 +59,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
-        height: screenHeight * 0.85,
+        height: screenHeight * 0.75,
         width: screenWidth * 0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
@@ -192,7 +192,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                         FloatingLabelBehavior.never,
                                     contentPadding: EdgeInsets.symmetric(
                                       horizontal: screenWidth * 0.015,
-                                      vertical: screenHeight * 0.025,
+                                      vertical: screenHeight * 0.015,
                                     ),
                                     hintText: 'Enter your name',
                                     hintStyle: GoogleFonts.spaceGrotesk(
@@ -231,7 +231,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                       FloatingLabelBehavior.never,
                                   contentPadding: EdgeInsets.symmetric(
                                     horizontal: screenWidth * 0.015,
-                                    vertical: screenHeight * 0.025,
+                                    vertical: screenHeight * 0.015,
                                   ),
                                   // hintText: 'Enter your location',
                                   hintStyle: GoogleFonts.spaceGrotesk(
@@ -322,7 +322,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                         FloatingLabelBehavior.never,
                                     contentPadding: EdgeInsets.symmetric(
                                       horizontal: screenWidth * 0.015,
-                                      vertical: screenHeight * 0.025,
+                                      vertical: screenHeight * 0.015,
                                     ),
                                     hintText: 'Enter your email id',
                                     hintStyle: GoogleFonts.spaceGrotesk(
@@ -381,7 +381,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                         FloatingLabelBehavior.never,
                                     contentPadding: EdgeInsets.symmetric(
                                       horizontal: screenWidth * 0.015,
-                                      vertical: screenHeight * 0.025,
+                                      vertical: screenHeight * 0.015,
                                     ),
                                     hintText: 'Enter your age',
                                     hintStyle: GoogleFonts.spaceGrotesk(
@@ -408,15 +408,15 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                   ),
 
                   Positioned(
-                    top: screenHeight * 0.19,
+                    top: screenHeight * 0.16,
                     right: screenWidth * 0.041,
                     child: SizedBox(
                       width: screenWidth * 0.35,
                       child: TextField(
                         maxLength: 500,
                         controller: answer,
-                        minLines: 8,
-                        maxLines: 8,
+                        minLines: 7,
+                        maxLines: 7,
                         style: TextStyle(color: Colors.white70),
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -440,7 +440,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                   ),
 
                   Positioned(
-                    top: screenHeight * 0.50,
+                    top: screenHeight * 0.4,
                     left: 0,
                     right: 0,
                     child: Center(
@@ -465,7 +465,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                           padding: WidgetStatePropertyAll(
                             EdgeInsets.symmetric(
                               horizontal: screenWidth * 0.025,
-                              vertical: screenHeight * 0.025,
+                              vertical: screenHeight * 0.015,
                             ),
                           ),
                           shape: WidgetStatePropertyAll(

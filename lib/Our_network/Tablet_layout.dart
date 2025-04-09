@@ -38,7 +38,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
             Stack(
               children: [
                 Container(
-                  height: screenHeight * 3.7,
+                  height: screenHeight * 3.3,
                   width: screenWidth * 1,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(244, 0, 0, 0),
@@ -61,12 +61,12 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                     _buildHeader(screenHeight, screenWidth),
                     // SizedBox(height: screenHeight * 0.02),
                     Container(
-                      height: screenHeight * 0.98,
+                      height: screenHeight * 0.85,
                       width: screenWidth * 0.78,
                       color: Colors.transparent,
                       child: Image.asset(
                         'assets/images/Be-A-Volunteer.png',
-                        fit: BoxFit.fitWidth,
+                        fit: BoxFit.contain,
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.05),
@@ -149,8 +149,8 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                             ),
                             padding: WidgetStatePropertyAll(
                               EdgeInsets.symmetric(
-                                horizontal: screenWidth * 0.022,
-                                vertical: screenHeight * 0.026,
+                                horizontal: screenWidth * 0.025,
+                                vertical: screenHeight * 0.02,
                               ),
                             ),
                             shape: WidgetStatePropertyAll(
@@ -334,7 +334,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
     String content,
   ) {
     return Container(
-      height: screenHeight * 0.4,
+      height: screenHeight * 0.35,
       width: screenWidth * 0.8,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.06),
@@ -428,8 +428,8 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                   ),
                   padding: WidgetStatePropertyAll(
                     EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.016,
-                      vertical: screenHeight * 0.023,
+                      horizontal: screenWidth * 0.025,
+                      vertical: screenHeight * 0.02,
                     ),
                   ),
                   shape: WidgetStatePropertyAll(

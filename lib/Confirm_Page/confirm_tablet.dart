@@ -17,7 +17,7 @@ class _DesktopLayoutState extends State<ConfirmPageTablet> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Dialog(
       child: Container(
-        height: screenHeight * 0.85,
+        height: screenHeight * 0.75,
         width: screenWidth * 0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -106,8 +106,8 @@ class _DesktopLayoutState extends State<ConfirmPageTablet> {
                         ),
                         padding: WidgetStatePropertyAll(
                           EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.025,
-                            vertical: screenHeight * 0.025,
+                            horizontal: screenWidth * 0.03,
+                            vertical: screenHeight * 0.015,
                           ),
                         ),
                         shape: WidgetStatePropertyAll(
