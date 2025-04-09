@@ -183,33 +183,6 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                       ),
                                       child: Stack(
                                         children: [
-                                          // ClipRRect(
-                                          //   borderRadius: BorderRadius.all(
-                                          //     Radius.circular(40),
-                                          //   ),
-                                          //   child: Image.asset(
-                                          //     'assets/images/Group 327.png',
-                                          //     fit: BoxFit.cover,
-                                          //   ),
-                                          // ),
-                                          // Align(
-                                          //   alignment: Alignment.bottomLeft,
-                                          //   child: SvgPicture.asset(
-                                          //     'assets/images/Big Arrow.svg',
-                                          //     // height: 30,
-                                          //     // width: 40,
-                                          //   ),
-                                          // ),
-                                          // Center(
-                                          //   child: IconButton(
-                                          //     onPressed: () {},
-                                          //     icon: Icon(
-                                          //       Icons.play_circle_outline,
-                                          //       color: Colors.white,
-                                          //       size: 80,
-                                          //     ),
-                                          //   ),
-                                          // ),
                                           Stack(
                                             alignment: Alignment.center,
                                             children: [
@@ -247,47 +220,6 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                                           ),
                                                 ),
                                               ),
-
-                                              // IconButton(
-                                              //   icon:
-                                              //       _isIntroPlaying
-                                              //           ? Icon(null)
-                                              //           : Icon(
-                                              //             Icons
-                                              //                 .play_circle_fill,
-                                              //             size: 50,
-                                              //           ),
-                                              //   onPressed: () {
-                                              //     playpause();
-                                              //   },
-                                              // ),
-                                              // _isIntroPlaying
-                                              //     ? SizedBox()
-                                              //     : SizedBox(
-                                              //       height: screenHeight * 0.52,
-                                              //       child: ClipRRect(
-                                              //         borderRadius:
-                                              //             BorderRadius.all(
-                                              //               Radius.circular(40),
-                                              //             ),
-                                              //         child: Image.asset(
-                                              //           'assets/images/Group 327.png',
-                                              //           fit: BoxFit.cover,
-                                              //         ),
-                                              //       ),
-                                              //     ),
-
-                                              // _isIntroPlaying
-                                              //     ? SizedBox()
-                                              //     : Align(
-                                              //       alignment:
-                                              //           Alignment.bottomLeft,
-                                              //       child: SvgPicture.asset(
-                                              //         'assets/images/Big Arrow.svg',
-                                              //         // height: 30,
-                                              //         // width: 40,
-                                              //       ),
-                                              //     ),
                                               _isIntroPlaying
                                                   ? SizedBox()
                                                   : SizedBox(

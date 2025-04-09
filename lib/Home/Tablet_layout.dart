@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +6,8 @@ import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TabletLayoutHome extends StatefulWidget {
+  const TabletLayoutHome({super.key});
+
   @override
   State<TabletLayoutHome> createState() => _TabletLayoutHomeState();
 }
@@ -23,7 +24,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
             Stack(
               children: [
                 Container(
-                  height: screenHeight * 9.5,
+                  height: screenHeight * 9.8,
                   width: screenWidth,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(244, 0, 0, 0),
@@ -347,7 +348,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 780),
+                  padding: const EdgeInsets.only(top: 1200),
                   child: SizedBox(
                     child: Container(
                       width: screenWidth,
@@ -419,7 +420,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 880, left: 80),
+                  padding: const EdgeInsets.only(top: 1300, left: 50),
                   child: Container(
                     height: screenHeight * 0.80,
                     width: screenWidth * 0.80,
@@ -438,7 +439,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 900, left: 110),
+                  padding: const EdgeInsets.only(top: 1320, left: 90),
                   child: Container(
                     height: screenHeight * 0.80,
                     width: screenWidth * 0.80,
@@ -465,7 +466,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 2.1,
+                  top: screenHeight * 2,
                   left: screenWidth * 0.099,
                   child: Text(
                     "About Us",
@@ -477,7 +478,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 2.2,
+                  top: screenHeight * 2.07,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Founded with a vision to make safety accessible to every women,\nSafer began as a response to the growing need for innovative\nsafety solutions. What started as a small initiative to leverage\ntechnology for women's security has evolved into a comprehensive\nplatform combining drones and secure hubs. Over the years, our\ncommitment to empowering women has driven us to create cutting-\nedge solutions that ensure help is always within reach. Safer's\njourney is fueled by the belief that every women deserves to feel\nconfident and protected,no matter where life takes her.",
@@ -489,15 +490,15 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 2.55,
+                  top: screenHeight * 2.28,
                   left: screenWidth * 0.099,
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.white),
                       padding: WidgetStatePropertyAll(
                         EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.020,
-                          vertical: screenHeight * 0.025,
+                          horizontal: screenWidth * 0.025,
+                          vertical: screenHeight * 0.01,
                         ),
                       ),
                       shape: WidgetStatePropertyAll(
@@ -523,7 +524,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 2.75,
+                  top: screenHeight * 2.43,
                   left: screenWidth * 0.12,
                   child: Container(
                     height: screenHeight * 0.80,
@@ -543,7 +544,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 2.7,
+                  top: screenHeight * 2.4,
                   left: screenWidth * 0.1,
                   child: Container(
                     height: screenHeight * 0.80,
@@ -571,7 +572,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 3.65,
+                  top: screenHeight * 3.3,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Our Network",
@@ -583,7 +584,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 3.75,
+                  top: screenHeight * 3.37,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Safer operates through a growing network of advanced drones and\nstrategically placed secure hubs, ensuring rapid response and\nreliable support. With coverage expanding across cities, we are\ndedicated to creating a safety net that empowers women wherever\nthey are.",
@@ -595,15 +596,15 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 3.95,
+                  top: screenHeight * 3.5,
                   left: screenWidth * 0.099,
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.white),
                       padding: WidgetStatePropertyAll(
                         EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.020,
-                          vertical: screenHeight * 0.025,
+                          horizontal: screenWidth * 0.025,
+                          vertical: screenHeight * 0.01,
                         ),
                       ),
                       shape: WidgetStatePropertyAll(
@@ -629,7 +630,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 4.09,
+                  top: screenHeight * 3.6,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Testimonials",
@@ -641,7 +642,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 4.25,
+                  top: screenHeight * 3.7,
                   left: screenWidth * 0.099,
                   child: Column(
                     children: [
@@ -666,7 +667,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 5.8,
+                  top: screenHeight * 4.75,
                   left: screenWidth * 0.099,
                   child: Container(
                     height: screenHeight * 0.80,
@@ -686,7 +687,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 5.84,
+                  top: screenHeight * 4.77,
                   left: screenWidth * 0.12,
                   child: Container(
                     height: screenHeight * 0.80,
@@ -714,7 +715,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 6.7,
+                  top: screenHeight * 5.65,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Get the App",
@@ -726,7 +727,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 6.8,
+                  top: screenHeight * 5.71,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Your safety is just a tap away! Download the Safer app now on the\nPlay Store and App Store to access real-time assistance, secure hubs,\nand more—anytime, anywhere.",
@@ -738,7 +739,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 6.95,
+                  top: screenHeight * 5.8,
                   left: screenWidth * 0.099,
                   child: Row(
                     children: [
@@ -763,7 +764,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 7.1,
+                  top: screenHeight * 5.9,
                   left: screenWidth * 0.099,
                   child: Text(
                     "Common Questions",
@@ -776,7 +777,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                 ),
                 Column(
                   children: [
-                    SizedBox(height: screenHeight * 7.2),
+                    SizedBox(height: screenHeight * 5.95),
                     _buildAnswers(
                       'How quickly can a drone or secure hub respond in an emergency?',
                       ' Answer',
@@ -828,7 +829,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 80),
                       child: Container(
-                        height: screenHeight * 0.62,
+                        height: screenHeight * 0.45,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(
@@ -855,7 +856,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(
-                                right: 270,
+                                right: 220,
                                 // left: 10,
                               ),
                               child: Text(
@@ -914,7 +915,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                             ),
                             SizedBox(height: 15),
                             Padding(
-                              padding: const EdgeInsets.only(right: 480),
+                              padding: const EdgeInsets.only(right: 400),
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor: WidgetStatePropertyAll(
@@ -923,7 +924,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                   padding: WidgetStatePropertyAll(
                                     EdgeInsets.symmetric(
                                       horizontal: screenWidth * 0.025,
-                                      vertical: screenHeight * 0.025,
+                                      vertical: screenHeight * 0.01,
                                     ),
                                   ),
                                   shape: WidgetStatePropertyAll(
@@ -945,7 +946,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                right: 100,
+                                right: 60,
                                 top: 10,
                               ),
                               child: Text(
@@ -960,7 +961,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                             SizedBox(height: 20),
                             Container(
                               width: double.infinity,
-                              height: screenHeight * 0.12,
+                              height: screenHeight * 0.08,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
                                 border: Border(
@@ -976,7 +977,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                               ),
                               child: Column(
                                 children: [
-                                  SizedBox(height: screenHeight * 0.04),
+                                  SizedBox(height: screenHeight * 0.018),
                                   Row(
                                     children: [
                                       SizedBox(width: screenWidth * 0.05),
@@ -1054,7 +1055,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: screenHeight * 0.43,
+      height: screenHeight * 0.3,
       width: screenWidth * 0.82,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.09),
@@ -1103,12 +1104,12 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
 
   Widget _buildFooter(double screenHeight, double screenWidth) {
     return Container(
-      height: screenHeight * 0.28,
+      height: screenHeight * 0.16,
       width: double.infinity,
       color: const Color.fromARGB(255, 255, 255, 255).withAlpha(15),
       child: Column(
         children: [
-          SizedBox(height: screenHeight * 0.055),
+          SizedBox(height: screenHeight * 0.02),
           Container(
             height: screenHeight * 0.07,
             width: screenWidth * 0.8,
@@ -1165,7 +1166,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
           ),
           SizedBox(height: 10),
           Container(
-            height: screenHeight * 0.132,
+            height: screenHeight * 0.06,
             width: screenWidth * 0.8,
             decoration: BoxDecoration(
               border: Border(

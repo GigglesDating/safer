@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -664,7 +665,7 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
   Widget _buildHeader(double screenHeight, double screenWidth) {
     return Container(
       width: double.infinity,
-      height: screenHeight * 0.18,
+      height: screenHeight * 0.13,
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border(
@@ -731,12 +732,12 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
 
   Widget _buildFooter(double screenHeight, double screenWidth) {
     return Container(
-      height: screenHeight * 0.28,
+      height: screenHeight * 0.16,
       width: double.infinity,
       color: const Color.fromARGB(255, 255, 255, 255).withAlpha(15),
       child: Column(
         children: [
-          SizedBox(height: screenHeight * 0.055),
+          SizedBox(height: screenHeight * 0.02),
           Container(
             height: screenHeight * 0.07,
             width: screenWidth * 0.8,
@@ -746,12 +747,7 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
                 SvgPicture.asset('assets/images/Safer_logo.svg'),
                 Spacer(),
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => homePage()),
-                    );
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Home",
                     style: GoogleFonts.spaceGrotesk(
@@ -793,7 +789,7 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
           ),
           SizedBox(height: 10),
           Container(
-            height: screenHeight * 0.132,
+            height: screenHeight * 0.06,
             width: screenWidth * 0.8,
             decoration: BoxDecoration(
               border: Border(
