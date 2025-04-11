@@ -68,408 +68,351 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      // appBar: AppBar(title: Text("Tablet View")),
-      body: SingleChildScrollView(
-        child: Container(
-          color: const Color.fromARGB(244, 0, 0, 0),
-          child: Column(
-            children: [
-              _buildHeader(screenHeight, screenWidth),
-              Stack(
-                children: [
-                  Image.asset('assets/images/Ellipse 2.png'),
-                  Row(
-                    children: [
-                      Spacer(),
-                      Image.asset('assets/images/Ellipse 4.png'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(height: screenHeight * 0.05),
-                      Center(
-                        child: Container(
-                          height: screenHeight * 0.73,
-                          width: screenWidth * 0.8,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.all(Radius.circular(40)),
-                          ),
-                          child: Stack(
-                            children: [
-                              Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(40),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(0.5),
-                                      child: SizedBox(
-                                        height: screenHeight * 0.73,
-                                        width: screenWidth * 0.8,
-                                        child:
-                                            _introController.value.isInitialized
-                                                ? FittedBox(
-                                                  fit: BoxFit.cover,
-                                                  child: SizedBox(
-                                                    width:
-                                                        _introController
-                                                            .value
-                                                            .size
-                                                            .width,
-                                                    height:
-                                                        _introController
-                                                            .value
-                                                            .size
-                                                            .height,
-                                                    child: VideoPlayer(
-                                                      _introController,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(244, 0, 0, 0),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildHeader(screenHeight, screenWidth),
+                Stack(
+                  children: [
+                    Image.asset('assets/images/Ellipse 2.png'),
+                    Row(
+                      children: [
+                        Spacer(),
+                        Image.asset('assets/images/Ellipse 4.png'),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(height: screenHeight * 0.05),
+                        Center(
+                          child: Container(
+                            height: screenHeight * 0.73,
+                            width: screenWidth * 0.8,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(40),
+                              ),
+                            ),
+                            child: Stack(
+                              children: [
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(0.5),
+                                        child: SizedBox(
+                                          height: screenHeight * 0.73,
+                                          width: screenWidth * 0.8,
+                                          child:
+                                              _introController
+                                                      .value
+                                                      .isInitialized
+                                                  ? FittedBox(
+                                                    fit: BoxFit.cover,
+                                                    child: SizedBox(
+                                                      width:
+                                                          _introController
+                                                              .value
+                                                              .size
+                                                              .width,
+                                                      height:
+                                                          _introController
+                                                              .value
+                                                              .size
+                                                              .height,
+                                                      child: VideoPlayer(
+                                                        _introController,
+                                                      ),
                                                     ),
+                                                  )
+                                                  : const Center(
+                                                    child:
+                                                        CircularProgressIndicator(),
                                                   ),
-                                                )
-                                                : const Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
-                                                ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              _isIntroPlaying
-                                  ? SizedBox()
-                                  : SizedBox(
-                                    height: screenHeight * 0.74,
-                                    width: screenWidth * 0.8,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(40),
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/CoverBg.png',
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                  ),
-                              _isIntroPlaying
-                                  ? SizedBox()
-                                  : SizedBox(
-                                    height: screenHeight * 0.74,
-                                    width: screenWidth * 0.8,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(40),
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/Group 327.png',
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                  ),
-                              _isIntroPlaying
-                                  ? SizedBox()
-                                  : Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: SvgPicture.asset(
-                                      'assets/images/Big Arrow.svg',
-                                      fit: BoxFit.fill,
-                                      height: screenHeight * 0.13,
-                                    ),
-                                  ),
-                              Center(
-                                child: IconButton(
-                                  onPressed: () {
-                                    playpause();
-                                  },
-                                  icon:
-                                      _isIntroPlaying
-                                          ? SizedBox()
-                                          : Icon(
-                                            Icons.play_circle_outline,
-                                            color: Colors.white,
-                                            size: 80,
-                                          ),
+                                  ],
                                 ),
-                              ),
-                            ],
+                                _isIntroPlaying
+                                    ? SizedBox()
+                                    : SizedBox(
+                                      height: screenHeight * 0.74,
+                                      width: screenWidth * 0.8,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(40),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/CoverBg.png',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                _isIntroPlaying
+                                    ? SizedBox()
+                                    : SizedBox(
+                                      height: screenHeight * 0.74,
+                                      width: screenWidth * 0.8,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(40),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/Group 327.png',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                _isIntroPlaying
+                                    ? SizedBox()
+                                    : Align(
+                                      alignment: Alignment.bottomLeft,
+                                      child: SvgPicture.asset(
+                                        'assets/images/Big Arrow.svg',
+                                        fit: BoxFit.fill,
+                                        height: screenHeight * 0.13,
+                                      ),
+                                    ),
+                                Center(
+                                  child: IconButton(
+                                    onPressed: () {
+                                      playpause();
+                                    },
+                                    icon:
+                                        _isIntroPlaying
+                                            ? SizedBox()
+                                            : Icon(
+                                              Icons.play_circle_outline,
+                                              color: Colors.white,
+                                              size: 80,
+                                            ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.088),
-                          Text(
-                            "WHO WE ARE",
-                            style: GoogleFonts.spaceMono(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: const Color.fromARGB(255, 223, 126, 240),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.088),
-                          Text(
-                            "We're Safer, a technology-driven safety platform dedicated to\nempowering women. Our journey began with the vision to provide\nreal-time assistance through drones and secure hubs, ensuring no\nwoman ever feels unsafe. We're not just building a product— we're\nbuilding trust, security, and a community that stands together for\nwomen's safety.",
-                            style: GoogleFonts.spaceGrotesk(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.088),
-                          Text(
-                            "Our mission",
-                            style: GoogleFonts.spaceMono(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                              color: const Color.fromARGB(255, 223, 126, 240),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.088),
-                          Text(
-                            "To make safety accessible, reliable, and innovative for every woman,\neverywhere.",
-                            style: GoogleFonts.spaceGrotesk(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.088),
-                          Text(
-                            "Discover how safer is redefining safety with innovative\ntechnology.Watch our story!",
-                            style: GoogleFonts.spaceGrotesk(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      Container(
-                        width: double.infinity,
-                        color: Colors.transparent,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        SizedBox(height: screenHeight * 0.05),
+                        Row(
                           children: [
-                            Container(
-                              height: 100,
-                              width: screenWidth * 0.333,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                border: Border(
-                                  right: BorderSide(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ).withOpacity(0.5),
-                                  ),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '10k+',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 55,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'App Downloads',
-                                    style: GoogleFonts.spaceGrotesk(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 100,
-                              width: screenWidth * 0.333,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                border: Border(
-                                  right: BorderSide(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ).withOpacity(0.5),
-                                  ),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '120+',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 55,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'Safe Interventions',
-                                    style: GoogleFonts.spaceGrotesk(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 100,
-                              width: screenWidth * 0.333,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '15+',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 55,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'Cities Covered',
-                                    style: GoogleFonts.spaceGrotesk(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                            SizedBox(width: screenWidth * 0.088),
+                            Text(
+                              "WHO WE ARE",
+                              style: GoogleFonts.spaceMono(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 223, 126, 240),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      Container(
-                        height: 100,
-                        width: screenWidth * 0.333,
-                        decoration: BoxDecoration(color: Colors.transparent),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        SizedBox(height: screenHeight * 0.01),
+                        Row(
                           children: [
+                            SizedBox(width: screenWidth * 0.088),
                             Text(
-                              "300+",
-                              style: GoogleFonts.spaceMono(
-                                fontSize: 55,
-                                fontWeight: FontWeight.w600,
-                                color: const Color.fromARGB(255, 223, 126, 240),
-                              ),
-                            ),
-                            Text(
-                              "Secure Hubs",
+                              "We're Safer, a technology-driven safety platform dedicated to\nempowering women. Our journey began with the vision to provide\nreal-time assistance through drones and secure hubs, ensuring no\nwoman ever feels unsafe. We're not just building a product— we're\nbuilding trust, security, and a community that stands together for\nwomen's safety.",
                               style: GoogleFonts.spaceGrotesk(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
                                 color: Colors.white,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      MouseRegion(
-                        onEnter:
-                            (event) => setState(() {
-                              _ishovering1 = true;
-                            }),
-                        onExit:
-                            (event) => setState(() {
-                              _ishovering1 = false;
-                            }),
-                        child: _buildCard(
-                          screenHeight,
-                          screenWidth,
-                          'assets/images/Events-1.jpg',
-                          _ishovering1
-                              ? ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStatePropertyAll(
-                                    const Color.fromARGB(255, 219, 90, 210),
-                                  ),
-                                  padding: WidgetStatePropertyAll(
-                                    EdgeInsets.symmetric(
-                                      horizontal: screenWidth * 0.016,
-                                      vertical: screenHeight * 0.023,
-                                    ),
-                                  ),
-                                  shape: WidgetStatePropertyAll(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                        SizedBox(height: screenHeight * 0.05),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.088),
+                            Text(
+                              "Our mission",
+                              style: GoogleFonts.spaceMono(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.01),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.088),
+                            Text(
+                              "To make safety accessible, reliable, and innovative for every woman,\neverywhere.",
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.088),
+                            Text(
+                              "Discover how safer is redefining safety with innovative\ntechnology.Watch our story!",
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        Container(
+                          width: double.infinity,
+                          color: Colors.transparent,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                height: 100,
+                                width: screenWidth * 0.333,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  border: Border(
+                                    right: BorderSide(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        223,
+                                        126,
+                                        240,
+                                      ).withOpacity(0.5),
                                     ),
                                   ),
                                 ),
-                                onPressed: () {},
-                                child: Text(
-                                  "Know more",
-                                  style: GoogleFonts.spaceGrotesk(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '10k+',
+                                      style: GoogleFonts.spaceMono(
+                                        fontSize: 55,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          223,
+                                          126,
+                                          240,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'App Downloads',
+                                      style: GoogleFonts.spaceGrotesk(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth * 0.333,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  border: Border(
+                                    right: BorderSide(
+                                      color: const Color.fromARGB(
+                                        255,
+                                        223,
+                                        126,
+                                        240,
+                                      ).withOpacity(0.5),
+                                    ),
                                   ),
                                 ),
-                              )
-                              : Text(
-                                'Events',
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '120+',
+                                      style: GoogleFonts.spaceMono(
+                                        fontSize: 55,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          223,
+                                          126,
+                                          240,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Safe Interventions',
+                                      style: GoogleFonts.spaceGrotesk(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth * 0.333,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '15+',
+                                      style: GoogleFonts.spaceMono(
+                                        fontSize: 55,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          223,
+                                          126,
+                                          240,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Cities Covered',
+                                      style: GoogleFonts.spaceGrotesk(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        Container(
+                          height: 100,
+                          width: screenWidth * 0.333,
+                          decoration: BoxDecoration(color: Colors.transparent),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "300+",
                                 style: GoogleFonts.spaceMono(
-                                  fontSize: 40,
+                                  fontSize: 55,
                                   fontWeight: FontWeight.w600,
                                   color: const Color.fromARGB(
                                     255,
@@ -479,140 +422,207 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
                                   ),
                                 ),
                               ),
-                          _ishovering1,
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      MouseRegion(
-                        onEnter:
-                            (event) => setState(() {
-                              _ishovering2 = true;
-                            }),
-                        onExit:
-                            (event) => setState(() {
-                              _ishovering2 = false;
-                            }),
-                        child: _buildCard(
-                          screenHeight,
-                          screenWidth,
-                          'assets/images/News.jpg',
-                          _ishovering2
-                              ? ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStatePropertyAll(
-                                    const Color.fromARGB(255, 219, 90, 210),
-                                  ),
-                                  padding: WidgetStatePropertyAll(
-                                    EdgeInsets.symmetric(
-                                      horizontal: screenWidth * 0.016,
-                                      vertical: screenHeight * 0.023,
-                                    ),
-                                  ),
-                                  shape: WidgetStatePropertyAll(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () {},
-                                child: Text(
-                                  "Know more",
-                                  style: GoogleFonts.spaceGrotesk(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              )
-                              : Text(
-                                'Events',
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    223,
-                                    126,
-                                    240,
-                                  ),
+                              Text(
+                                "Secure Hubs",
+                                style: GoogleFonts.spaceGrotesk(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
                                 ),
                               ),
-                          _ishovering2,
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.05),
-                      MouseRegion(
-                        onEnter:
-                            (event) => setState(() {
-                              _ishovering3 = true;
-                            }),
-                        onExit:
-                            (event) => setState(() {
-                              _ishovering3 = false;
-                            }),
-                        child: _buildCard(
-                          screenHeight,
-                          screenWidth,
-                          'assets/images/Stories.jpg',
-                          _ishovering3
-                              ? ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStatePropertyAll(
-                                    const Color.fromARGB(255, 219, 90, 210),
-                                  ),
-                                  padding: WidgetStatePropertyAll(
-                                    EdgeInsets.symmetric(
-                                      horizontal: screenWidth * 0.016,
-                                      vertical: screenHeight * 0.023,
+                        SizedBox(height: screenHeight * 0.05),
+                        MouseRegion(
+                          onEnter:
+                              (event) => setState(() {
+                                _ishovering1 = true;
+                              }),
+                          onExit:
+                              (event) => setState(() {
+                                _ishovering1 = false;
+                              }),
+                          child: _buildCard(
+                            screenHeight,
+                            screenWidth,
+                            'assets/images/Events-1.jpg',
+                            _ishovering1
+                                ? ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      const Color.fromARGB(255, 219, 90, 210),
+                                    ),
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.symmetric(
+                                        horizontal: screenWidth * 0.016,
+                                        vertical: screenHeight * 0.023,
+                                      ),
+                                    ),
+                                    shape: WidgetStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
                                     ),
                                   ),
-                                  shape: WidgetStatePropertyAll(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Know more",
+                                    style: GoogleFonts.spaceGrotesk(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                )
+                                : Text(
+                                  'Events',
+                                  style: GoogleFonts.spaceMono(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      223,
+                                      126,
+                                      240,
                                     ),
                                   ),
                                 ),
-                                onPressed: () {},
-                                child: Text(
-                                  "Know more",
-                                  style: GoogleFonts.spaceGrotesk(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              )
-                              : Text(
-                                'Events',
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    223,
-                                    126,
-                                    240,
-                                  ),
-                                ),
-                              ),
-                          _ishovering3,
+                            _ishovering1,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.08),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: _buildFooter(screenHeight, screenWidth),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                        SizedBox(height: screenHeight * 0.05),
+                        MouseRegion(
+                          onEnter:
+                              (event) => setState(() {
+                                _ishovering2 = true;
+                              }),
+                          onExit:
+                              (event) => setState(() {
+                                _ishovering2 = false;
+                              }),
+                          child: _buildCard(
+                            screenHeight,
+                            screenWidth,
+                            'assets/images/News.jpg',
+                            _ishovering2
+                                ? ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      const Color.fromARGB(255, 219, 90, 210),
+                                    ),
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.symmetric(
+                                        horizontal: screenWidth * 0.016,
+                                        vertical: screenHeight * 0.023,
+                                      ),
+                                    ),
+                                    shape: WidgetStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Know more",
+                                    style: GoogleFonts.spaceGrotesk(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                )
+                                : Text(
+                                  'Events',
+                                  style: GoogleFonts.spaceMono(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      223,
+                                      126,
+                                      240,
+                                    ),
+                                  ),
+                                ),
+                            _ishovering2,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        MouseRegion(
+                          onEnter:
+                              (event) => setState(() {
+                                _ishovering3 = true;
+                              }),
+                          onExit:
+                              (event) => setState(() {
+                                _ishovering3 = false;
+                              }),
+                          child: _buildCard(
+                            screenHeight,
+                            screenWidth,
+                            'assets/images/Stories.jpg',
+                            _ishovering3
+                                ? ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      const Color.fromARGB(255, 219, 90, 210),
+                                    ),
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.symmetric(
+                                        horizontal: screenWidth * 0.016,
+                                        vertical: screenHeight * 0.023,
+                                      ),
+                                    ),
+                                    shape: WidgetStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Know more",
+                                    style: GoogleFonts.spaceGrotesk(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                )
+                                : Text(
+                                  'Events',
+                                  style: GoogleFonts.spaceMono(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      223,
+                                      126,
+                                      240,
+                                    ),
+                                  ),
+                                ),
+                            _ishovering3,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.08),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: _buildFooter(screenHeight, screenWidth),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -745,88 +755,101 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
       height: screenHeight * 0.16,
       width: double.infinity,
       color: const Color.fromARGB(255, 255, 255, 255).withAlpha(15),
-      child: Column(
-        children: [
-          SizedBox(height: screenHeight * 0.02),
-          Container(
-            height: screenHeight * 0.07,
-            width: screenWidth * 0.8,
-            color: Colors.transparent,
-            child: Row(
-              children: [
-                SvgPicture.asset('assets/images/Safer_logo.svg'),
-                Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Home",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "About us",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: const Color.fromARGB(255, 223, 126, 240),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OurNetwork()),
-                    );
-                  },
-                  child: Text(
-                    "Our Network",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: screenHeight * 0.06,
-            width: screenWidth * 0.8,
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(color: const Color.fromARGB(255, 219, 90, 210)),
-              ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight * 0.02),
+            Container(
+              height: screenHeight * 0.07,
+              width: screenWidth * 0.8,
               color: Colors.transparent,
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/images/Safer_logo.svg'),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Home",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "About us",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: const Color.fromARGB(255, 223, 126, 240),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OurNetwork()),
+                      );
+                    },
+                    child: Text(
+                      "Our Network",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                Text(
-                  "© 2025 Safer | Privacy Policy | Terms of Service",
-                  style: GoogleFonts.spaceGrotesk(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+            SizedBox(height: 10),
+            Container(
+              height: screenHeight * 0.06,
+              width: screenWidth * 0.8,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: const Color.fromARGB(255, 219, 90, 210),
                   ),
                 ),
-                Spacer(),
-                SvgPicture.asset('assets/images/InstagramLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/TwitterLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/MetaLogo.svg'),
-              ],
+                color: Colors.transparent,
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "© 2025 Safer | Privacy Policy | Terms of Service",
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Spacer(),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  ),
+                  SizedBox(width: screenWidth * 0.01),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
+                  ),
+                  SizedBox(width: screenWidth * 0.01),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/MetaLogo.svg'),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

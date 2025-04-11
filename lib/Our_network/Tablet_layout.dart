@@ -29,227 +29,236 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(244, 0, 0, 0),
+          body: SingleChildScrollView(
+            child: Column(
               children: [
-                Container(
-                  height: screenHeight * 3.3,
-                  width: screenWidth * 1,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(244, 0, 0, 0),
-                  ),
-                ),
-                Center(child: Image.asset('assets/images/Ellipse 3.png')),
-                Row(
+                Stack(
                   children: [
-                    Spacer(),
-                    Image.asset('assets/images/Ellipse 4.png'),
-                  ],
-                ),
-                Image.asset('assets/images/Ellipse 2.png'),
-                Positioned(
-                  bottom: 0,
-                  child: Image.asset('assets/images/Ellipse 5.png'),
-                ),
-                Column(
-                  children: [
-                    _buildHeader(screenHeight, screenWidth),
-                    // SizedBox(height: screenHeight * 0.02),
-                    Container(
-                      height: screenHeight * 0.85,
-                      width: screenWidth * 0.78,
-                      color: Colors.transparent,
-                      child: Image.asset(
-                        'assets/images/Be-A-Volunteer.png',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    SizedBox(height: screenHeight * 0.05),
+                    // Container(
+                    //   height: screenHeight * 3.3,
+                    //   // width: screenWidth,
+                    //   decoration: BoxDecoration(
+                    //     color: const Color.fromARGB(244, 0, 0, 0),
+                    //   ),
+                    // ),
+                    Center(child: Image.asset('assets/images/Ellipse 3.png')),
                     Row(
                       children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        Text.rich(
-                          TextSpan(
-                            children: [
+                        Spacer(),
+                        Image.asset('assets/images/Ellipse 4.png'),
+                      ],
+                    ),
+                    Image.asset('assets/images/Ellipse 2.png'),
+                    Positioned(
+                      bottom: 0,
+                      child: Image.asset('assets/images/Ellipse 5.png'),
+                    ),
+                    Column(
+                      children: [
+                        _buildHeader(screenHeight, screenWidth),
+                        SizedBox(height: screenHeight * 0.02),
+                        Container(
+                          height: screenHeight * 0.85,
+                          width: screenWidth * 0.78,
+                          color: Colors.transparent,
+                          child: Image.asset(
+                            'assets/images/Be-A-Volunteer.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            Text.rich(
                               TextSpan(
-                                text: 'Building a ',
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Building a ',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'SAFER ',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        223,
+                                        126,
+                                        240,
+                                      ),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Tomorrow, Together.',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              TextSpan(
-                                text: 'SAFER ',
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    223,
-                                    126,
-                                    240,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            Text(
+                              'Our network is the heart of our mission—bringing together innovative\ntechnology, dedicated volunteers, and secure hubs to create a\nsupport system that women can rely on. With each connection, we\nstrengthen our reach and ability to provide real-time assistance and\nproactive safety measures.\n\nWe empower communities and ensure safety is always within reach.',
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.07),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            Text(
+                              "'Together, We Make A Difference'",
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.04),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(
+                                  const Color.fromARGB(255, 219, 90, 210),
+                                ),
+                                padding: WidgetStatePropertyAll(
+                                  EdgeInsets.symmetric(
+                                    horizontal: screenWidth * 0.025,
+                                    vertical: screenHeight * 0.02,
+                                  ),
+                                ),
+                                shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
                               ),
-                              TextSpan(
-                                text: 'Tomorrow, Together.',
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
+                              onPressed: () {
+                                _showVolunteerForm();
+                              },
+                              child: Text(
+                                "Be A Volunteer Now",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.02),
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        Text(
-                          'Our network is the heart of our mission—bringing together innovative\ntechnology, dedicated volunteers, and secure hubs to create a\nsupport system that women can rely on. With each connection, we\nstrengthen our reach and ability to provide real-time assistance and\nproactive safety measures.\n\nWe empower communities and ensure safety is always within reach.',
-                          style: GoogleFonts.spaceGrotesk(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w300,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.07),
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        Text(
-                          "'Together, We Make A Difference'",
-                          style: GoogleFonts.spaceGrotesk(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.04),
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              const Color.fromARGB(255, 219, 90, 210),
                             ),
-                            padding: WidgetStatePropertyAll(
-                              EdgeInsets.symmetric(
-                                horizontal: screenWidth * 0.025,
-                                vertical: screenHeight * 0.02,
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            SizedBox(
+                              height: 36,
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/Line 6.png',
+                                    fit: BoxFit.fitWidth,
+                                    width: 645,
+                                  ),
+                                ],
                               ),
                             ),
-                            shape: WidgetStatePropertyAll(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.085),
+                            SizedBox(
+                              height: 60,
+                              child: Image.asset(
+                                'assets/images/Social-Proof.png',
                               ),
                             ),
-                          ),
-                          onPressed: () {
-                            _showVolunteerForm();
-                          },
-                          child: Text(
-                            "Be A Volunteer Now",
-                            style: GoogleFonts.spaceGrotesk(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.02),
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        SizedBox(
-                          height: 36,
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/Line 6.png',
-                                fit: BoxFit.fitWidth,
-                                width: 645,
+                            SizedBox(width: 10),
+                            Text(
+                              "100+ people already joined",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                                fontSize: 15,
+                                fontWeight: FontWeight.w300,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
+                        SizedBox(height: screenHeight * 0.05),
+                        _buildcard(
+                          screenWidth,
+                          screenHeight,
+                          'assets/images/dedicated_volunteer.svg',
+                          'Dedicated volunteers',
+                          '5,000+ heroes on call',
+                          'Trained individuals providing ground support.',
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        _buildcard(
+                          screenWidth,
+                          screenHeight,
+                          'assets/images/drones.svg',
+                          'Rapid Response Drones',
+                          'Reaching you in minutes.',
+                          'AI-enabled drones designed for rapid response.',
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
+                        _buildcard(
+                          screenWidth,
+                          screenHeight,
+                          'assets/images/securehubs.svg',
+                          '50+ Secure Hubs',
+                          'Safety anytime, anywhere',
+                          'Safe spaces designed to provide immediate assistance.',
+                        ),
+
+                        SizedBox(height: screenHeight * 0.3),
                       ],
                     ),
-                    SizedBox(height: screenHeight * 0.02),
-                    Row(
-                      children: [
-                        SizedBox(width: screenWidth * 0.085),
-                        SizedBox(
-                          height: 60,
-                          child: Image.asset('assets/images/Social-Proof.png'),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          "100+ people already joined",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: const Color.fromARGB(255, 223, 126, 240),
-                            fontSize: 15,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.05),
-                    _buildcard(
-                      screenWidth,
-                      screenHeight,
-                      'assets/images/dedicated_volunteer.svg',
-                      'Dedicated volunteers',
-                      '5,000+ heroes on call',
-                      'Trained individuals providing ground support.',
-                    ),
-                    SizedBox(height: screenHeight * 0.05),
-                    _buildcard(
-                      screenWidth,
-                      screenHeight,
-                      'assets/images/drones.svg',
-                      'Rapid Response Drones',
-                      'Reaching you in minutes.',
-                      'AI-enabled drones designed for rapid response.',
-                    ),
-                    SizedBox(height: screenHeight * 0.05),
-                    _buildcard(
-                      screenWidth,
-                      screenHeight,
-                      'assets/images/securehubs.svg',
-                      '50+ Secure Hubs',
-                      'Safety anytime, anywhere',
-                      'Safe spaces designed to provide immediate assistance.',
+                    Positioned(
+                      right: 0,
+                      left: 0,
+                      bottom: 0,
+                      child: _buildFooter(screenHeight, screenWidth),
                     ),
                   ],
                 ),
-                Positioned(
-                  right: 0,
-                  left: 0,
-                  bottom: 0,
-                  child: _buildFooter(screenHeight, screenWidth),
-                ),
               ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
@@ -406,7 +415,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                       Text(
                         content,
                         style: GoogleFonts.spaceGrotesk(
-                          fontSize: 21,
+                          fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
                         ),
@@ -460,88 +469,106 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
       height: screenHeight * 0.16,
       width: double.infinity,
       color: const Color.fromARGB(255, 255, 255, 255).withAlpha(15),
-      child: Column(
-        children: [
-          SizedBox(height: screenHeight * 0.02),
-          Container(
-            height: screenHeight * 0.07,
-            width: screenWidth * 0.8,
-            color: Colors.transparent,
-            child: Row(
-              children: [
-                SvgPicture.asset('assets/images/Safer_logo.svg'),
-                Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Home",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutUs()),
-                    );
-                  },
-                  child: Text(
-                    "About us",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Our Network",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: const Color.fromARGB(255, 223, 126, 240),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: screenHeight * 0.06,
-            width: screenWidth * 0.8,
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(color: const Color.fromARGB(255, 219, 90, 210)),
-              ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight * 0.02),
+            Container(
+              height: screenHeight * 0.07,
+              width: screenWidth * 0.8,
               color: Colors.transparent,
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/images/Safer_logo.svg'),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => homePage()),
+                      );
+                    },
+                    child: Text(
+                      "Home",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AboutUs()),
+                      );
+                    },
+                    child: Text(
+                      "About us",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Our Network",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: const Color.fromARGB(255, 223, 126, 240),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                Text(
-                  "© 2025 Safer | Privacy Policy | Terms of Service",
-                  style: GoogleFonts.spaceGrotesk(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+            SizedBox(height: 10),
+            Container(
+              height: screenHeight * 0.06,
+              width: screenWidth * 0.8,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: const Color.fromARGB(255, 219, 90, 210),
                   ),
                 ),
-                Spacer(),
-                SvgPicture.asset('assets/images/InstagramLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/TwitterLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/MetaLogo.svg'),
-              ],
+                color: Colors.transparent,
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "© 2025 Safer | Privacy Policy | Terms of Service",
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Spacer(),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  ),
+                  SizedBox(width: screenWidth * 0.01),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
+                  ),
+                  SizedBox(width: screenWidth * 0.01),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/images/MetaLogo.svg'),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

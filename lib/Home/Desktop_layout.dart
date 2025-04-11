@@ -23,23 +23,18 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
     await precacheImage(AssetImage('assets/images/Hero.png'), context);
   }
 
+  @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: const Color.fromARGB(244, 0, 0, 0),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Stack(
               children: [
-                Container(
-                  height: screenHeight * 7,
-                  width: screenWidth * 1,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(244, 0, 0, 0),
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 1311),
                   child: SvgPicture.asset(
@@ -64,24 +59,19 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                   padding: const EdgeInsets.only(top: 750, right: 1000),
                   child: Image.asset('assets/images/Ellipse 3.png'),
                 ),
+
                 Positioned(
-                  top: screenHeight * 0.129,
+                  top: screenHeight * 0.017,
                   left: screenWidth * 0.018,
                   child: Container(
-                    height: screenHeight * 0.850,
+                    height: screenHeight * 0.95,
                     width: screenWidth * 0.964,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15),
                         topRight: Radius.circular(15),
-                      ),
-                      border: Border(
-                        top: BorderSide(width: 1, color: Colors.grey),
-                        bottom: BorderSide(width: 1, color: Colors.grey),
-                        left: BorderSide(width: 1, color: Colors.grey),
-                        right: BorderSide(width: 1, color: Colors.grey),
                       ),
                     ),
                     child: Stack(
@@ -95,45 +85,13 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                           child: Image.asset(
                             height: double.infinity,
                             width: double.infinity,
-                            'assets/images/Hero.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Container(
-                          height: double.infinity,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withAlpha(170),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(14.5),
-                              bottomRight: Radius.circular(14.5),
-                              topRight: Radius.circular(14.5),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: double.infinity,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromARGB(255, 229, 99, 190).withAlpha(80),
-                                Colors.transparent,
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              stops: [0.0, 1],
-                            ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(14.5),
-                              bottomRight: Radius.circular(14.5),
-                              topRight: Radius.circular(14.5),
-                            ),
+                            'assets/images/DesktopLayout.png',
+                            fit: BoxFit.fill,
                           ),
                         ),
                         Positioned(
                           left: screenWidth * 0.060,
-                          top: screenHeight * 0.065,
+                          top: screenHeight * 0.20,
                           child: Text(
                             "Empowering  Safety,  Anytime,  Anywhere.",
                             style: GoogleFonts.spaceMono(
@@ -143,119 +101,75 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                             ),
                           ),
                         ),
-                        Positioned(
-                          bottom: screenHeight * 0.285,
-                          right: screenWidth * 0.175,
-                          child: Text(
-                            "Introducing Safer",
-                            style: GoogleFonts.spaceMono(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Color.fromARGB(255, 211, 84, 173),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: screenHeight * 0.15,
-                          right: screenWidth * 0.055,
-                          child: Text(
-                            "Empowering women with real-time \nsafety through drones and secure \nhubs. Help is always just a click\naway.",
-                            style: GoogleFonts.spaceMono(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: screenHeight * 0.08,
-                          right: screenWidth * 0.224,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(
-                                const Color.fromARGB(255, 219, 90, 210),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 1000, top: 500),
+                          child: Container(
+                            height: screenHeight * 0.23,
+                            width: screenWidth * 0.4,
+                            color: Colors.transparent,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Introducing Safer",
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color.fromARGB(255, 211, 84, 173),
+                                    ),
+                                  ),
+                                  SizedBox(height: screenHeight * 0.01),
+                                  Text(
+                                    "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  SizedBox(height: screenHeight * 0.01),
+
+                                  ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor: WidgetStatePropertyAll(
+                                        const Color.fromARGB(255, 219, 90, 210),
+                                      ),
+                                      padding: WidgetStatePropertyAll(
+                                        EdgeInsets.symmetric(
+                                          horizontal: screenWidth * 0.011,
+                                          vertical: screenHeight * 0.025,
+                                        ),
+                                      ),
+                                      shape: WidgetStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            20,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Explore more",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: screenWidth * 0.009,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              padding: WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.011,
-                                  vertical: screenHeight * 0.025,
-                                ),
-                              ),
-                              shape: WidgetStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Explore more",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: screenWidth * 0.009,
-                                fontWeight: FontWeight.w500,
-                              ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: screenHeight * 0.017,
-                  left: screenWidth * 0.018,
-                  child: Container(
-                    height: screenHeight * 0.113,
-                    width: screenWidth * 0.14,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      ),
-                      border: Border(
-                        top: BorderSide(width: 1, color: Colors.grey),
-                        left: BorderSide(width: 1, color: Colors.grey),
-                        right: BorderSide(width: 1, color: Colors.grey),
-                      ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: double.infinity,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            child: Image.asset(
-                              'assets/images/Hero1.png',
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: double.infinity,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            color: Colors.black.withAlpha(170),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 13),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 35, top: 10),
+                          child: Container(
+                            height: screenHeight * 0.15,
+                            width: screenWidth * 0.15,
+                            color: Colors.transparent,
                             child: SvgPicture.asset(
                               'assets/images/Safer_logo.svg',
                               width: 70,
@@ -263,78 +177,107 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 40,
+                                    left: 630,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Home",
+                                      style: GoogleFonts.spaceGrotesk(
+                                        color: const Color.fromARGB(
+                                          255,
+                                          223,
+                                          126,
+                                          240,
+                                        ),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 40,
+                                    left: 15,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => AboutUs(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      "About us",
+                                      style: GoogleFonts.spaceGrotesk(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 40,
+                                    left: 15,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => OurNetwork(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      "Our Network",
+                                      style: GoogleFonts.spaceGrotesk(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 13,
+                                    left: 250,
+                                  ),
+                                  child: CircleAvatar(
+                                    backgroundColor: Color.fromARGB(
+                                      255,
+                                      219,
+                                      90,
+                                      210,
+                                    ),
+                                    radius: 17,
+                                    child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Icons.phone, size: 20),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 630),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Home",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: const Color.fromARGB(255, 223, 126, 240),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 15),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => AboutUs()),
-                          );
-                        },
-                        child: Text(
-                          "About us",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 15),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OurNetwork(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "Our Network",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 13, left: 300),
-                      child: CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 219, 90, 210),
-                        radius: 17,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.phone, size: 20),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 800),
@@ -1047,6 +990,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                         ],
                       ),
                     ),
+                    SizedBox(height: screenHeight * 0.5),
                   ],
                 ),
                 Positioned(

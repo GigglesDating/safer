@@ -18,18 +18,19 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: const Color.fromARGB(244, 0, 0, 0),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(
               children: [
-                Container(
-                  height: screenHeight * 2,
-                  width: screenWidth * 1,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(244, 0, 0, 0),
-                  ),
-                ),
+                // Container(
+                //   height: screenHeight * 2,
+                //   width: screenWidth * 1,
+                //   decoration: BoxDecoration(
+                //     color: const Color.fromARGB(244, 0, 0, 0),
+                //   ),
+                // ),
                 Center(child: Image.asset('assets/images/Ellipse 3.png')),
                 Row(
                   children: [
@@ -249,13 +250,13 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                     ],
                   ),
                 ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: _buildFooter(screenHeight, screenWidth),
-                ),
               ],
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: _buildFooter(screenHeight, screenWidth),
             ),
           ],
         ),
