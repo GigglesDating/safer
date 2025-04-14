@@ -113,112 +113,117 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                 ),
                               ),
 
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 70,
-                                      left: 250,
-                                    ),
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Home",
-                                        style: GoogleFonts.spaceGrotesk(
-                                          color: const Color.fromARGB(
+                              SizedBox(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 70,
+                                          left: 250,
+                                        ),
+                                        child: TextButton(
+                                          onPressed: () {},
+                                          child: Text(
+                                            "Home",
+                                            style: GoogleFonts.spaceGrotesk(
+                                              color: const Color.fromARGB(
+                                                255,
+                                                223,
+                                                126,
+                                                240,
+                                              ),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 70,
+                                          left: 15,
+                                        ),
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => AboutUs(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            "About us",
+                                            style: GoogleFonts.spaceGrotesk(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 70,
+                                          left: 15,
+                                        ),
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder:
+                                                    (context) => OurNetwork(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            "Our Network",
+                                            style: GoogleFonts.spaceGrotesk(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 60,
+                                          left: 200,
+                                        ),
+                                        child: CircleAvatar(
+                                          backgroundColor: Color.fromARGB(
                                             255,
-                                            223,
-                                            126,
-                                            240,
+                                            219,
+                                            90,
+                                            210,
                                           ),
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400,
+                                          radius: 17,
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.phone, size: 20),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 70,
-                                      left: 15,
-                                    ),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => AboutUs(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        "About us",
-                                        style: GoogleFonts.spaceGrotesk(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 70,
-                                      left: 15,
-                                    ),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => OurNetwork(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        "Our Network",
-                                        style: GoogleFonts.spaceGrotesk(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 60,
-                                      left: 100,
-                                    ),
-                                    child: CircleAvatar(
-                                      backgroundColor: Color.fromARGB(
-                                        255,
-                                        219,
-                                        90,
-                                        210,
-                                      ),
-                                      radius: 17,
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(Icons.phone, size: 20),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
 
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 200,
-                                  left: 100,
-                                ),
-                                child: Text(
-                                  "Empowering Safety, Anytime,\nAnywhere.",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 37,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 280),
+                                  child: Text(
+                                    "Empowering Safety, Anytime,\nAnywhere.",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 37,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -229,82 +234,72 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                   height: screenHeight * 0.23,
                                   width: screenWidth * 0.4,
                                   color: Colors.transparent,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Introducing Safer",
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color.fromARGB(
-                                                255,
-                                                211,
-                                                84,
-                                                173,
-                                              ),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Introducing Safer",
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color.fromARGB(
+                                              255,
+                                              211,
+                                              84,
+                                              173,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                      SizedBox(height: screenHeight * 0.01),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.white,
-                                            ),
+                                        ),
+                                        SizedBox(height: screenHeight * 0.01),
+                                        Text(
+                                          "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.white,
                                           ),
-                                        ],
-                                      ),
-                                      SizedBox(height: screenHeight * 0.01),
+                                        ),
+                                        SizedBox(height: screenHeight * 0.01),
 
-                                      Row(
-                                        children: [
-                                          ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  WidgetStatePropertyAll(
-                                                    const Color.fromARGB(
-                                                      255,
-                                                      219,
-                                                      90,
-                                                      210,
-                                                    ),
+                                        ElevatedButton(
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                WidgetStatePropertyAll(
+                                                  const Color.fromARGB(
+                                                    255,
+                                                    219,
+                                                    90,
+                                                    210,
                                                   ),
-                                              padding: WidgetStatePropertyAll(
-                                                EdgeInsets.symmetric(
-                                                  horizontal:
-                                                      screenWidth * 0.025,
-                                                  vertical: screenHeight * 0.01,
                                                 ),
-                                              ),
-                                              shape: WidgetStatePropertyAll(
-                                                RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                ),
+                                            padding: WidgetStatePropertyAll(
+                                              EdgeInsets.symmetric(
+                                                horizontal: screenWidth * 0.025,
+                                                vertical: screenHeight * 0.01,
                                               ),
                                             ),
-                                            onPressed: () {},
-                                            child: Text(
-                                              "Explore more",
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: screenWidth * 0.015,
-                                                fontWeight: FontWeight.w500,
+                                            shape: WidgetStatePropertyAll(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ],
+                                          onPressed: () {},
+                                          child: Text(
+                                            "Explore more",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: screenWidth * 0.015,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -753,27 +748,27 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                             ),
                             _buildAnswers(
                               'How quickly can a drone or secure hub respond in an emergency?',
-                              ' Answer',
+                              ' Once the SOS button is pressed in the Safer App, a drone is immediately activated and will reach the location within minutes. A secure hub personnel is also dispatched and typically arrives at the scene within 10 minutes of the alert.',
                             ),
                             _buildAnswers(
                               'What is a secure hub, and how do i locate one near me?',
-                              ' Answer',
+                              ' A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.',
                             ),
                             _buildAnswers(
                               'Are the drones equipped with cameras or tracking devices?',
-                              ' Answer',
+                              ' Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.',
                             ),
                             _buildAnswers(
-                              'What measures are in place to guarantee privacy during emergencies?',
-                              ' Answer',
+                              ' Is my data safe and secure?',
+                              ' Yes, your data is completely safe and secure with us. We use advanced encryption protocols and follow strict privacy policies to ensure that your personal information remains protected at all times. Your safety and trust are our top priorities.',
                             ),
                             _buildAnswers(
                               'Is there a customer support helpline available?',
-                              ' Answer',
+                              ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at mail_id.com.',
                             ),
                             _buildAnswers(
                               'Does the app work without an internet connection?',
-                              ' Answer',
+                              ' No, the app requires an active internet connection to function properly. We recommend staying within network coverage to ensure access to all safety features when needed.',
                             ),
                           ],
                         ),

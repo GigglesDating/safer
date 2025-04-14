@@ -16,9 +16,6 @@ class TabletLayoutAbout extends StatefulWidget {
 class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
-  bool _ishovering1 = false;
-  bool _ishovering2 = false;
-  bool _ishovering3 = false;
 
   void _portraitmode() {
     SystemChrome.setPreferredOrientations([
@@ -434,178 +431,25 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
                           ),
                         ),
                         SizedBox(height: screenHeight * 0.05),
-                        MouseRegion(
-                          onEnter:
-                              (event) => setState(() {
-                                _ishovering1 = true;
-                              }),
-                          onExit:
-                              (event) => setState(() {
-                                _ishovering1 = false;
-                              }),
-                          child: _buildCard(
-                            screenHeight,
-                            screenWidth,
-                            'assets/images/Events-1.jpg',
-                            _ishovering1
-                                ? ElevatedButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: WidgetStatePropertyAll(
-                                      const Color.fromARGB(255, 219, 90, 210),
-                                    ),
-                                    padding: WidgetStatePropertyAll(
-                                      EdgeInsets.symmetric(
-                                        horizontal: screenWidth * 0.016,
-                                        vertical: screenHeight * 0.023,
-                                      ),
-                                    ),
-                                    shape: WidgetStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Know more",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                )
-                                : Text(
-                                  'Events',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ),
-                                  ),
-                                ),
-                            _ishovering1,
-                          ),
+                        _buildCard(
+                          screenHeight,
+                          screenWidth,
+                          'assets/images/Events-1.jpg',
+                          'Events',
                         ),
                         SizedBox(height: screenHeight * 0.05),
-                        MouseRegion(
-                          onEnter:
-                              (event) => setState(() {
-                                _ishovering2 = true;
-                              }),
-                          onExit:
-                              (event) => setState(() {
-                                _ishovering2 = false;
-                              }),
-                          child: _buildCard(
-                            screenHeight,
-                            screenWidth,
-                            'assets/images/News.jpg',
-                            _ishovering2
-                                ? ElevatedButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: WidgetStatePropertyAll(
-                                      const Color.fromARGB(255, 219, 90, 210),
-                                    ),
-                                    padding: WidgetStatePropertyAll(
-                                      EdgeInsets.symmetric(
-                                        horizontal: screenWidth * 0.016,
-                                        vertical: screenHeight * 0.023,
-                                      ),
-                                    ),
-                                    shape: WidgetStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Know more",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                )
-                                : Text(
-                                  'Events',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ),
-                                  ),
-                                ),
-                            _ishovering2,
-                          ),
+                        _buildCard(
+                          screenHeight,
+                          screenWidth,
+                          'assets/images/News.jpg',
+                          'News',
                         ),
                         SizedBox(height: screenHeight * 0.05),
-                        MouseRegion(
-                          onEnter:
-                              (event) => setState(() {
-                                _ishovering3 = true;
-                              }),
-                          onExit:
-                              (event) => setState(() {
-                                _ishovering3 = false;
-                              }),
-                          child: _buildCard(
-                            screenHeight,
-                            screenWidth,
-                            'assets/images/Stories.jpg',
-                            _ishovering3
-                                ? ElevatedButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: WidgetStatePropertyAll(
-                                      const Color.fromARGB(255, 219, 90, 210),
-                                    ),
-                                    padding: WidgetStatePropertyAll(
-                                      EdgeInsets.symmetric(
-                                        horizontal: screenWidth * 0.016,
-                                        vertical: screenHeight * 0.023,
-                                      ),
-                                    ),
-                                    shape: WidgetStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Know more",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                )
-                                : Text(
-                                  'Events',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ),
-                                  ),
-                                ),
-                            _ishovering3,
-                          ),
+                        _buildCard(
+                          screenHeight,
+                          screenWidth,
+                          'assets/images/Stories.jpg',
+                          'Stories',
                         ),
                         SizedBox(height: screenHeight * 0.08),
                         Positioned(
@@ -630,9 +474,7 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
     double screenHeight,
     double screenWidth,
     String imagePath,
-    // String hovering,
-    Widget textbutton,
-    bool hovering,
+    String text,
   ) {
     return Container(
       height: screenHeight * 0.44,
@@ -653,30 +495,16 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
               width: screenWidth * 0.8,
             ),
           ),
-          hovering
-              ? Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(
-                    255,
-                    223,
-                    126,
-                    240,
-                  ).withOpacity(0.2),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-              )
-              : SizedBox(),
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.5),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+          Center(
+            child: Text(
+              text,
+              style: GoogleFonts.spaceMono(
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromARGB(255, 223, 126, 240),
+              ),
             ),
           ),
-          Center(child: textbutton),
         ],
       ),
     );

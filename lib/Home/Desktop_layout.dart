@@ -713,28 +713,28 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                       padding: const EdgeInsets.only(top: 10),
                       child: _buildAnswers(
                         'How quickly can a drone or secure hub respond in an emergency?',
-                        ' Answer',
+                        ' Once the SOS button is pressed in the Safer App, a drone is immediately activated and will reach the location within minutes. A secure hub personnel is also dispatched and typically arrives at the scene within 10 minutes of the alert.',
                       ),
                     ),
                     _buildAnswers(
                       'What is a secure hub, and how do i locate one near me?',
-                      ' Answer',
+                      ' A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.',
                     ),
                     _buildAnswers(
                       'Are the drones equipped with cameras or tracking devices?',
-                      ' Answer',
+                      ' Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.',
                     ),
                     _buildAnswers(
-                      'What measures are in place to guarantee privacy during emergencies?',
-                      ' Answer',
+                      ' Is my data safe and secure?',
+                      ' Yes, your data is completely safe and secure with us. We use advanced encryption protocols and follow strict privacy policies to ensure that your personal information remains protected at all times. Your safety and trust are our top priorities.',
                     ),
                     _buildAnswers(
                       'Is there a customer support helpline available?',
-                      ' Answer',
+                      ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at mail_id.com.',
                     ),
                     _buildAnswers(
                       'Does the app work without an internet connection?',
-                      ' Answer',
+                      ' No, the app requires an active internet connection to function properly. We recommend staying within network coverage to ensure access to all safety features when needed.',
                     ),
                     SizedBox(height: 200),
                     Container(
