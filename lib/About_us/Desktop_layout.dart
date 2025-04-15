@@ -174,7 +174,9 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                     // SizedBox(width: screenWidth * 0.61),
                                     Spacer(),
                                     Padding(
-                                      padding: const EdgeInsets.only(right: 70),
+                                      padding: const EdgeInsets.only(
+                                        right: 150,
+                                      ),
                                       child: Container(
                                         height: screenHeight * 0.52,
                                         width: 450,
