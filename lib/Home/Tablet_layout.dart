@@ -235,70 +235,73 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                   width: screenWidth * 0.4,
                                   color: Colors.transparent,
                                   child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Introducing Safer",
-                                          style: GoogleFonts.spaceMono(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color.fromARGB(
-                                              255,
-                                              211,
-                                              84,
-                                              173,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: screenHeight * 0.01),
-                                        Text(
-                                          "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
-                                          style: GoogleFonts.spaceMono(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        SizedBox(height: screenHeight * 0.01),
-
-                                        ElevatedButton(
-                                          style: ButtonStyle(
-                                            backgroundColor:
-                                                WidgetStatePropertyAll(
-                                                  const Color.fromARGB(
-                                                    255,
-                                                    219,
-                                                    90,
-                                                    210,
-                                                  ),
-                                                ),
-                                            padding: WidgetStatePropertyAll(
-                                              EdgeInsets.symmetric(
-                                                horizontal: screenWidth * 0.025,
-                                                vertical: screenHeight * 0.01,
-                                              ),
-                                            ),
-                                            shape: WidgetStatePropertyAll(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                              ),
-                                            ),
-                                          ),
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Explore more",
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: screenWidth * 0.015,
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Introducing Safer",
+                                            style: GoogleFonts.spaceMono(
+                                              fontSize: 18,
                                               fontWeight: FontWeight.w500,
+                                              color: Color.fromARGB(
+                                                255,
+                                                211,
+                                                84,
+                                                173,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          SizedBox(height: screenHeight * 0.01),
+                                          Text(
+                                            "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
+                                            style: GoogleFonts.spaceMono(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          SizedBox(height: screenHeight * 0.01),
+
+                                          ElevatedButton(
+                                            style: ButtonStyle(
+                                              backgroundColor:
+                                                  WidgetStatePropertyAll(
+                                                    const Color.fromARGB(
+                                                      255,
+                                                      219,
+                                                      90,
+                                                      210,
+                                                    ),
+                                                  ),
+                                              padding: WidgetStatePropertyAll(
+                                                EdgeInsets.symmetric(
+                                                  horizontal:
+                                                      screenWidth * 0.025,
+                                                  vertical: screenHeight * 0.01,
+                                                ),
+                                              ),
+                                              shape: WidgetStatePropertyAll(
+                                                RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                ),
+                                              ),
+                                            ),
+                                            onPressed: () {},
+                                            child: Text(
+                                              "Explore more",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: screenWidth * 0.015,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -953,59 +956,73 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                         ),
                                       ),
                                     ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(height: screenHeight * 0.018),
-                                        Row(
-                                          children: [
-                                            SizedBox(width: screenWidth * 0.05),
-                                            Text(
-                                              "Follow us on",
-                                              style: GoogleFonts.spaceGrotesk(
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.w400,
-                                                color: Colors.white,
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            height: screenHeight * 0.018,
+                                          ),
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                width: screenWidth * 0.05,
                                               ),
-                                            ),
-                                            SizedBox(width: screenWidth * 0.1),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: SvgPicture.asset(
-                                                'assets/images/Meta.svg',
-                                                height: 45,
-                                                width: 45,
+                                              Text(
+                                                "Follow us on",
+                                                style: GoogleFonts.spaceGrotesk(
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                            ),
-                                            SizedBox(width: screenWidth * 0.01),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: SvgPicture.asset(
-                                                'assets/images/Insta.svg',
-                                                height: 45,
-                                                width: 45,
+                                              SizedBox(
+                                                width: screenWidth * 0.1,
                                               ),
-                                            ),
-                                            SizedBox(width: screenWidth * 0.01),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: SvgPicture.asset(
-                                                'assets/images/Pinterest.svg',
-                                                height: 45,
-                                                width: 45,
+                                              InkWell(
+                                                onTap: () {},
+                                                child: SvgPicture.asset(
+                                                  'assets/images/Meta.svg',
+                                                  height: 45,
+                                                  width: 45,
+                                                ),
                                               ),
-                                            ),
-                                            SizedBox(width: screenWidth * 0.01),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: SvgPicture.asset(
-                                                'assets/images/Twitter.svg',
-                                                height: 45,
-                                                width: 45,
+                                              SizedBox(
+                                                width: screenWidth * 0.01,
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                              InkWell(
+                                                onTap: () {},
+                                                child: SvgPicture.asset(
+                                                  'assets/images/Insta.svg',
+                                                  height: 45,
+                                                  width: 45,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth * 0.01,
+                                              ),
+                                              InkWell(
+                                                onTap: () {},
+                                                child: SvgPicture.asset(
+                                                  'assets/images/Pinterest.svg',
+                                                  height: 45,
+                                                  width: 45,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth * 0.01,
+                                              ),
+                                              InkWell(
+                                                onTap: () {},
+                                                child: SvgPicture.asset(
+                                                  'assets/images/Twitter.svg',
+                                                  height: 45,
+                                                  width: 45,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: screenHeight * 0.05),

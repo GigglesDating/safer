@@ -12,7 +12,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-   void _portraitmode() {
+  void _portraitmode() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,

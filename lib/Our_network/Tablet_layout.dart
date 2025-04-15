@@ -352,114 +352,116 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
         ),
         borderRadius: BorderRadius.all(Radius.circular(30)),
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-              left: 20,
-              right: 20,
-              bottom: 0,
-            ),
-            child: Row(
-              children: [
-                SvgPicture.asset(image),
-                Spacer(),
-                Text(
-                  name,
-                  style: GoogleFonts.spaceGrotesk(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: const Color.fromARGB(255, 223, 126, 240),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: screenHeight * 0.04),
-          Container(
-            height: screenHeight * 0.11,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: const Color.fromARGB(
-                    255,
-                    223,
-                    126,
-                    240,
-                  ).withAlpha(100),
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 20,
+                left: 20,
+                right: 20,
+                bottom: 0,
               ),
-              color: Colors.transparent,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: Column(
+              child: Row(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        subcontent,
-                        style: GoogleFonts.spaceGrotesk(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white30,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 3),
-                  Row(
-                    children: [
-                      Text(
-                        content,
-                        style: GoogleFonts.spaceGrotesk(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                  SvgPicture.asset(image),
+                  Spacer(),
+                  Text(
+                    name,
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: const Color.fromARGB(255, 223, 126, 240),
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              SizedBox(width: 25),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(
-                    const Color.fromARGB(255, 219, 90, 210),
-                  ),
-                  padding: WidgetStatePropertyAll(
-                    EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.025,
-                      vertical: screenHeight * 0.02,
-                    ),
-                  ),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+            SizedBox(height: screenHeight * 0.04),
+            Container(
+              height: screenHeight * 0.11,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: const Color.fromARGB(
+                      255,
+                      223,
+                      126,
+                      240,
+                    ).withAlpha(100),
                   ),
                 ),
-                onPressed: () {},
-                child: Text(
-                  "Click here to know more",
-                  style: GoogleFonts.spaceGrotesk(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
+                color: Colors.transparent,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          subcontent,
+                          style: GoogleFonts.spaceGrotesk(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white30,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 3),
+                    Row(
+                      children: [
+                        Text(
+                          content,
+                          style: GoogleFonts.spaceGrotesk(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                SizedBox(width: 25),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                      const Color.fromARGB(255, 219, 90, 210),
+                    ),
+                    padding: WidgetStatePropertyAll(
+                      EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.025,
+                        vertical: screenHeight * 0.02,
+                      ),
+                    ),
+                    shape: WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    "Click here to know more",
+                    style: GoogleFonts.spaceGrotesk(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -596,7 +596,12 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
                   SvgPicture.asset('assets/images/Safer_logo.svg'),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => homePage()),
+                      );
+                    },
                     child: Text(
                       "Home",
                       style: GoogleFonts.spaceGrotesk(

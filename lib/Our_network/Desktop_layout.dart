@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/About_us/About_us.dart';
@@ -24,13 +25,6 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
           children: [
             Stack(
               children: [
-                // Container(
-                //   height: screenHeight * 2,
-                //   width: screenWidth * 1,
-                //   decoration: BoxDecoration(
-                //     color: const Color.fromARGB(244, 0, 0, 0),
-                //   ),
-                // ),
                 Center(child: Image.asset('assets/images/Ellipse 3.png')),
                 Row(
                   children: [
@@ -56,12 +50,16 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                         child: SingleChildScrollView(
                           child: Stack(
                             children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: SizedBox(
-                                  height: screenHeight * 0.75,
-                                  child: Image.asset(
-                                    'assets/images/Be-A-Volunteer.png',
+                              AspectRatio(
+                                aspectRatio: 20 / 9,
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    color: Colors.transparent,
+                                    height: screenHeight * 0.75,
+                                    child: Image.asset(
+                                      'assets/images/Be-A-Volunteer.png',
+                                    ),
                                   ),
                                 ),
                               ),
@@ -337,93 +335,97 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
       height: screenHeight * 0.27,
       width: double.infinity,
       color: const Color.fromARGB(255, 255, 255, 255).withAlpha(15),
-      child: Column(
-        children: [
-          SizedBox(height: screenHeight * 0.055),
-          Container(
-            height: screenHeight * 0.07,
-            width: screenWidth * 0.8,
-            color: Colors.transparent,
-            child: Row(
-              children: [
-                SvgPicture.asset('assets/images/Safer_logo.svg'),
-                Spacer(),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => homePage()),
-                    );
-                  },
-                  child: Text(
-                    "Home",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutUs()),
-                    );
-                  },
-                  child: Text(
-                    "About us",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Our Network",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: const Color.fromARGB(255, 223, 126, 240),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            height: screenHeight * 0.132,
-            width: screenWidth * 0.8,
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(color: const Color.fromARGB(255, 219, 90, 210)),
-              ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight * 0.055),
+            Container(
+              height: screenHeight * 0.07,
+              width: screenWidth * 0.8,
               color: Colors.transparent,
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/images/Safer_logo.svg'),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => homePage()),
+                      );
+                    },
+                    child: Text(
+                      "Home",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AboutUs()),
+                      );
+                    },
+                    child: Text(
+                      "About us",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Our Network",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: const Color.fromARGB(255, 223, 126, 240),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                Text(
-                  "© 2025 Safer | Privacy Policy | Terms of Service",
-                  style: GoogleFonts.spaceGrotesk(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+            SizedBox(height: 10),
+            Container(
+              height: screenHeight * 0.132,
+              width: screenWidth * 0.8,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: const Color.fromARGB(255, 219, 90, 210),
                   ),
                 ),
-                Spacer(),
-                SvgPicture.asset('assets/images/InstagramLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/TwitterLogo.svg'),
-                SizedBox(width: screenWidth * 0.01),
-                SvgPicture.asset('assets/images/MetaLogo.svg'),
-              ],
+                color: Colors.transparent,
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "© 2025 Safer | Privacy Policy | Terms of Service",
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Spacer(),
+                  SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  SizedBox(width: screenWidth * 0.01),
+                  SvgPicture.asset('assets/images/TwitterLogo.svg'),
+                  SizedBox(width: screenWidth * 0.01),
+                  SvgPicture.asset('assets/images/MetaLogo.svg'),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -459,12 +461,15 @@ Widget _buildcard(
             children: [
               SvgPicture.asset(image),
               Spacer(),
-              Text(
-                name,
-                style: GoogleFonts.spaceGrotesk(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: const Color.fromARGB(255, 223, 126, 240),
+              Expanded(
+                child: AutoSizeText(
+                  name,
+                  style: GoogleFonts.spaceGrotesk(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: const Color.fromARGB(255, 223, 126, 240),
+                  ),
+                  maxLines: 2,
                 ),
               ),
             ],
@@ -483,34 +488,30 @@ Widget _buildcard(
           ),
           child: Padding(
             padding: const EdgeInsets.all(25),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      subcontent,
-                      style: GoogleFonts.spaceGrotesk(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white30,
-                      ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    subcontent,
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white30,
                     ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Text(
-                      content,
-                      style: GoogleFonts.spaceGrotesk(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                      ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    content,
+                    style: GoogleFonts.spaceGrotesk(
+                      fontSize: 21,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
