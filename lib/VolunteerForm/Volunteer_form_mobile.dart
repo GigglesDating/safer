@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:giggles_safer_web/Confirm_Page/confirm_mobile.dart';
-import 'package:giggles_safer_web/Confirm_Page/confirm_tablet.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VolunteerformMobile extends StatefulWidget {
@@ -99,34 +98,16 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
                 backgroundColor: Colors.transparent,
                 toolbarHeight: screenHeight * 0.055,
                 centerTitle: true,
-                title: Text(
-                  'Join Our Heroes',
-                  style: GoogleFonts.spaceMono(
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.05,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
                 actions: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: screenHeight * 0.0,
-                          right: screenWidth * 0.02,
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.highlight_remove,
-                            color: Colors.white,
-                            size: screenWidth * 0.08,
-                          ),
-                        ),
-                      ),
-                    ],
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.highlight_remove,
+                      color: Colors.white,
+                      size: screenWidth * 0.08,
+                    ),
                   ),
                 ],
               ),
@@ -136,6 +117,17 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Center(
+                          child: Text(
+                            'Join Our Heroes',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.spaceMono(
+                              color: Colors.white,
+                              fontSize: screenWidth * 0.06,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
                         SizedBox(height: screenHeight * 0.01),
                         Padding(
                           padding: EdgeInsets.only(
@@ -351,7 +343,6 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: TextField(
                             controller: answer,
-                            keyboardType: TextInputType.number,
                             maxLines: 7,
                             minLines: 7,
                             maxLength: 500,

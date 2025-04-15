@@ -1,6 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -643,98 +643,104 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
               ),
               color: Colors.transparent,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => homePage()),
-                          );
-                        },
-                        child: Text(
-                          "Home",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "About us",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: const Color.fromARGB(255, 223, 126, 240),
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OurNetwork(),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    color: Colors.transparent,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => homePage(),
+                                ),
+                              );
+                            },
+                            child: AutoSizeText(
+                              "Home",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          );
-                        },
-                        child: Text(
-                          "Our Network",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
                           ),
-                        ),
+                          TextButton(
+                            onPressed: () {},
+                            child: AutoSizeText(
+                              "About us",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OurNetwork(),
+                                ),
+                              );
+                            },
+                            child: AutoSizeText(
+                              "Our Network",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: SingleChildScrollView(
+                  SizedBox(height: screenHeight * 0.02),
+                  SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Text(
                       "© 2025 Safer | Privacy Policy | Terms of Service",
                       style: GoogleFonts.spaceGrotesk(
-                        fontSize: 15,
+                        fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset(
-                        'assets/images/InstagramLogo.svg',
+                  SizedBox(height: screenHeight * 0.02),
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/InstagramLogo.svg',
+                        ),
                       ),
-                    ),
-                    SizedBox(width: screenWidth * 0.05),
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
-                    ),
-                    SizedBox(width: screenWidth * 0.05),
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset('assets/images/MetaLogo.svg'),
-                    ),
-                  ],
-                ),
-              ],
+                      SizedBox(width: screenWidth * 0.05),
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/TwitterLogo.svg',
+                        ),
+                      ),
+                      SizedBox(width: screenWidth * 0.05),
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset('assets/images/MetaLogo.svg'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

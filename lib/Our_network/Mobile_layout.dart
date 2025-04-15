@@ -1,10 +1,9 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
-import 'package:giggles_safer_web/Our_network/our_network.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_mobile.dart';
-import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_tablet.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MobileLayoutNetwork extends StatefulWidget {
@@ -42,6 +41,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                         ],
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(height: screenHeight * 0.02),
                           Center(
@@ -56,69 +56,75 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                             ),
                           ),
                           SizedBox(height: screenHeight * 0.05),
-                          SizedBox(width: screenWidth * 0.085),
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'Building a ',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'SAFER ',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
+                          // SizedBox(width: screenWidth * 0.085),
+                          Container(
+                            color: Colors.transparent,
+                            height: screenHeight * 0.09,
+                            width: screenWidth * 0.9,
+                            child: AutoSizeText.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Building a ',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                ),
-                                TextSpan(
-                                  text: 'Tomorrow,\nTogether.',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
+                                  TextSpan(
+                                    text: 'SAFER ',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        223,
+                                        126,
+                                        240,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  TextSpan(
+                                    text: 'Tomorrow,Together.',
+                                    style: GoogleFonts.spaceMono(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              minFontSize: 10,
                             ),
                           ),
                           SizedBox(height: screenHeight * 0.02),
-                          Row(
-                            children: [
-                              SizedBox(width: screenWidth * 0.085),
-                              Text(
-                                'Our network is the heart of our mission—bringing\ntogether innovative technology, dedicated\nvolunteers, and secure hubs to create a support\nsystem that women can rely on. With each\nconnection, we strengthen our reach and ability\nto provide real-time assistance and proactive\nsafety measures.\n\nWe empower communities and ensure safety is\nalways within reach.',
+                          Padding(
+                            padding: const EdgeInsets.all(9),
+                            child: Container(
+                              color: Colors.transparent,
+                              width: screenWidth * 0.9,
+                              child: AutoSizeText(
+                                'Our network is the heart of our mission—bringing together innovative technology, dedicated volunteers, and secure hubs to create a support system that women can rely on. With each connection, we strengthen our reach and ability to provide real-time assistance and proactive safety measures.We empower communities and ensure safety is always within reach.',
+                                textAlign: TextAlign.start,
+                                minFontSize: 10,
                                 style: GoogleFonts.spaceGrotesk(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w300,
                                   color: Colors.white,
                                 ),
                               ),
-                            ],
+                            ),
                           ),
                           SizedBox(height: screenHeight * 0.02),
-                          Row(
-                            children: [
-                              SizedBox(width: screenWidth * 0.08),
-                              Text(
-                                "'Together, We Make A Difference'",
-                                style: GoogleFonts.spaceGrotesk(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
+                          SizedBox(width: screenWidth * 0.08),
+                          Text(
+                            "'Together, We Make A Difference'",
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(height: screenHeight * 0.02),
                           Row(
@@ -257,62 +263,70 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
           bottom: BorderSide(color: const Color.fromARGB(255, 223, 126, 240)),
         ),
       ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            SizedBox(width: screenWidth * 0.085),
-            Container(
-              height: screenHeight * 0.10,
-              width: screenWidth * 0.20,
-              color: Colors.transparent,
-              child: SvgPicture.asset('assets/images/Safer_logo.svg'),
-            ),
-            SizedBox(width: screenWidth * 0.02),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => homePage()),
-                );
-              },
-              child: Text(
-                "Home",
-                style: GoogleFonts.spaceGrotesk(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        child: Container(
+          color: Colors.transparent,
+          width: screenWidth * 0.8,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Container(
+                  height: screenHeight * 0.10,
+                  width: screenWidth * 0.15,
+                  color: Colors.transparent,
+                  child: SvgPicture.asset('assets/images/Safer_logo.svg'),
                 ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AboutUs()),
-                );
-              },
-              child: Text(
-                "About us",
-                style: GoogleFonts.spaceGrotesk(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
+                // SizedBox(width: screenWidth * 0.02),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homePage()),
+                    );
+                  },
+                  child: AutoSizeText(
+                    "Home",
+                    style: GoogleFonts.spaceGrotesk(
+                      color: Colors.white,
+                      fontSize: screenWidth * 0.04,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                "Our Network",
-                style: GoogleFonts.spaceGrotesk(
-                  color: const Color.fromARGB(255, 223, 126, 240),
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutUs()),
+                    );
+                  },
+                  child: AutoSizeText(
+                    "About us",
+                    style: GoogleFonts.spaceGrotesk(
+                      color: Colors.white,
+                      fontSize: screenWidth * 0.04,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    maxLines: 1,
+                  ),
                 ),
-              ),
+                TextButton(
+                  onPressed: () {},
+                  child: AutoSizeText(
+                    "Our Network",
+                    style: GoogleFonts.spaceGrotesk(
+                      color: const Color.fromARGB(255, 223, 126, 240),
+                      fontSize: screenWidth * 0.04,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    maxLines: 1,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -353,7 +367,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                   Text(
                     name,
                     style: GoogleFonts.spaceGrotesk(
-                      fontSize: 18,
+                      fontSize: screenWidth * 0.05,
                       fontWeight: FontWeight.w500,
                       color: const Color.fromARGB(255, 223, 126, 240),
                     ),
@@ -387,7 +401,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                         Text(
                           subcontent,
                           style: GoogleFonts.spaceGrotesk(
-                            fontSize: 15,
+                            fontSize: screenWidth * 0.04,
                             fontWeight: FontWeight.w400,
                             color: Colors.white30,
                           ),
@@ -400,7 +414,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                         Text(
                           content,
                           style: GoogleFonts.spaceGrotesk(
-                            fontSize: 17,
+                            fontSize: screenWidth * 0.04,
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
                           ),
@@ -450,6 +464,27 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
     );
   }
 
+  Widget _buildResoponsiveButton(String label) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => homePage()),
+          );
+        },
+        child: Text(
+          "Home",
+          style: GoogleFonts.spaceGrotesk(
+            color: Colors.white,
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildFooter(double screenHeight, double screenWidth) {
     return Container(
       // height: screenHeight * 0.3,
@@ -482,93 +517,104 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
               ),
               color: Colors.transparent,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    color: Colors.transparent,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => homePage(),
+                                ),
+                              );
+                            },
+                            child: AutoSizeText(
+                              "Home",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AboutUs(),
+                                ),
+                              );
+                            },
+                            child: AutoSizeText(
+                              "About us",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: AutoSizeText(
+                              "Our Network",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                                fontSize: screenWidth * 0.045,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      "© 2025 Safer | Privacy Policy | Terms of Service",
+                      style: GoogleFonts.spaceGrotesk(
+                        fontSize: screenWidth * 0.04,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  Row(
                     children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => homePage()),
-                          );
-                        },
-                        child: Text(
-                          "Home",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/InstagramLogo.svg',
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => AboutUs()),
-                          );
-                        },
-                        child: Text(
-                          "About us",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
+                      SizedBox(width: screenWidth * 0.05),
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/TwitterLogo.svg',
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Our Network",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: const Color.fromARGB(255, 223, 126, 240),
-                            fontSize: 17,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                      SizedBox(width: screenWidth * 0.05),
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset('assets/images/MetaLogo.svg'),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Text(
-                    "© 2025 Safer | Privacy Policy | Terms of Service",
-                    style: GoogleFonts.spaceGrotesk(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset(
-                        'assets/images/InstagramLogo.svg',
-                      ),
-                    ),
-                    SizedBox(width: screenWidth * 0.05),
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
-                    ),
-                    SizedBox(width: screenWidth * 0.05),
-                    InkWell(
-                      onTap: () {},
-                      child: SvgPicture.asset('assets/images/MetaLogo.svg'),
-                    ),
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
