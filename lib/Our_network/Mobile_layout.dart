@@ -464,27 +464,6 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
     );
   }
 
-  Widget _buildResoponsiveButton(String label) {
-    return Expanded(
-      child: TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => homePage()),
-          );
-        },
-        child: Text(
-          "Home",
-          style: GoogleFonts.spaceGrotesk(
-            color: Colors.white,
-            fontSize: 15,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _buildFooter(double screenHeight, double screenWidth) {
     return Container(
       // height: screenHeight * 0.3,
