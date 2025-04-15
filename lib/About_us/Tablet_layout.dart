@@ -29,7 +29,7 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
     super.initState();
     _portraitmode();
     // Initialize with your video URL
-    _introController = VideoPlayerController.asset('assets/video/PhVideo.mp4')
+    _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {
         setState(() {});
       });
@@ -193,6 +193,14 @@ class _TabletLayoutAboutState extends State<TabletLayoutAbout> {
                                               color: Colors.white,
                                               size: 80,
                                             ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: playpause,
+                                  child: Container(
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                    color: Colors.transparent,
                                   ),
                                 ),
                               ],

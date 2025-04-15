@@ -23,7 +23,7 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
   void initState() {
     super.initState();
     // Initialize with your video URL
-    _introController = VideoPlayerController.asset('assets/video/PhVideo.mp4')
+    _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {
         setState(() {});
       });
@@ -251,6 +251,14 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                                                   Colors.white,
                                                               size: 50,
                                                             ),
+                                                  ),
+                                                ),
+                                                GestureDetector(
+                                                  onTap: playpause,
+                                                  child: Container(
+                                                    height: double.infinity,
+                                                    width: double.infinity,
+                                                    color: Colors.transparent,
                                                   ),
                                                 ),
                                               ],

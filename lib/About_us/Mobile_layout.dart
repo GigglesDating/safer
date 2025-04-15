@@ -21,7 +21,7 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
   void initState() {
     super.initState();
     // Initialize with your video URL
-    _introController = VideoPlayerController.asset('assets/video/PhVideo.mp4')
+    _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {
         setState(() {});
       });
@@ -192,6 +192,14 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                                               ),
                                     ),
                                   ),
+                                  GestureDetector(
+                                    onTap: playpause,
+                                    child: Container(
+                                      height: double.infinity,
+                                      width: double.infinity,
+                                      color: Colors.transparent,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -296,33 +304,35 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            '10k+',
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 45,
-                                              fontWeight: FontWeight.w600,
-                                              color: const Color.fromARGB(
-                                                255,
-                                                223,
-                                                126,
-                                                240,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              '10k+',
+                                              style: GoogleFonts.spaceMono(
+                                                fontSize: 45,
+                                                fontWeight: FontWeight.w600,
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  223,
+                                                  126,
+                                                  240,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Text(
-                                            'App Downloads',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.spaceGrotesk(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.white,
+                                            Text(
+                                              'App Downloads',
+                                              textAlign: TextAlign.center,
+                                              style: GoogleFonts.spaceGrotesk(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -381,33 +391,35 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            '15+',
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 45,
-                                              fontWeight: FontWeight.w600,
-                                              color: const Color.fromARGB(
-                                                255,
-                                                223,
-                                                126,
-                                                240,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              '15+',
+                                              style: GoogleFonts.spaceMono(
+                                                fontSize: 45,
+                                                fontWeight: FontWeight.w600,
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  223,
+                                                  126,
+                                                  240,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Text(
-                                            'Cities Covered',
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.spaceGrotesk(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.white,
+                                            Text(
+                                              'Cities Covered',
+                                              textAlign: TextAlign.center,
+                                              style: GoogleFonts.spaceGrotesk(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
