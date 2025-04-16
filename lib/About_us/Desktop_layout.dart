@@ -15,9 +15,6 @@ class DesktopLayoutAbout extends StatefulWidget {
 class _DesktopLayoutState extends State<DesktopLayoutAbout> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
-  bool _ishovering1 = false;
-  bool _ishovering2 = false;
-  bool _ishovering3 = false;
 
   @override
   void initState() {
@@ -70,11 +67,9 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
             Stack(
               children: [
                 Image.asset('assets/images/Ellipse 2.png'),
-                Row(
-                  children: [
-                    Spacer(),
-                    Image.asset('assets/images/Ellipse 4.png'),
-                  ],
+                Positioned(
+                  right: 0,
+                  child: Image.asset('assets/images/Ellipse 4.png'),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,81 +182,75 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                           ),
                                         ),
                                         child: Stack(
+                                          alignment: Alignment.center,
                                           children: [
-                                            Stack(
-                                              alignment: Alignment.center,
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  child: Container(
-                                                    height:
-                                                        screenHeight * 0.518,
-                                                    width: 450,
-                                                    child:
-                                                        _introController
-                                                                .value
-                                                                .isInitialized
-                                                            ? FittedBox(
-                                                              fit: BoxFit.cover,
-                                                              child: SizedBox(
-                                                                width:
-                                                                    _introController
-                                                                        .value
-                                                                        .size
-                                                                        .width,
-                                                                height:
-                                                                    _introController
-                                                                        .value
-                                                                        .size
-                                                                        .height,
-                                                                child: VideoPlayer(
-                                                                  _introController,
-                                                                ),
-                                                              ),
-                                                            )
-                                                            : const Center(
-                                                              child:
-                                                                  CircularProgressIndicator(),
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Container(
+                                                height: screenHeight * 0.518,
+                                                width: 450,
+                                                child:
+                                                    _introController
+                                                            .value
+                                                            .isInitialized
+                                                        ? FittedBox(
+                                                          fit: BoxFit.cover,
+                                                          child: SizedBox(
+                                                            width:
+                                                                _introController
+                                                                    .value
+                                                                    .size
+                                                                    .width,
+                                                            height:
+                                                                _introController
+                                                                    .value
+                                                                    .size
+                                                                    .height,
+                                                            child: VideoPlayer(
+                                                              _introController,
                                                             ),
+                                                          ),
+                                                        )
+                                                        : const Center(
+                                                          child:
+                                                              CircularProgressIndicator(),
+                                                        ),
+                                              ),
+                                            ),
+                                            _isIntroPlaying
+                                                ? SizedBox()
+                                                : SizedBox(
+                                                  height: double.infinity,
+                                                  width: double.infinity,
+                                                  child: Image.asset(
+                                                    'assets/images/template.png',
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
-                                                _isIntroPlaying
-                                                    ? SizedBox()
-                                                    : SizedBox(
-                                                      height: double.infinity,
-                                                      width: double.infinity,
-                                                      child: Image.asset(
-                                                        'assets/images/template.png',
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                Center(
-                                                  child: IconButton(
-                                                    onPressed: () {
-                                                      playpause();
-                                                    },
-                                                    icon:
-                                                        _isIntroPlaying
-                                                            ? Icon(null)
-                                                            : Icon(
-                                                              Icons
-                                                                  .play_circle_outline,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 50,
-                                                            ),
-                                                  ),
-                                                ),
-                                                GestureDetector(
-                                                  onTap: playpause,
-                                                  child: Container(
-                                                    height: double.infinity,
-                                                    width: double.infinity,
-                                                    color: Colors.transparent,
-                                                  ),
-                                                ),
-                                              ],
+                                            Center(
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  playpause();
+                                                },
+                                                icon:
+                                                    _isIntroPlaying
+                                                        ? Icon(null)
+                                                        : Icon(
+                                                          Icons
+                                                              .play_circle_outline,
+                                                          color: Colors.white,
+                                                          size: 50,
+                                                        ),
+                                              ),
+                                            ),
+                                            GestureDetector(
+                                              onTap: playpause,
+                                              child: Container(
+                                                height: double.infinity,
+                                                width: double.infinity,
+                                                color: Colors.transparent,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -460,185 +449,128 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: screenWidth * 0.075),
-                          child: MouseRegion(
-                            onEnter:
-                                (event) => setState(() {
-                                  _ishovering1 = true;
-                                }),
-                            onExit:
-                                (event) => setState(() {
-                                  _ishovering1 = false;
-                                }),
-                            child: _buildCard(
-                              screenHeight,
-                              screenWidth,
-                              'assets/images/Events-1.jpg',
-                              _ishovering1
-                                  ? ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor: WidgetStatePropertyAll(
-                                        const Color.fromARGB(255, 219, 90, 210),
-                                      ),
-                                      padding: WidgetStatePropertyAll(
-                                        EdgeInsets.symmetric(
-                                          horizontal: screenWidth * 0.016,
-                                          vertical: screenHeight * 0.023,
-                                        ),
-                                      ),
-                                      shape: WidgetStatePropertyAll(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            30,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Know more",
-                                      style: GoogleFonts.spaceGrotesk(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  )
-                                  : Text(
-                                    'Events',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
+                          child: HoverCard(
+                            screenHeight: screenHeight,
+                            screenWidth: screenWidth,
+                            imagePath: 'assets/images/Events-1.jpg',
+                            label: Text(
+                              'Events',
+                              style: GoogleFonts.spaceMono(
+                                fontSize: 40,
+                                fontWeight: FontWeight.w600,
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                              ),
+                            ),
+                            hoverButton: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(
+                                  const Color.fromARGB(255, 219, 90, 210),
+                                ),
+                                padding: WidgetStatePropertyAll(
+                                  EdgeInsets.symmetric(
+                                    horizontal: screenWidth * 0.016,
+                                    vertical: screenHeight * 0.023,
                                   ),
-                              _ishovering1,
-                              // 'Events',
+                                ),
+                                shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                "Know more",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                        MouseRegion(
-                          onEnter:
-                              (event) => setState(() {
-                                _ishovering2 = true;
-                              }),
-                          onExit:
-                              (event) => setState(() {
-                                _ishovering2 = false;
-                              }),
-                          child: _buildCard(
-                            screenHeight,
-                            screenWidth,
-                            'assets/images/News.jpg',
-                            _ishovering2
-                                ? ElevatedButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: WidgetStatePropertyAll(
-                                      const Color.fromARGB(255, 219, 90, 210),
-                                    ),
-                                    padding: WidgetStatePropertyAll(
-                                      EdgeInsets.symmetric(
-                                        horizontal: screenWidth * 0.016,
-                                        vertical: screenHeight * 0.023,
-                                      ),
-                                    ),
-                                    shape: WidgetStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Know more",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                )
-                                : Text(
-                                  'News',
-                                  style: GoogleFonts.spaceMono(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      223,
-                                      126,
-                                      240,
-                                    ),
-                                  ),
+
+                        HoverCard(
+                          screenHeight: screenHeight,
+                          screenWidth: screenWidth,
+                          imagePath: 'assets/images/News.jpg',
+                          label: Text(
+                            'NEWS',
+                            style: GoogleFonts.spaceMono(
+                              fontSize: 40,
+                              fontWeight: FontWeight.w600,
+                              color: const Color.fromARGB(255, 223, 126, 240),
+                            ),
+                          ),
+                          hoverButton: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                const Color.fromARGB(255, 219, 90, 210),
+                              ),
+                              padding: WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.016,
+                                  vertical: screenHeight * 0.023,
                                 ),
-                            _ishovering2,
-                            // 'News',
+                              ),
+                              shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Know more",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: screenWidth * 0.075),
-                          child: MouseRegion(
-                            onEnter:
-                                (event) => setState(() {
-                                  _ishovering3 = true;
-                                }),
-                            onExit:
-                                (event) => setState(() {
-                                  _ishovering3 = false;
-                                }),
-                            child: _buildCard(
-                              screenHeight,
-                              screenWidth,
-                              'assets/images/Stories.jpg',
-                              _ishovering3
-                                  ? ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor: WidgetStatePropertyAll(
-                                        const Color.fromARGB(255, 219, 90, 210),
-                                      ),
-                                      padding: WidgetStatePropertyAll(
-                                        EdgeInsets.symmetric(
-                                          horizontal: screenWidth * 0.016,
-                                          vertical: screenHeight * 0.023,
-                                        ),
-                                      ),
-                                      shape: WidgetStatePropertyAll(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            30,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Know more",
-                                      style: GoogleFonts.spaceGrotesk(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  )
-                                  : Text(
-                                    'Stories',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
+                          child: HoverCard(
+                            screenHeight: screenHeight,
+                            screenWidth: screenWidth,
+                            imagePath: 'assets/images/Stories.jpg',
+                            label: Text(
+                              'STORIES',
+                              style: GoogleFonts.spaceMono(
+                                fontSize: 40,
+                                fontWeight: FontWeight.w600,
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                              ),
+                            ),
+                            hoverButton: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(
+                                  const Color.fromARGB(255, 219, 90, 210),
+                                ),
+                                padding: WidgetStatePropertyAll(
+                                  EdgeInsets.symmetric(
+                                    horizontal: screenWidth * 0.016,
+                                    vertical: screenHeight * 0.023,
                                   ),
-                              _ishovering3,
-                              // 'Stories',
+                                ),
+                                shape: WidgetStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                "Know more",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -728,61 +660,6 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildCard(
-    double screenHeight,
-    double screenWidth,
-    String imagePath,
-    // String hovering,
-    Widget textbutton,
-    bool hovering,
-  ) {
-    return Container(
-      height: screenHeight * 0.44,
-      width: screenWidth * 0.25,
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        border: Border.all(color: const Color.fromARGB(255, 223, 126, 240)),
-      ),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-              height: screenHeight * 0.44,
-            ),
-          ),
-          hovering
-              ? Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(
-                    255,
-                    223,
-                    126,
-                    240,
-                  ).withOpacity(0.2),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-              )
-              : SizedBox(),
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.5),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-          ),
-          Center(child: textbutton),
         ],
       ),
     );
@@ -882,6 +759,78 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HoverCard extends StatefulWidget {
+  final double screenHeight;
+  final double screenWidth;
+  final String imagePath;
+  final Widget label;
+  final Widget hoverButton;
+
+  const HoverCard({
+    super.key,
+    required this.screenHeight,
+    required this.screenWidth,
+    required this.imagePath,
+    required this.label,
+    required this.hoverButton,
+  });
+
+  @override
+  State<HoverCard> createState() => _HoverCardState();
+}
+
+class _HoverCardState extends State<HoverCard> {
+  bool _isHovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovering = true),
+      onExit: (_) => setState(() => _isHovering = false),
+      child: Container(
+        height: widget.screenHeight * 0.44,
+        width: widget.screenWidth * 0.25,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: const Color.fromARGB(255, 223, 126, 240)),
+        ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                widget.imagePath,
+                fit: BoxFit.cover,
+                height: widget.screenHeight * 0.44,
+              ),
+            ),
+            if (_isHovering)
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(
+                    255,
+                    223,
+                    126,
+                    240,
+                  ).withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            Center(child: _isHovering ? widget.hoverButton : widget.label),
           ],
         ),
       ),

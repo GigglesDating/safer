@@ -391,7 +391,7 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
-                                      child: SingleChildScrollView(
+                                      child: SingleChildScrollView  (
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
