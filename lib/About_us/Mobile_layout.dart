@@ -26,7 +26,6 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
     ]);
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -67,6 +66,14 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
   Future<void> _launchInstagram() async {
     if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $_instagramUrl';
+    }
+  }
+
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
     }
   }
 
@@ -762,7 +769,9 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                       ),
                       SizedBox(width: screenWidth * 0.05),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchTwitter();
+                        },
                         child: SvgPicture.asset(
                           'assets/images/TwitterLogo.svg',
                         ),

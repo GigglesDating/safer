@@ -38,6 +38,14 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
     }
   }
 
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -571,7 +579,9 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                   ),
                   SizedBox(width: screenWidth * 0.01),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      _launchTwitter();
+                    },
                     child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
                   ),
                   SizedBox(width: screenWidth * 0.01),

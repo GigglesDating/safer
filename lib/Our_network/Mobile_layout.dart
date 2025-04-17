@@ -16,7 +16,6 @@ class MobileLayoutNetwork extends StatefulWidget {
 }
 
 class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
-
   void _portraitmode() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
@@ -37,6 +36,14 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
   Future<void> _launchInstagram() async {
     if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $_instagramUrl';
+    }
+  }
+
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
     }
   }
 
@@ -608,7 +615,9 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                       ),
                       SizedBox(width: screenWidth * 0.05),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchTwitter();
+                        },
                         child: SvgPicture.asset(
                           'assets/images/TwitterLogo.svg',
                         ),

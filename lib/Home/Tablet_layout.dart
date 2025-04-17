@@ -15,7 +15,6 @@ class TabletLayoutHome extends StatefulWidget {
 }
 
 class _TabletLayoutHomeState extends State<TabletLayoutHome> {
-
   void _portraitmode() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
@@ -28,7 +27,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
     super.initState();
     _portraitmode();
   }
-  
+
   final Uri _instagramUrl = Uri.parse(
     'https://www.instagram.com/_so_called_abhi_shek/',
   );
@@ -38,6 +37,16 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
       throw 'Could not launch $_instagramUrl';
     }
   }
+
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
+    }
+  }
+
+  TextEditingController subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -889,6 +898,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                               right: 220,
                                             ),
                                             child: TextField(
+                                              controller: subEmail,
                                               style: TextStyle(
                                                 color: Colors.white70,
                                               ),
@@ -943,7 +953,9 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                               ),
                                             ),
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            subEmail.clear();
+                                          },
                                           child: Text(
                                             "Subscribe",
                                             style: TextStyle(
@@ -1016,7 +1028,9 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                                 width: screenWidth * 0.01,
                                               ),
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  _launchInstagram();
+                                                },
                                                 child: SvgPicture.asset(
                                                   'assets/images/Insta.svg',
                                                   height: 45,
@@ -1027,18 +1041,9 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                                 width: screenWidth * 0.01,
                                               ),
                                               InkWell(
-                                                onTap: () {},
-                                                child: SvgPicture.asset(
-                                                  'assets/images/Pinterest.svg',
-                                                  height: 45,
-                                                  width: 45,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  _launchTwitter();
+                                                },
                                                 child: SvgPicture.asset(
                                                   'assets/images/Twitter.svg',
                                                   height: 45,

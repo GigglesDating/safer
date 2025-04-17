@@ -16,8 +16,7 @@ class MobileLayoutHome extends StatefulWidget {
 }
 
 class _MobileLayoutHomeState extends State<MobileLayoutHome> {
-
-void _portraitmode() {
+  void _portraitmode() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
@@ -29,7 +28,7 @@ void _portraitmode() {
     super.initState();
     _portraitmode();
   }
-  
+
   final Uri _instagramUrl = Uri.parse(
     'https://www.instagram.com/_so_called_abhi_shek/',
   );
@@ -39,6 +38,16 @@ void _portraitmode() {
       throw 'Could not launch $_instagramUrl';
     }
   }
+
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
+    }
+  }
+
+  TextEditingController subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -974,6 +983,7 @@ void _portraitmode() {
                                           child: Padding(
                                             padding: EdgeInsets.only(right: 10),
                                             child: TextField(
+                                              controller: subEmail,
                                               style: TextStyle(
                                                 color: Colors.white70,
                                               ),
@@ -1028,7 +1038,9 @@ void _portraitmode() {
                                               ),
                                             ),
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            subEmail.clear();
+                                          },
                                           child: Text(
                                             "Subscribe",
                                             style: TextStyle(
@@ -1104,7 +1116,9 @@ void _portraitmode() {
                                                     width: screenWidth * 0.05,
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      _launchInstagram();
+                                                    },
                                                     child: SvgPicture.asset(
                                                       'assets/images/Insta.svg',
                                                       height: 35,
@@ -1115,7 +1129,9 @@ void _portraitmode() {
                                                     width: screenWidth * 0.05,
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      _launchTwitter();
+                                                    },
                                                     child: SvgPicture.asset(
                                                       'assets/images/Twitter.svg',
                                                       height: 35,

@@ -65,6 +65,14 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
     }
   }
 
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -768,7 +776,12 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                     child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
                   ),
                   SizedBox(width: screenWidth * 0.01),
-                  SvgPicture.asset('assets/images/TwitterLogo.svg'),
+                  InkWell(
+                    onTap: () {
+                      _launchTwitter();
+                    },
+                    child: SvgPicture.asset('assets/images/TwitterLogo.svg'),
+                  ),
                   SizedBox(width: screenWidth * 0.01),
                   SvgPicture.asset('assets/images/MetaLogo.svg'),
                 ],

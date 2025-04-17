@@ -35,6 +35,16 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
     }
   }
 
+  final Uri _twitterurl = Uri.parse('https://x.com/GigglesSafer');
+
+  Future<void> _launchTwitter() async {
+    if (!await launchUrl(_twitterurl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_twitterurl';
+    }
+  }
+
+  TextEditingController subEmail = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -923,6 +933,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                       child: Padding(
                                         padding: EdgeInsets.only(right: 220),
                                         child: TextField(
+                                          controller: subEmail,
                                           style: TextStyle(
                                             color: Colors.white70,
                                           ),
@@ -981,7 +992,9 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                           ),
                                         ),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        subEmail.clear();
+                                      },
                                       child: Text(
                                         "Subscribe",
                                         style: TextStyle(
@@ -1056,7 +1069,9 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                                 width: screenWidth * 0.01,
                                               ),
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  _launchInstagram();
+                                                },
                                                 child: SvgPicture.asset(
                                                   'assets/images/Insta.svg',
                                                   height: 45,
@@ -1066,19 +1081,13 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                               SizedBox(
                                                 width: screenWidth * 0.01,
                                               ),
-                                              InkWell(
-                                                onTap: () {},
-                                                child: SvgPicture.asset(
-                                                  'assets/images/Pinterest.svg',
-                                                  height: 45,
-                                                  width: 45,
-                                                ),
-                                              ),
                                               SizedBox(
                                                 width: screenWidth * 0.01,
                                               ),
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  _launchTwitter();
+                                                },
                                                 child: SvgPicture.asset(
                                                   'assets/images/Twitter.svg',
                                                   height: 45,
