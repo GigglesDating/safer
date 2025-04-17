@@ -300,7 +300,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
             color: Colors.transparent,
             child: SvgPicture.asset('assets/images/Safer_logo.svg'),
           ),
-          SizedBox(width: screenWidth * 0.32),
+          SizedBox(width: screenWidth * 0.16),
           TextButton(
             onPressed: () {
               Navigator.push(
@@ -317,22 +317,22 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutUs()),
-              );
-            },
-            child: Text(
-              "About us",
-              style: GoogleFonts.spaceGrotesk(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
+          // TextButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => AboutUs()),
+          //     );
+          //   },
+          //   child: Text(
+          //     "About us",
+          //     style: GoogleFonts.spaceGrotesk(
+          //       color: Colors.white,
+          //       fontSize: 20,
+          //       fontWeight: FontWeight.w400,
+          //     ),
+          //   ),
+          // ),
           TextButton(
             onPressed: () {},
             child: Text(
@@ -382,22 +382,22 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AboutUs()),
-                      );
-                    },
-                    child: Text(
-                      "About us",
-                      style: GoogleFonts.spaceGrotesk(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
+                  // TextButton(
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => AboutUs()),
+                  //     );
+                  //   },
+                  //   child: Text(
+                  //     "About us",
+                  //     style: GoogleFonts.spaceGrotesk(
+                  //       color: Colors.white,
+                  //       fontSize: 20,
+                  //       fontWeight: FontWeight.w400,
+                  //     ),
+                  //   ),
+                  // ),
                   TextButton(
                     onPressed: () {},
                     child: Text(

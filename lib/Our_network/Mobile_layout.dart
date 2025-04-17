@@ -329,23 +329,6 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutUs()),
-                    );
-                  },
-                  child: AutoSizeText(
-                    "About us",
-                    style: GoogleFonts.spaceGrotesk(
-                      color: Colors.white,
-                      fontSize: screenWidth * 0.04,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    maxLines: 1,
-                  ),
-                ),
-                TextButton(
                   onPressed: () {},
                   child: AutoSizeText(
                     "Our Network",
@@ -550,24 +533,6 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                             },
                             child: AutoSizeText(
                               "Home",
-                              style: GoogleFonts.spaceGrotesk(
-                                color: Colors.white,
-                                fontSize: screenWidth * 0.045,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => AboutUs(),
-                                ),
-                              );
-                            },
-                            child: AutoSizeText(
-                              "About us",
                               style: GoogleFonts.spaceGrotesk(
                                 color: Colors.white,
                                 fontSize: screenWidth * 0.045,

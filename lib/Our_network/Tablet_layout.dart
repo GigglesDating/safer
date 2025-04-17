@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_tablet.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -322,22 +321,6 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
             ),
           ),
           TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutUs()),
-              );
-            },
-            child: Text(
-              "About us",
-              style: GoogleFonts.spaceGrotesk(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-          TextButton(
             onPressed: () {},
             child: Text(
               "Our Network",
@@ -511,22 +494,6 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                     },
                     child: Text(
                       "Home",
-                      style: GoogleFonts.spaceGrotesk(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AboutUs()),
-                      );
-                    },
-                    child: Text(
-                      "About us",
                       style: GoogleFonts.spaceGrotesk(
                         color: Colors.white,
                         fontSize: 20,
