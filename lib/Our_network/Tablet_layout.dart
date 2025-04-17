@@ -5,6 +5,7 @@ import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_tablet.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TabletLayoutNetwork extends StatefulWidget {
   const TabletLayoutNetwork({super.key});
@@ -25,6 +26,16 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
   void initState() {
     super.initState();
     _portraitmode();
+  }
+
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
   }
 
   @override
@@ -553,7 +564,9 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                   ),
                   Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      _launchInstagram();
+                    },
                     child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
                   ),
                   SizedBox(width: screenWidth * 0.01),

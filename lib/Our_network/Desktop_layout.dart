@@ -5,6 +5,7 @@ import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_desktop.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DesktopLayoutNetwork extends StatefulWidget {
   const DesktopLayoutNetwork({super.key});
@@ -14,6 +15,16 @@ class DesktopLayoutNetwork extends StatefulWidget {
 }
 
 class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -416,7 +427,12 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                     ),
                   ),
                   Spacer(),
-                  SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  InkWell(
+                    onTap: () {
+                      _launchInstagram();
+                    },
+                    child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  ),
                   SizedBox(width: screenWidth * 0.01),
                   SvgPicture.asset('assets/images/TwitterLogo.svg'),
                   SizedBox(width: screenWidth * 0.01),

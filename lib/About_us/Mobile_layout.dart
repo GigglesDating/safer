@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 class MobileLayoutAbout extends StatefulWidget {
@@ -17,9 +19,18 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
 
+  void _portraitmode() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
+
   @override
   void initState() {
     super.initState();
+    _portraitmode();
     // Initialize with your video URL
     _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {
@@ -47,6 +58,16 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
         _introController.pause();
       }
     });
+  }
+
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
   }
 
   @override
@@ -391,7 +412,7 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
-                                      child: SingleChildScrollView  (
+                                      child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -732,7 +753,9 @@ class _MobileLayoutAboutState extends State<MobileLayoutAbout> {
                   Row(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchInstagram();
+                        },
                         child: SvgPicture.asset(
                           'assets/images/InstagramLogo.svg',
                         ),

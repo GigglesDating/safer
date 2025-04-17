@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TabletLayoutHome extends StatefulWidget {
   const TabletLayoutHome({super.key});
@@ -13,6 +15,30 @@ class TabletLayoutHome extends StatefulWidget {
 }
 
 class _TabletLayoutHomeState extends State<TabletLayoutHome> {
+
+  void _portraitmode() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _portraitmode();
+  }
+  
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -1276,7 +1302,9 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                   ),
                   Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      _launchInstagram();
+                    },
                     child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
                   ),
                   SizedBox(width: screenWidth * 0.01),

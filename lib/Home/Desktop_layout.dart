@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Our_network/our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DesktopLayoutHome extends StatefulWidget {
   const DesktopLayoutHome({super.key});
@@ -22,6 +23,16 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
 
   Future<void> _precacheImages() async {
     await precacheImage(AssetImage('assets/images/Hero.png'), context);
+  }
+
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
   }
 
   @override
@@ -771,7 +782,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 50),
+                      padding: const EdgeInsets.only(left: 50, top: 10),
                       child: Text(
                         "Common Questions",
                         style: GoogleFonts.spaceMono(
@@ -873,16 +884,20 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                             ),
                             child: SingleChildScrollView(
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     color: Colors.transparent,
-                                    child: AutoSizeText(
-                                      "Stay in Touch",
-                                      textAlign: TextAlign.start,
-                                      style: GoogleFonts.spaceMono(
-                                        fontSize: 60,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 20),
+                                      child: AutoSizeText(
+                                        "Stay in Touch",
+                                        textAlign: TextAlign.start,
+                                        style: GoogleFonts.spaceMono(
+                                          fontSize: 60,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -941,7 +956,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                   ),
                                   SizedBox(height: 15),
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 420),
+                                    padding: const EdgeInsets.only(left: 20),
                                     child: ElevatedButton(
                                       style: ButtonStyle(
                                         backgroundColor: WidgetStatePropertyAll(
@@ -978,12 +993,16 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                     ),
                                   ),
                                   SizedBox(height: screenHeight * 0.02),
-                                  Text(
-                                    "Your information will remain 100% secure and confidential,\nprotectedwith the highest standards of privacy and security.",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white60,
+                                  SizedBox(width: screenWidth * 0.02),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: Text(
+                                      "Your information will remain 100% secure and confidential,\nprotectedwith the highest standards of privacy and security.",
+                                      style: GoogleFonts.spaceGrotesk(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.white60,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 20),
@@ -1184,7 +1203,9 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                   ),
                   Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      _launchInstagram();
+                    },
                     child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
                   ),
                   SizedBox(width: screenWidth * 0.01),

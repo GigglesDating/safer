@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 class DesktopLayoutAbout extends StatefulWidget {
@@ -52,6 +53,16 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
         _introController.pause();
       }
     });
+  }
+
+  final Uri _instagramUrl = Uri.parse(
+    'https://www.instagram.com/_so_called_abhi_shek/',
+  );
+
+  Future<void> _launchInstagram() async {
+    if (!await launchUrl(_instagramUrl, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $_instagramUrl';
+    }
   }
 
   @override
@@ -166,7 +177,7 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                 ),
                                 Row(
                                   children: [
-                                    // SizedBox(width: screenWidth * 0.61),
+                                    // SizedBox(width: screenWidth * 0.5),
                                     Spacer(),
                                     Padding(
                                       padding: const EdgeInsets.only(
@@ -182,12 +193,11 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                                           ),
                                         ),
                                         child: Stack(
-                                          alignment: Alignment.center,
                                           children: [
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(12),
-                                              child: Container(
+                                              child: SizedBox(
                                                 height: screenHeight * 0.518,
                                                 width: 450,
                                                 child:
@@ -751,7 +761,12 @@ class _DesktopLayoutState extends State<DesktopLayoutAbout> {
                     ),
                   ),
                   Spacer(),
-                  SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  InkWell(
+                    onTap: () {
+                      _launchInstagram();
+                    },
+                    child: SvgPicture.asset('assets/images/InstagramLogo.svg'),
+                  ),
                   SizedBox(width: screenWidth * 0.01),
                   SvgPicture.asset('assets/images/TwitterLogo.svg'),
                   SizedBox(width: screenWidth * 0.01),
