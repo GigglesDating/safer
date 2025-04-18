@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_tablet.dart';
+import 'package:giggles_safer_web/knowMoreCard/KnowMore_desktop.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -231,27 +232,60 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                           screenWidth,
                           screenHeight,
                           'assets/images/dedicated_volunteer.svg',
-                          'Dedicated volunteers',
+                          'volunteers',
                           '5,000+ heroes on call',
                           'Trained individuals providing ground support.',
+                          () {
+                            showDialog(
+                              context: context,
+                              builder:
+                                  (context) => KnowmoreDesktop(
+                                    name: 'Volunteers',
+                                    text:
+                                        "Every time someone presses the SOS button on Safer, we treat it with urgency. But what if the person doesn’t respond to our follow-up call? That’s when our nearest verified volunteer steps in as the first responder. Our system automatically detects the closest trained volunteer and routes them to check on the user in real time. Their job is simple yet crucial, physically verify the situation, assess if it’s an actual emergency, and immediately report back to our command center. Based on their on-ground input, a security guard is dispatched to the exact location if needed.\n\nThese volunteers don’t replace official responders, they accelerate the process. In those crucial first few minutes, they help reduce panic, prevent escalation, and guide us to act with precision. All volunteers are thoroughly vetted and trained in respectful, non-intrusive emergency support. Their presence adds a human layer of care, making sure no alert goes unanswered, even if the user is silent. With Safer, there’s always someone watching out for you, whether it’s a professional guard or a trusted local volunteer who gets there first.",
+                                  ),
+                            );
+                          },
                         ),
                         SizedBox(height: screenHeight * 0.05),
                         _buildcard(
                           screenWidth,
                           screenHeight,
                           'assets/images/drones.svg',
-                          'Rapid Response Drones',
+                          'Response Drones',
                           'Reaching you in minutes.',
                           'AI-enabled drones designed for rapid response.',
+                          () {
+                            showDialog(
+                              context: context,
+                              builder:
+                                  (context) => KnowmoreDesktop(
+                                    name: 'Response Drones',
+                                    text:
+                                        "At Safer, we don’t believe in excuses, only solutions. If our ground staff cannot reach you within the promised 10-minute response time due to traffic, roadblocks, or unexpected delays, we immediately launch autonomous drones to your location. These high-speed, GPS-enabled drones act as your real-time guardians from above, providing instant visual surveillance and streaming live footage to our command center. Their presence alone is a powerful deterrent to potential threats, ensuring you’re never left vulnerable, even for a second. Equipped with night vision and real-time tracking, Safer drones don’t just observe, they communicate and assist. They alert our responders with exact coordinates, cutting through Bangalore’s chaos with precision.\n\nThis aerial safety net makes Safer not just a women’s safety app, but a tech-enabled movement that adapts to the unpredictable nature of urban emergencies. While others rely on static solutions, we’ve built a system that moves, flies, and responds with you. Because your safety should never be compromised, not by traffic, time, or anything else.",
+                                  ),
+                            );
+                          },
                         ),
                         SizedBox(height: screenHeight * 0.05),
                         _buildcard(
                           screenWidth,
                           screenHeight,
                           'assets/images/securehubs.svg',
-                          '50+ Secure Hubs',
+                          'Secure Hubs',
                           'Safety anytime, anywhere',
                           'Safe spaces designed to provide immediate assistance.',
+                          () {
+                            showDialog(
+                              context: context,
+                              builder:
+                                  (context) => KnowmoreDesktop(
+                                    name: 'Secure Hubs',
+                                    text:
+                                        "At the heart of Safer’s promise is our network of Secure Hubs, strategically located safety zones across Bangalore, staffed round-the-clock by trained security personnel. These hubs act as our rapid response bases, enabling us to reach you within 10 minutes of an SOS alert. Each hub is equipped with emergency support systems, high-speed communication tools, and standby responders ready to act at a moment’s notice. Whether it’s midnight or early morning, there’s always a Safer team nearby, ready to move. We’ve mapped the city down to its last lane to ensure no woman is ever left without help, whether she’s commuting late, stranded alone, or simply feeling unsafe. Unlike traditional systems that rely on centralised policing or delayed helplines, Secure Hubs are decentralised and proactive.\n\nThis isn’t just infrastructure, it’s a safety net woven into the fabric of the city. Because when every minute counts, your safety deserves to be local, responsive, and real. With Safer, you’re never alone. There’s always a Secure Hub, and a helping hand, close by.",
+                                  ),
+                            );
+                          },
                         ),
 
                         SizedBox(height: screenHeight * 0.3),
@@ -336,6 +370,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
     String name,
     String subcontent,
     String content,
+    VoidCallback ontap,
   ) {
     return Container(
       height: screenHeight * 0.35,
@@ -443,7 +478,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: ontap,
                   child: Text(
                     "Click here to know more",
                     style: GoogleFonts.spaceGrotesk(
