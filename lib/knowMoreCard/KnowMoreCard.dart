@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class KnowmoreDesktop extends StatefulWidget {
+class KnowMore extends StatefulWidget {
   final String text;
   final String name;
-  const KnowmoreDesktop({super.key, required this.text, required this.name});
+  const KnowMore({super.key, required this.text, required this.name});
 
   @override
-  State<KnowmoreDesktop> createState() => _KnowmoreDesktopState();
+  State<KnowMore> createState() => _KnowMoreState();
 }
 
-class _KnowmoreDesktopState extends State<KnowmoreDesktop> {
+class _KnowMoreState extends State<KnowMore> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
