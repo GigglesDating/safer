@@ -13,6 +13,7 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _phonenumberController = TextEditingController();
   final TextEditingController answer = TextEditingController();
   String? _city;
   bool _isFormValid = false;
@@ -247,6 +248,53 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
                                 vertical: screenHeight * 0.012,
                               ),
                               hintText: 'Enter your age',
+                              hintStyle: GoogleFonts.spaceGrotesk(
+                                color: Colors.white70,
+                                fontSize: screenWidth * 0.05,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              filled: true,
+                              fillColor: Colors.transparent.withOpacity(0.35),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 211, 84, 173),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: screenWidth * 0.04,
+                            bottom: screenHeight * 0.01,
+                          ),
+                          child: Text(
+                            "Phone number",
+                            style: GoogleFonts.spaceGrotesk(
+                              color: Colors.white,
+                              fontSize: screenWidth * 0.04,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: TextField(
+                            controller: _phonenumberController,
+                            keyboardType: TextInputType.number,
+                            maxLength: 10,
+                            style: TextStyle(color: Colors.white70),
+                            decoration: InputDecoration(
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.never,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: screenWidth * 0.015,
+                                vertical: screenHeight * 0.012,
+                              ),
+                              hintText: 'phone number',
+                              prefixText: '91+  ',
                               hintStyle: GoogleFonts.spaceGrotesk(
                                 color: Colors.white70,
                                 fontSize: screenWidth * 0.05,

@@ -13,6 +13,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _phonenumberController = TextEditingController();
   final TextEditingController answer = TextEditingController();
   String? _city;
   bool _isFormValid = false;
@@ -360,13 +361,28 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                 ),
                               ),
                             ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: screenWidth * 0.06,
+                                bottom: screenHeight * 0.01,
+                                top: screenHeight * 0.040,
+                              ),
+                              child: Text(
+                                "Phone number",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.white,
+                                  fontSize: screenWidth * 0.014,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
 
                         Row(
                           children: [
                             SizedBox(
-                              width: screenWidth * 0.38,
+                              width: screenWidth * 0.11,
                               child: Padding(
                                 padding: EdgeInsets.only(
                                   left: screenWidth * 0.04,
@@ -383,7 +399,41 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                                       horizontal: screenWidth * 0.015,
                                       vertical: screenHeight * 0.015,
                                     ),
-                                    hintText: 'Enter your age',
+                                    hintText: 'Age',
+                                    hintStyle: GoogleFonts.spaceGrotesk(
+                                      color: Colors.white70,
+                                      fontSize: screenWidth * 0.012,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.transparent.withOpacity(
+                                      0.35,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenWidth * 0.27,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: screenWidth * 0.015,
+                                ),
+                                child: TextField(
+                                  keyboardType: TextInputType.number,
+                                  maxLength: 10,
+                                  controller: _phonenumberController,
+                                  style: TextStyle(color: Colors.white70),
+                                  decoration: InputDecoration(
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.never,
+                                    contentPadding: EdgeInsets.symmetric(
+                                      horizontal: screenWidth * 0.015,
+                                      vertical: screenHeight * 0.015,
+                                    ),
+                                    hintText: 'phone number',
                                     hintStyle: GoogleFonts.spaceGrotesk(
                                       color: Colors.white70,
                                       fontSize: screenWidth * 0.012,

@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_desktop.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +15,7 @@ class DesktopLayoutNetwork extends StatefulWidget {
 
 class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/_so_called_abhi_shek/',
+    'https://www.instagram.com/giggles_safer/',
   );
 
   Future<void> _launchInstagram() async {

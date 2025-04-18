@@ -28,7 +28,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
   }
 
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/_so_called_abhi_shek/',
+    'https://www.instagram.com/giggles_safer/',
   );
 
   Future<void> _launchInstagram() async {
@@ -58,13 +58,6 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
               children: [
                 Stack(
                   children: [
-                    // Container(
-                    //   height: screenHeight * 3.3,
-                    //   // width: screenWidth,
-                    //   decoration: BoxDecoration(
-                    //     color: const Color.fromARGB(244, 0, 0, 0),
-                    //   ),
-                    // ),
                     Center(child: Image.asset('assets/images/Ellipse 3.png')),
                     Row(
                       children: [

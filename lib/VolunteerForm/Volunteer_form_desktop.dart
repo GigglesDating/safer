@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:giggles_safer_web/Confirm_Page/ConfirmPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 
 class Volunteerform extends StatefulWidget {
   const Volunteerform({super.key});
@@ -13,13 +14,37 @@ class _DesktopLayoutState extends State<Volunteerform> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _phonenumberController = TextEditingController();
   final TextEditingController answer = TextEditingController();
-  String? _city;
+  String? city = 'Chennai';
   bool _isFormValid = false;
 
-  // void makeSuggestion(String input) async {
-  //   String googlePlacesApiKey =
-  // }
+  Future<void> submitForm() async {
+    final url = Uri.parse(
+      'https://docs.google.com/forms/d/e/1FAIpQLSdmnffgzfHl-JTqWCryStPUqcju9uCsdHyK3BNHPfxCLJAD5g/formResponse',
+    );
+
+    final response = await http.post(
+      url,
+      body: {
+        'entry.512317767': _nameController.text,
+        'entry.379583368': _phonenumberController.text,
+        'entry.362813398': _emailController.text,
+        'entry.1189910533': city,
+        'entry.378459970': answer.text,
+      },
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 302) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Form submitted successfully")));
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Submission failed")));
+    }
+  }
 
   @override
   void initState() {
@@ -48,7 +73,7 @@ class _DesktopLayoutState extends State<Volunteerform> {
           _emailController.text.isNotEmpty &&
           _ageController.text.isNotEmpty &&
           answer.text.isNotEmpty &&
-          _city != null;
+          city != null;
     });
   }
 
@@ -223,7 +248,7 @@ class _DesktopLayoutState extends State<Volunteerform> {
                             SizedBox(
                               width: screenWidth * 0.35,
                               child: DropdownButtonFormField<String>(
-                                value: _city,
+                                value: city,
                                 style: TextStyle(color: Colors.white70),
                                 dropdownColor: Colors.black.withAlpha(204),
                                 decoration: InputDecoration(
@@ -262,7 +287,7 @@ class _DesktopLayoutState extends State<Volunteerform> {
                                         .toList(),
                                 onChanged: (value) {
                                   setState(() {
-                                    _city = value;
+                                    city = value;
                                     _checkFormValidity();
                                   });
                                 },
@@ -294,13 +319,17 @@ class _DesktopLayoutState extends State<Volunteerform> {
                                 bottom: screenHeight * 0.001,
                                 top: screenHeight * 0.025,
                               ),
-                              child: Text(
-                                "Why do you want to be a volunteer?",
-                                style: GoogleFonts.spaceGrotesk(
-                                  color: Colors.white,
-                                  fontSize: screenWidth * 0.014,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Why do you want to be a volunteer?",
+                                    style: GoogleFonts.spaceGrotesk(
+                                      color: Colors.white,
+                                      fontSize: screenWidth * 0.014,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -360,13 +389,28 @@ class _DesktopLayoutState extends State<Volunteerform> {
                                 ),
                               ),
                             ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: screenWidth * 0.05,
+                                bottom: screenHeight * 0.01,
+                                top: screenHeight * 0.040,
+                              ),
+                              child: Text(
+                                "Phone Number",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.white,
+                                  fontSize: screenWidth * 0.014,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
 
                         Row(
                           children: [
                             SizedBox(
-                              width: screenWidth * 0.38,
+                              width: screenWidth * 0.1,
                               child: Padding(
                                 padding: EdgeInsets.only(
                                   left: screenWidth * 0.04,
@@ -383,7 +427,42 @@ class _DesktopLayoutState extends State<Volunteerform> {
                                       horizontal: screenWidth * 0.015,
                                       vertical: screenHeight * 0.025,
                                     ),
-                                    hintText: 'Enter your age',
+                                    hintText: 'Age',
+                                    hintStyle: GoogleFonts.spaceGrotesk(
+                                      color: Colors.white70,
+                                      fontSize: screenWidth * 0.012,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.transparent.withOpacity(
+                                      0.35,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenWidth * 0.28,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: screenWidth * 0.015,
+                                ),
+                                child: TextField(
+                                  keyboardType: TextInputType.number,
+                                  maxLength: 10,
+                                  controller: _phonenumberController,
+                                  style: TextStyle(color: Colors.white70),
+                                  decoration: InputDecoration(
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.never,
+                                    contentPadding: EdgeInsets.symmetric(
+                                      horizontal: screenWidth * 0.015,
+                                      vertical: screenHeight * 0.025,
+                                    ),
+                                    prefixText: '+91  ',
+                                    hintText: 'Phone number',
                                     hintStyle: GoogleFonts.spaceGrotesk(
                                       color: Colors.white70,
                                       fontSize: screenWidth * 0.012,
@@ -478,6 +557,7 @@ class _DesktopLayoutState extends State<Volunteerform> {
                             _isFormValid
                                 ? () {
                                   _showConfirmPage();
+                                  submitForm();
                                 }
                                 : null,
                         child: Text(

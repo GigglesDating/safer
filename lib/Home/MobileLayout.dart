@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/About_us/About_us.dart';
 import 'package:giggles_safer_web/Our_network/Our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -61,7 +60,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
   }
 
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/_so_called_abhi_shek/',
+    'https://www.instagram.com/giggles_safer/',
   );
 
   Future<void> _launchInstagram() async {
@@ -223,34 +222,6 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                                 ),
                                               ),
                                             ),
-                                            // Padding(
-                                            //   padding: const EdgeInsets.only(
-                                            //     top: 10,
-                                            //     left: 5,
-                                            //   ),
-                                            //   child: TextButton(
-                                            //     onPressed: () {
-                                            //       Navigator.push(
-                                            //         context,
-                                            //         MaterialPageRoute(
-                                            //           builder:
-                                            //               (context) =>
-                                            //                   AboutUs(),
-                                            //         ),
-                                            //       );
-                                            //     },
-                                            //     child: Text(
-                                            //       "About us",
-                                            //       style:
-                                            //           GoogleFonts.spaceGrotesk(
-                                            //             color: Colors.white,
-                                            //             fontSize: 12,
-                                            //             fontWeight:
-                                            //                 FontWeight.w400,
-                                            //           ),
-                                            //     ),
-                                            //   ),
-                                            // ),
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                 top: 10,
@@ -346,51 +317,6 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                             SizedBox(
                                               height: screenHeight * 0.01,
                                             ),
-                                            // SizedBox(
-                                            //   height: screenHeight * 0.045,
-                                            //   child: ElevatedButton(
-                                            //     style: ButtonStyle(
-                                            //       backgroundColor:
-                                            //           WidgetStatePropertyAll(
-                                            //             const Color.fromARGB(
-                                            //               255,
-                                            //               219,
-                                            //               90,
-                                            //               210,
-                                            //             ),
-                                            //           ),
-                                            //       padding:
-                                            //           WidgetStatePropertyAll(
-                                            //             EdgeInsets.symmetric(
-                                            //               horizontal:
-                                            //                   screenWidth *
-                                            //                   0.02,
-                                            //               vertical:
-                                            //                   screenHeight *
-                                            //                   0.005,
-                                            //             ),
-                                            //           ),
-                                            //       shape: WidgetStatePropertyAll(
-                                            //         RoundedRectangleBorder(
-                                            //           borderRadius:
-                                            //               BorderRadius.circular(
-                                            //                 30,
-                                            //               ),
-                                            //         ),
-                                            //       ),
-                                            //     ),
-                                            //     onPressed: () {},
-                                            //     child: Text(
-                                            //       "Explore more",
-                                            //       style: TextStyle(
-                                            //         color: Colors.black,
-                                            //         fontSize:
-                                            //             screenWidth * 0.03,
-                                            //         fontWeight: FontWeight.w500,
-                                            //       ),
-                                            //     ),
-                                            //   ),
-                                            // ),
                                           ],
                                         ),
                                       ),
@@ -579,70 +505,6 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Padding(
-                              //   padding: const EdgeInsets.symmetric(
-                              //     horizontal: 10,
-                              //   ),
-                              //   child: Text(
-                              //     "About Us",
-                              //     style: GoogleFonts.spaceMono(
-                              //       fontSize: 40,
-                              //       fontWeight: FontWeight.w800,
-                              //       color: Colors.white,
-                              //     ),
-                              //   ),
-                              // ),
-                              // Padding(
-                              //   padding: const EdgeInsets.symmetric(
-                              //     horizontal: 7.5,
-                              //   ),
-                              //   child: Container(
-                              //     color: Colors.transparent,
-                              //     child: Text(
-                              //       "Founded with a vision to make safety accessible to every women, Safer began as a response to the growing need for innovative safety solutions.What started as a small initiative to leverage technology for women's security has evolved into a comprehensive platform combining drones and secure hubs. Over the years, our commitment to empowering women has driven us to create cutting-edge solutions that ensure help is always within reach. Safer's  journey is fueled by the belief that every women deserves to feel confident and protected,no matter where life takes her.",
-                              //       style: GoogleFonts.spaceGrotesk(
-                              //         fontSize: 13,
-                              //         fontWeight: FontWeight.w400,
-                              //         color: Colors.white,
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                              // SizedBox(height: screenHeight * 0.02),
-                              // ElevatedButton(
-                              //   style: ButtonStyle(
-                              //     backgroundColor: WidgetStatePropertyAll(
-                              //       Colors.white,
-                              //     ),
-                              //     padding: WidgetStatePropertyAll(
-                              //       EdgeInsets.symmetric(
-                              //         horizontal: screenWidth * 0.045,
-                              //         vertical: screenHeight * 0.005,
-                              //       ),
-                              //     ),
-                              //     shape: WidgetStatePropertyAll(
-                              //       RoundedRectangleBorder(
-                              //         borderRadius: BorderRadius.circular(30),
-                              //       ),
-                              //     ),
-                              //   ),
-                              //   onPressed: () {
-                              //     Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //         builder: (context) => AboutUs(),
-                              //       ),
-                              //     );
-                              //   },
-                              //   child: Text(
-                              //     "Read more",
-                              //     style: TextStyle(
-                              //       color: Colors.black,
-                              //       fontSize: screenWidth * 0.03,
-                              //       fontWeight: FontWeight.w600,
-                              //     ),
-                              //   ),
-                              // ),
                               Row(
                                 children: [
                                   SizedBox(width: screenWidth * 0.088),
