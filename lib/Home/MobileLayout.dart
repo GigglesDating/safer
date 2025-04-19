@@ -1533,7 +1533,14 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OurNetwork(),
+                                ),
+                              );
+                            },
                             child: AutoSizeText(
                               "Our Network",
                               style: GoogleFonts.spaceGrotesk(

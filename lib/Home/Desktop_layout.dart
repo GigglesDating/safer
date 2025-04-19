@@ -68,10 +68,8 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
   }
 
   void playpause() {
-    // if (!_introController.value.isInitialized) return;
     setState(() {
       _isIntroPlaying = !_isIntroPlaying;
-      // _introController.play();
       if (_isIntroPlaying) {
         _introController.play();
       }

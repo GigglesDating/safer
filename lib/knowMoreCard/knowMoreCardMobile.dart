@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class KnowMore extends StatefulWidget {
+class KnowMoreMobile extends StatefulWidget {
   final String text;
   final String name;
-  const KnowMore({super.key, required this.text, required this.name});
+  const KnowMoreMobile({super.key, required this.text, required this.name});
 
   @override
-  State<KnowMore> createState() => _KnowMoreState();
+  State<KnowMoreMobile> createState() => _KnowMoreMobileState();
 }
 
-class _KnowMoreState extends State<KnowMore> {
+class _KnowMoreMobileState extends State<KnowMoreMobile> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -40,25 +40,41 @@ class _KnowMoreState extends State<KnowMore> {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Center(
-                      child: Text(
-                        widget.name,
-                        style: GoogleFonts.spaceGrotesk(
-                          fontSize: 50,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 211, 84, 173),
+                    Container(
+                      width: screenWidth * 0.8,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Color.fromARGB(255, 211, 84, 173),
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          widget.name,
+                          style: GoogleFonts.spaceGrotesk(
+                            fontSize: 35,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 211, 84, 173),
+                          ),
+                          textAlign: TextAlign.start,
                         ),
                       ),
                     ),
+                    SizedBox(height: screenHeight * 0.02),
                     Center(
                       child: Text(
                         widget.text,
                         style: GoogleFonts.spaceGrotesk(
-                          fontSize: 21,
-                          fontWeight: FontWeight.w300,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
                           color: Colors.white,
+                          // letterSpacing: 0.7,
                         ),
+                        textAlign: TextAlign.justify,
                       ),
                     ),
                   ],
