@@ -1026,7 +1026,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                     ),
                     _buildAnswers(
                       'Is there a customer support helpline available?',
-                      ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at mail_id.com.',
+                      ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at admin@gigglessafer.com.',
                     ),
                     _buildAnswers(
                       'Does the app work without an internet connection?',

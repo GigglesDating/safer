@@ -444,36 +444,39 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                 color: Colors.transparent,
               ),
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 25),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            subcontent,
-                            style: GoogleFonts.spaceGrotesk(
-                              fontSize: screenWidth * 0.04,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white30,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              subcontent,
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white30,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 3),
-                      Row(
-                        children: [
-                          Text(
-                            content,
-                            style: GoogleFonts.spaceGrotesk(
-                              fontSize: screenWidth * 0.04,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
+                          ],
+                        ),
+                        SizedBox(height: 3),
+                        Row(
+                          children: [
+                            Text(
+                              content,
+                              style: GoogleFonts.spaceGrotesk(
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

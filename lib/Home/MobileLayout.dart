@@ -621,33 +621,37 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                '120+',
-                                                style: GoogleFonts.spaceMono(
-                                                  fontSize: 45,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    223,
-                                                    126,
-                                                    240,
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  '120+',
+                                                  style: GoogleFonts.spaceMono(
+                                                    fontSize: 45,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      223,
+                                                      126,
+                                                      240,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Text(
-                                                'Safe Interventions',
-                                                textAlign: TextAlign.center,
-                                                style: GoogleFonts.spaceGrotesk(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                                Text(
+                                                  'Safe Interventions',
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      GoogleFonts.spaceGrotesk(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -712,33 +716,37 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                '300+',
-                                                style: GoogleFonts.spaceMono(
-                                                  fontSize: 45,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    223,
-                                                    126,
-                                                    240,
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  '300+',
+                                                  style: GoogleFonts.spaceMono(
+                                                    fontSize: 45,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      223,
+                                                      126,
+                                                      240,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Text(
-                                                'Secure Hubs',
-                                                textAlign: TextAlign.center,
-                                                style: GoogleFonts.spaceGrotesk(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                                Text(
+                                                  'Secure Hubs',
+                                                  textAlign: TextAlign.center,
+                                                  style:
+                                                      GoogleFonts.spaceGrotesk(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -1055,7 +1063,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               ),
                               _buildAnswers(
                                 'Is there a customer support helpline available?',
-                                ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at mail_id.com.',
+                                ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at admin@gigglessafer.com.',
                               ),
                               _buildAnswers(
                                 'Does the app work without an internet connection?',

@@ -85,122 +85,137 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                             fit: BoxFit.contain,
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.05),
-                        Row(
+
+                        SizedBox(height: screenHeight * 0.02),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(width: screenWidth * 0.085),
-                            Text.rich(
-                              TextSpan(
+                            SizedBox(height: screenHeight * 0.05),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
                                 children: [
-                                  TextSpan(
-                                    text: 'Building a ',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                  SizedBox(width: screenWidth * 0.085),
+                                  Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Building a ',
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'SAFER ',
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w500,
+                                            color: const Color.fromARGB(
+                                              255,
+                                              223,
+                                              126,
+                                              240,
+                                            ),
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'Tomorrow, Together.',
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: 'SAFER ',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color.fromARGB(
-                                        255,
-                                        223,
-                                        126,
-                                        240,
-                                      ),
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'Tomorrow, Together.',
-                                    style: GoogleFonts.spaceMono(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w500,
+                                ],
+                              ),
+                            ),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  SizedBox(width: screenWidth * 0.085),
+                                  Text(
+                                    'Our network is the heart of our mission—bringing together innovative\ntechnology, dedicated volunteers, and secure hubs to create a\nsupport system that women can rely on. With each connection, we\nstrengthen our reach and ability to provide real-time assistance and\nproactive safety measures.\n\nWe empower communities and ensure safety is always within reach.',
+                                    style: GoogleFonts.spaceGrotesk(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
                                       color: Colors.white,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
-                        SizedBox(height: screenHeight * 0.02),
-                        Row(
-                          children: [
-                            SizedBox(width: screenWidth * 0.085),
-                            Text(
-                              'Our network is the heart of our mission—bringing together innovative\ntechnology, dedicated volunteers, and secure hubs to create a\nsupport system that women can rely on. With each connection, we\nstrengthen our reach and ability to provide real-time assistance and\nproactive safety measures.\n\nWe empower communities and ensure safety is always within reach.',
-                              style: GoogleFonts.spaceGrotesk(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: screenHeight * 0.07),
-                        Row(
-                          children: [
-                            SizedBox(width: screenWidth * 0.085),
-                            Text(
-                              "'Together, We Make A Difference'",
-                              style: GoogleFonts.spaceGrotesk(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: screenHeight * 0.04),
-                        Row(
-                          children: [
-                            SizedBox(width: screenWidth * 0.085),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(
-                                  const Color.fromARGB(255, 219, 90, 210),
-                                ),
-                                padding: WidgetStatePropertyAll(
-                                  EdgeInsets.symmetric(
-                                    horizontal: screenWidth * 0.025,
-                                    vertical: screenHeight * 0.02,
+                            SizedBox(height: screenHeight * 0.07),
+                            Row(
+                              children: [
+                                SizedBox(width: screenWidth * 0.085),
+                                Text(
+                                  "'Together, We Make A Difference'",
+                                  style: GoogleFonts.spaceGrotesk(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
                                   ),
                                 ),
-                                shape: WidgetStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                              ],
+                            ),
+                            SizedBox(height: screenHeight * 0.04),
+                            Row(
+                              children: [
+                                SizedBox(width: screenWidth * 0.085),
+                                ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      const Color.fromARGB(255, 219, 90, 210),
+                                    ),
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.symmetric(
+                                        horizontal: screenWidth * 0.025,
+                                        vertical: screenHeight * 0.02,
+                                      ),
+                                    ),
+                                    shape: WidgetStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    _showVolunteerForm();
+                                  },
+                                  child: Text(
+                                    "Be A Volunteer Now",
+                                    style: GoogleFonts.spaceGrotesk(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              onPressed: () {
-                                _showVolunteerForm();
-                              },
-                              child: Text(
-                                "Be A Volunteer Now",
-                                style: GoogleFonts.spaceGrotesk(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                        SizedBox(height: screenHeight * 0.02),
-                        Row(
-                          children: [
-                            SizedBox(width: screenWidth * 0.085),
-                            SizedBox(
-                              height: 36,
+                            SizedBox(height: screenHeight * 0.02),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: [
-                                  Image.asset(
-                                    'assets/images/Line 6.png',
-                                    fit: BoxFit.fitWidth,
-                                    width: 645,
+                                  SizedBox(width: screenWidth * 0.085),
+                                  SizedBox(
+                                    height: 36,
+                                    child: Row(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/Line 6.png',
+                                          fit: BoxFit.fitWidth,
+                                          width: 645,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -442,17 +457,20 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                       ],
                     ),
                     SizedBox(height: 3),
-                    Row(
-                      children: [
-                        Text(
-                          content,
-                          style: GoogleFonts.spaceGrotesk(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Text(
+                            content,
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
