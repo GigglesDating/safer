@@ -37,6 +37,24 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
     }
   }
 
+  Future<void> launchEmail() async {
+    final String subject = Uri.encodeComponent(
+      'Customer Support Enquiry',
+    );
+    final String body = Uri.encodeComponent('');
+
+    final Uri emailLaunchUri = Uri.parse(
+      'mailto:admin@gigglessafer.com?subject=$subject&body=$body',
+    );
+
+    if (!await launchUrl(
+      emailLaunchUri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $emailLaunchUri';
+    }
+  }
+
   TextEditingController subEmail = TextEditingController();
 
   late VideoPlayerController _introController;
@@ -1010,27 +1028,90 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                     SizedBox(height: screenHeight * 0.02),
                     _buildAnswers(
                       'How quickly can a drone or secure hub respond in an emergency?',
-                      ' Once the SOS button is pressed in the Safer App, a drone is immediately activated and will reach the location within minutes. A secure hub personnel is also dispatched and typically arrives at the scene within 10 minutes of the alert.',
+                      Text(
+                        " Once the SOS button is pressed in the Safer App, a drone is immediately activated and will reach the location within minutes. A secure hub personnel is also dispatched and typically arrives at the scene within 10 minutes of the alert.",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                     _buildAnswers(
                       'What is a secure hub, and how do i locate one near me?',
-                      ' A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.',
+                      Text(
+                        "A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                     _buildAnswers(
                       'Are the drones equipped with cameras or tracking devices?',
-                      ' Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.',
+                      Text(
+                        " Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                     _buildAnswers(
                       ' Is my data safe and secure?',
-                      ' Yes, your data is completely safe and secure with us. We use advanced encryption protocols and follow strict privacy policies to ensure that your personal information remains protected at all times. Your safety and trust are our top priorities.',
+                      Text(
+                        " Yes, your data is completely safe and secure with us. We use advanced encryption protocols and follow strict privacy policies to ensure that your personal information remains protected at all times. Your safety and trust are our top priorities.",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                     _buildAnswers(
                       'Is there a customer support helpline available?',
-                      ' Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at admin@gigglessafer.com.',
+                      Wrap(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                " Yes, Safer offers 24/7 customer support to ensure user safety and assist with any concerns at any time. You can reach us anytime at",
+                                style: GoogleFonts.spaceGrotesk(
+                                  color: Colors.white70,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          TextButton(
+                            onPressed: launchEmail,
+                            child: Text(
+                              'admin@gigglessafer.com',
+                              style: GoogleFonts.spaceGrotesk(
+                                color: const Color.fromARGB(255, 223, 126, 240),
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     _buildAnswers(
                       'Does the app work without an internet connection?',
-                      ' No, the app requires an active internet connection to function properly. We recommend staying within network coverage to ensure access to all safety features when needed.',
+                      Text(
+                        " No, the app requires an active internet connection to function properly. We recommend staying within network coverage to ensure access to all safety features when needed.",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                     SizedBox(height: screenHeight * 0.05),
                     Container(
@@ -1515,7 +1596,7 @@ Widget _buildCarouselItem(String text, Color color, double screenWidth) {
   );
 }
 
-Widget _buildAnswers(String question, String answer) {
+Widget _buildAnswers(String question, Widget answerwidget) {
   return Padding(
     padding: const EdgeInsets.only(top: 20, left: 50, right: 50),
     child: Container(
@@ -1543,16 +1624,7 @@ Widget _buildAnswers(String question, String answer) {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  answer,
-                  style: GoogleFonts.spaceGrotesk(
-                    color: Colors.white70,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
+              children: [answerwidget],
             ),
           ),
           SizedBox(height: 16),
