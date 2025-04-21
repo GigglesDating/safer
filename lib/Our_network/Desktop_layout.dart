@@ -515,99 +515,108 @@ Widget _buildcard(
       ),
       borderRadius: BorderRadius.all(Radius.circular(30)),
     ),
-    child: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-          child: Row(
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+            child: Row(
+              children: [
+                SvgPicture.asset(image),
+                Spacer(),
+                Text(
+                  name,
+                  style: GoogleFonts.spaceGrotesk(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: const Color.fromARGB(255, 223, 126, 240),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: screenHeight * 0.22,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: const Color.fromARGB(
+                    255,
+                    223,
+                    126,
+                    240,
+                  ).withAlpha(100),
+                ),
+              ),
+              color: Colors.transparent,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(25),
+              child: SingleChildScrollView(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        subcontent,
+                        style: GoogleFonts.spaceGrotesk(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white30,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        content,
+                        style: GoogleFonts.spaceGrotesk(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Row(
             children: [
-              SvgPicture.asset(image),
-              Spacer(),
-              Text(
-                name,
-                style: GoogleFonts.spaceGrotesk(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: const Color.fromARGB(255, 223, 126, 240),
+              SizedBox(width: 25),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(
+                    const Color.fromARGB(255, 219, 90, 210),
+                  ),
+                  padding: WidgetStatePropertyAll(
+                    EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.016,
+                      vertical: screenHeight * 0.023,
+                    ),
+                  ),
+                  shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                ),
+                onPressed: ontap,
+                child: Text(
+                  "Click here to know more",
+                  style: GoogleFonts.spaceGrotesk(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ],
           ),
-        ),
-        Container(
-          height: screenHeight * 0.22,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: const Color.fromARGB(255, 223, 126, 240).withAlpha(100),
-              ),
-            ),
-            color: Colors.transparent,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(25),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    subcontent,
-                    style: GoogleFonts.spaceGrotesk(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white30,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    content,
-                    style: GoogleFonts.spaceGrotesk(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        SizedBox(height: 20),
-        Row(
-          children: [
-            SizedBox(width: 25),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(
-                  const Color.fromARGB(255, 219, 90, 210),
-                ),
-                padding: WidgetStatePropertyAll(
-                  EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.016,
-                    vertical: screenHeight * 0.023,
-                  ),
-                ),
-                shape: WidgetStatePropertyAll(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-              onPressed: ontap,
-              child: Text(
-                "Click here to know more",
-                style: GoogleFonts.spaceGrotesk(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }

@@ -38,9 +38,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
   }
 
   Future<void> launchEmail() async {
-    final String subject = Uri.encodeComponent(
-      'Customer Support Enquiry',
-    );
+    final String subject = Uri.encodeComponent('Customer Support Enquiry');
     final String body = Uri.encodeComponent('');
 
     final Uri emailLaunchUri = Uri.parse(
@@ -1296,7 +1294,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 20),
                                     child: Text(
-                                      "Your information will remain 100% secure and confidential,\nprotectedwith the highest standards of privacy and security.",
+                                      "Your information will remain 100% secure and confidential,\nprotected with the highest standards of privacy and security.",
                                       style: GoogleFonts.spaceGrotesk(
                                         fontSize: 17,
                                         fontWeight: FontWeight.w400,
