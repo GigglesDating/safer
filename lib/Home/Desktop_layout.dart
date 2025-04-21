@@ -1202,7 +1202,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                       right: 20,
                                     ),
                                     child: Text(
-                                      "Subscribe to Safer for updates, safety tips, and the latest features. Join our mission to create a safer world—one step at a time!",
+                                      "Subscribe to Safer for updates, safety tips, and the latest features.\nJoin our mission to create a safer world—one step at a time!",
                                       style: GoogleFonts.spaceGrotesk(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w400,
