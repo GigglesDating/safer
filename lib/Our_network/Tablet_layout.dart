@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_tablet.dart';
 import 'package:giggles_safer_web/knowMoreCard/knowMoreCardMobile.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TabletLayoutNetwork extends StatefulWidget {
   const TabletLayoutNetwork({super.key});

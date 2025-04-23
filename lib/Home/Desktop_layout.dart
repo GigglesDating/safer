@@ -2,10 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/Our_network/our_network.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
+
+import 'package:giggles_safer_web/Our_network/our_network.dart';
 
 class DesktopLayoutHome extends StatefulWidget {
   const DesktopLayoutHome({super.key});
