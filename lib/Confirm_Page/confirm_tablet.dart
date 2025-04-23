@@ -119,7 +119,7 @@ class _DesktopLayoutState extends State<ConfirmPageTablet> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => homePage()),
+                          MaterialPageRoute(builder: (context) => HomePage()),
                         );
                       },
                       child: Text(

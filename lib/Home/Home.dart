@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:giggles_safer_web/Home/Desktop_layout.dart';
+import 'package:giggles_safer_web/Home/desktop_layout.dart';
 import 'package:giggles_safer_web/Home/MobileLayout.dart';
 import 'package:giggles_safer_web/Home/Tablet_layout.dart';
 
-class homePage extends StatefulWidget {
-  const homePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<homePage> createState() => _homePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _homePageState extends State<homePage> {
+class _HomePageState extends State<HomePage> {
   void _portraitmode() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,

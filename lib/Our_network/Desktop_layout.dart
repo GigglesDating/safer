@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:giggles_safer_web/Home/Home.dart';
 import 'package:giggles_safer_web/VolunteerForm/Volunteer_form_desktop.dart';
 import 'package:giggles_safer_web/knowMoreCard/KnowMoreCard.dart';
 
@@ -338,7 +337,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => homePage()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
             child: Text(
@@ -403,7 +402,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => homePage()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                     child: Text(

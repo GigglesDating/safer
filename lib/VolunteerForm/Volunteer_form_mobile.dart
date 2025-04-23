@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:giggles_safer_web/Confirm_Page/confirm_mobile.dart';
+import 'package:giggles_safer_web/confirm_Page/confirm_mobile.dart';
 
 class VolunteerformMobile extends StatefulWidget {
   const VolunteerformMobile({super.key});

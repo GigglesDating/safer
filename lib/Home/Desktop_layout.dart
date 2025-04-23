@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
-
 import 'package:giggles_safer_web/Our_network/our_network.dart';
 
 class DesktopLayoutHome extends StatefulWidget {
