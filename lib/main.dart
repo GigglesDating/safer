@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giggles_safer_web/Home/Home.dart';
+import 'package:giggles_safer_web/home/home.dart';
 void main() {
   runApp(const MyApp());
 }

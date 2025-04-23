@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/Home/Home.dart';
+import 'package:giggles_safer_web/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ConfirmPageMobile extends StatefulWidget {
-  const ConfirmPageMobile({super.key});
+class ConfirmPageTablet extends StatefulWidget {
+  const ConfirmPageTablet({super.key});
 
   @override
-  State<ConfirmPageMobile> createState() => _DesktopLayoutState();
+  State<ConfirmPageTablet> createState() => _DesktopLayoutState();
 }
 
-class _DesktopLayoutState extends State<ConfirmPageMobile> {
+class _DesktopLayoutState extends State<ConfirmPageTablet> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -57,7 +57,7 @@ class _DesktopLayoutState extends State<ConfirmPageMobile> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.05),
+                  SizedBox(height: screenHeight * 0.15),
                   Center(
                     child: SvgPicture.asset('assets/images/confirmtick.svg'),
                   ),
@@ -67,31 +67,26 @@ class _DesktopLayoutState extends State<ConfirmPageMobile> {
                     child: Center(
                       child: Text(
                         "Thank You for Signing Up!",
-                        textAlign: TextAlign.center,
                         style: GoogleFonts.spaceMono(
-                          fontSize: 20,
+                          fontSize: 30,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.03),
+                  SizedBox(height: screenHeight * 0.02),
                   Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        "Your application to be a volunteer has been successfully submitted. We’re excited to have you on board and will reach out to you soon with the next steps.",
-                        textAlign: TextAlign.start,
-                        style: GoogleFonts.spaceGrotesk(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                        ),
+                    child: Text(
+                      "    Your application to be a volunteer has been successfully\nsubmitted. We’re excited to have you on board and will reach out\n               to you soon with the next steps.",
+                      style: GoogleFonts.spaceGrotesk(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.05),
+                  SizedBox(height: screenHeight * 0.02),
                   Center(
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -111,8 +106,8 @@ class _DesktopLayoutState extends State<ConfirmPageMobile> {
                         ),
                         padding: WidgetStatePropertyAll(
                           EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.09,
-                            vertical: screenHeight * 0.012,
+                            horizontal: screenWidth * 0.03,
+                            vertical: screenHeight * 0.015,
                           ),
                         ),
                         shape: WidgetStatePropertyAll(
@@ -131,8 +126,8 @@ class _DesktopLayoutState extends State<ConfirmPageMobile> {
                         "Home",
                         style: GoogleFonts.spaceGrotesk(
                           color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
@@ -156,7 +151,7 @@ class _DesktopLayoutState extends State<ConfirmPageMobile> {
                     icon: Icon(
                       Icons.highlight_remove,
                       color: Colors.white,
-                      size: screenWidth * 0.08,
+                      size: screenWidth * 0.025,
                     ),
                   ),
                 ),

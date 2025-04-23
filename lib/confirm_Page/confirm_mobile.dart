@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:giggles_safer_web/Home/Home.dart';
+import 'package:giggles_safer_web/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ConfirmPage extends StatefulWidget {
-  const ConfirmPage({super.key});
+class ConfirmPageMobile extends StatefulWidget {
+  const ConfirmPageMobile({super.key});
 
   @override
-  State<ConfirmPage> createState() => _DesktopLayoutState();
+  State<ConfirmPageMobile> createState() => _DesktopLayoutState();
 }
 
-class _DesktopLayoutState extends State<ConfirmPage> {
+class _DesktopLayoutState extends State<ConfirmPageMobile> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Dialog(
       child: Container(
-        height: screenHeight * 0.85,
+        height: screenHeight * 0.75,
         width: screenWidth * 0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -57,7 +57,7 @@ class _DesktopLayoutState extends State<ConfirmPage> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.15),
+                  SizedBox(height: screenHeight * 0.05),
                   Center(
                     child: SvgPicture.asset('assets/images/confirmtick.svg'),
                   ),
@@ -67,22 +67,24 @@ class _DesktopLayoutState extends State<ConfirmPage> {
                     child: Center(
                       child: Text(
                         "Thank You for Signing Up!",
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.spaceMono(
-                          fontSize: screenHeight * 0.066,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.025),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
+                  SizedBox(height: screenHeight * 0.03),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        "    Your application to be a volunteer has been successfully submitted. We’re\nexcited to have you on board and will reach out to you soon with the next steps.",
+                        "Your application to be a volunteer has been successfully submitted. We’re excited to have you on board and will reach out to you soon with the next steps.",
+                        textAlign: TextAlign.start,
                         style: GoogleFonts.spaceGrotesk(
-                          fontSize: screenHeight * 0.025,
+                          fontSize: 15,
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
                         ),
@@ -90,50 +92,47 @@ class _DesktopLayoutState extends State<ConfirmPage> {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.05),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          side: WidgetStatePropertyAll(
-                            BorderSide(
-                              color: Colors.black.withAlpha(100),
-                              width: 2,
-                            ),
-                          ),
-                          backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(
-                              255,
-                              211,
-                              84,
-                              173,
-                            ).withAlpha(255),
-                          ),
-                          padding: WidgetStatePropertyAll(
-                            EdgeInsets.symmetric(
-                              horizontal: screenWidth * 0.025,
-                              vertical: screenHeight * 0.025,
-                            ),
-                          ),
-                          shape: WidgetStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+                  Center(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        side: WidgetStatePropertyAll(
+                          BorderSide(
+                            color: Colors.black.withAlpha(100),
+                            width: 2,
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
-                        },
-                        child: Text(
-                          "Home",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+                        backgroundColor: WidgetStatePropertyAll(
+                          const Color.fromARGB(
+                            255,
+                            211,
+                            84,
+                            173,
+                          ).withAlpha(255),
+                        ),
+                        padding: WidgetStatePropertyAll(
+                          EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.09,
+                            vertical: screenHeight * 0.012,
                           ),
+                        ),
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      },
+                      child: Text(
+                        "Home",
+                        style: GoogleFonts.spaceGrotesk(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
@@ -157,7 +156,7 @@ class _DesktopLayoutState extends State<ConfirmPage> {
                     icon: Icon(
                       Icons.highlight_remove,
                       color: Colors.white,
-                      size: screenWidth * 0.025,
+                      size: screenWidth * 0.08,
                     ),
                   ),
                 ),

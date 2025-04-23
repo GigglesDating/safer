@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:giggles_safer_web/Home/desktop_layout.dart';
-import 'package:giggles_safer_web/Home/MobileLayout.dart';
-import 'package:giggles_safer_web/Home/Tablet_layout.dart';
+import 'package:giggles_safer_web/home/mobileLayout.dart';
+import 'package:giggles_safer_web/home/tablet_layout.dart';
+import 'package:giggles_safer_web/home/desktop_layout.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
