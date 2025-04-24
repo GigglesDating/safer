@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:giggles_safer_web/our_network/desktop_layout.dart';
 import 'package:giggles_safer_web/our_network/mobile_layout.dart';
 import 'package:giggles_safer_web/our_network/tablet_layout.dart';
@@ -12,17 +12,17 @@ class OurNetwork extends StatefulWidget {
 }
 
 class _OurNetworkState extends State<OurNetwork> {
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
   @override
   void initState() {
     super.initState();
-    _portraitmode();
+    // _portraitmode();
   }
 
   @override

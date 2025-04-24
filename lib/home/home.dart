@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:giggles_safer_web/home/mobileLayout.dart';
 import 'package:giggles_safer_web/home/tablet_layout.dart';
 import 'package:giggles_safer_web/home/desktop_layout.dart';
@@ -12,18 +11,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
-  @override
-  void initState() {
-    super.initState();
-    _portraitmode();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _portraitmode();
+  // }
 
   @override
   Widget build(BuildContext context) {

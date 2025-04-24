@@ -15,17 +15,17 @@ class TabletLayoutNetwork extends StatefulWidget {
 }
 
 class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
   @override
   void initState() {
     super.initState();
-    _portraitmode();
+    // _portraitmode();
   }
 
   final Uri _instagramUrl = Uri.parse(
