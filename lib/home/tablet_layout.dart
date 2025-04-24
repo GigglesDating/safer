@@ -19,17 +19,17 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
 
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
   @override
   void initState() {
     super.initState();
-    _portraitmode();
+    // _portraitmode();
     // Initialize with your video URL
     _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {

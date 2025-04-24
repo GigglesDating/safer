@@ -12,17 +12,17 @@ class OurNetwork extends StatefulWidget {
 }
 
 class _OurNetworkState extends State<OurNetwork> {
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
   @override
   void initState() {
     super.initState();
-    _portraitmode();
+    // _portraitmode();
   }
 
   @override

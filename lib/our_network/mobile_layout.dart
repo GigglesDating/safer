@@ -16,17 +16,17 @@ class MobileLayoutNetwork extends StatefulWidget {
 }
 
 class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
-  void _portraitmode() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
+  // void _portraitmode() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.portraitDown,
+  //     DeviceOrientation.portraitUp,
+  //   ]);
+  // }
 
   @override
   void initState() {
     super.initState();
-    _portraitmode();
+    // _portraitmode();
   }
 
   final Uri _instagramUrl = Uri.parse(
