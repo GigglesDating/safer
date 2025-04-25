@@ -18,11 +18,11 @@ class _HomePageState extends State<HomePage> {
   //   ]);
   // }
 
-  @override
-  void initState() {
-    super.initState();
-    _portraitmode();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _portraitmode();
+  // }
 
   @override
   Widget build(BuildContext context) {
