@@ -23,11 +23,11 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
   //   ]);
   // }
 
-  @override
-  void initState() {
-    super.initState();
-    _portraitmode();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _portraitmode();
+  // }
 
   final Uri _instagramUrl = Uri.parse(
     'https://www.instagram.com/giggles_safer/',
