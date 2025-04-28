@@ -19,11 +19,11 @@ class _OurNetworkState extends State<OurNetwork> {
   //   ]);
   // }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // _portraitmode();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    // _portraitmode();
+  }
 
   @override
   Widget build(BuildContext context) {
