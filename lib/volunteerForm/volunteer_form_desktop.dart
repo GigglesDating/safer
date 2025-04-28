@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
 
 import 'package:giggles_safer_web/confirm_Page/confirmPage.dart';
 
@@ -19,33 +18,6 @@ class _DesktopLayoutState extends State<Volunteerform> {
   final TextEditingController answer = TextEditingController();
   String? city = 'Chennai';
   bool _isFormValid = false;
-
-  Future<void> submitForm() async {
-    final url = Uri.parse(
-      'https://docs.google.com/forms/d/e/1FAIpQLSdmnffgzfHl-JTqWCryStPUqcju9uCsdHyK3BNHPfxCLJAD5g/formResponse',
-    );
-
-    final response = await http.post(
-      url,
-      body: {
-        'entry.512317767': _nameController.text,
-        'entry.379583368': _phonenumberController.text,
-        'entry.362813398': _emailController.text,
-        'entry.1189910533': city,
-        'entry.378459970': answer.text,
-      },
-    );
-
-    if (response.statusCode == 200 || response.statusCode == 302) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Form submitted successfully")));
-    } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Submission failed")));
-    }
-  }
 
   @override
   void initState() {
@@ -558,7 +530,6 @@ class _DesktopLayoutState extends State<Volunteerform> {
                             _isFormValid
                                 ? () {
                                   _showConfirmPage();
-                                  submitForm();
                                 }
                                 : null,
                         child: Text(
