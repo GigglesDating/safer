@@ -1,11 +1,11 @@
 {
-    "name": "giggles_safer_web",
-    "short_name": "giggles_safer_web",
+    "name": "Giggles Safer",
+    "short_name": "gigglessafer",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Safer is a women's safety platform designed to provide immediate assistance during distressful situations.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
