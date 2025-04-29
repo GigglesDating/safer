@@ -381,7 +381,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                 ],
                                 options: CarouselOptions(
                                   height: 60,
-                                  viewportFraction: 0.145,
+                                  viewportFraction: 0.225,
                                   autoPlay: true,
                                   autoPlayInterval: Duration(
                                     milliseconds: 1000,
@@ -1503,6 +1503,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
       children: [
         Container(
           height: double.infinity,
+          width: screenWidth * 0.2,
           color: Colors.transparent,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -1511,18 +1512,19 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                 Text(
                   text,
                   style: GoogleFonts.spaceGrotesk(
-                    fontSize: 10,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(width: 10),
+                // SizedBox(width: 10),
               ],
             ),
           ),
         ),
         Container(
           height: double.infinity,
+          width: screenWidth * 0.025,
           color: Colors.transparent,
           child: SvgPicture.asset(
             'assets/images/flowers.svg',

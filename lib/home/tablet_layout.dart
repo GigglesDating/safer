@@ -278,73 +278,33 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                   width: screenWidth * 0.4,
                                   color: Colors.transparent,
                                   child: SingleChildScrollView(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Introducing Safer",
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color.fromARGB(
-                                                255,
-                                                211,
-                                                84,
-                                                173,
-                                              ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Introducing Safer",
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color.fromARGB(
+                                              255,
+                                              211,
+                                              84,
+                                              173,
                                             ),
                                           ),
-                                          SizedBox(height: screenHeight * 0.01),
-                                          Text(
-                                            "Empowering women with real-time \nsafety through drones and secure \nhubs.Help is always just a click\naway.",
-                                            style: GoogleFonts.spaceMono(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.white,
-                                            ),
+                                        ),
+                                        SizedBox(height: screenHeight * 0.01),
+                                        Text(
+                                          "Empowering women with real-time safety through drones and secure hubs.Help is always just a click away.",
+                                          style: GoogleFonts.spaceMono(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.white,
                                           ),
-                                          // SizedBox(height: screenHeight * 0.01),
-
-                                          // ElevatedButton(
-                                          //   style: ButtonStyle(
-                                          //     backgroundColor:
-                                          //         WidgetStatePropertyAll(
-                                          //           const Color.fromARGB(
-                                          //             255,
-                                          //             219,
-                                          //             90,
-                                          //             210,
-                                          //           ),
-                                          //         ),
-                                          //     padding: WidgetStatePropertyAll(
-                                          //       EdgeInsets.symmetric(
-                                          //         horizontal:
-                                          //             screenWidth * 0.025,
-                                          //         vertical: screenHeight * 0.01,
-                                          //       ),
-                                          //     ),
-                                          //     shape: WidgetStatePropertyAll(
-                                          //       RoundedRectangleBorder(
-                                          //         borderRadius:
-                                          //             BorderRadius.circular(30),
-                                          //       ),
-                                          //     ),
-                                          //   ),
-                                          //   onPressed: () {},
-                                          //   child: Text(
-                                          //     "Explore more",
-                                          //     style: TextStyle(
-                                          //       color: Colors.black,
-                                          //       fontSize: screenWidth * 0.015,
-                                          //       fontWeight: FontWeight.w500,
-                                          //     ),
-                                          //   ),
-                                          // ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -1338,26 +1298,34 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
       children: [
         Container(
           height: double.infinity,
+          width: screenWidth * 0.12,
           color: Colors.transparent,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                Text(
-                  text,
-                  style: GoogleFonts.spaceGrotesk(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+                Container(
+                  color: Colors.transparent,
+                  child: Center(
+                    child: Text(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.spaceGrotesk(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(width: 10),
+                // SizedBox(width: 10),
               ],
             ),
           ),
         ),
         Container(
           height: double.infinity,
+          width: screenWidth * 0.025,
           color: Colors.transparent,
           child: SvgPicture.asset(
             'assets/images/flowers.svg',
