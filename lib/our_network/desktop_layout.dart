@@ -69,9 +69,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                       margin: EdgeInsets.only(top: screenHeight * 0.2),
                       height: screenHeight * 0.75,
                       width: screenWidth * 0.84,
-                      color: Colors.deepPurple.withOpacity(
-                        0.1,
-                      ), // for visibility
+                      color: Colors.transparent,
                       child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

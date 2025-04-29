@@ -924,7 +924,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               SizedBox(height: screenHeight * 0.02),
                               _buildTestimonial(
                                 'assets/images/Test1.jpg',
-                                '"Knowing there’s a secure hub\nnearby makes me feel safer when\nI’m out alone."',
+                              "Knowing there's a secure hub\nnearby makes me feel safer when\nI'm out alone.",
                                 '-shreya Sharma',
                               ),
                               SizedBox(height: screenHeight * 0.05),
@@ -936,7 +936,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               SizedBox(height: screenHeight * 0.05),
                               _buildTestimonial(
                                 'assets/images/Test3.jpg',
-                                '"The drone assistance feature is\na game-changer for women’s\nsafety. Thank you, Safer!"',
+                                "The drone assistance feature is\na game-changer for women's\nsafety. Thank you, Safer!",
                                 '-Arpita Singh',
                               ),
                             ],
@@ -1074,7 +1074,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               _buildAnswers(
                                 'What is a secure hub, and how do i locate one near me?',
                                 Text(
-                                  " A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.",
+                                  " A secure hub is Safer's on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.",
                                   style: GoogleFonts.spaceGrotesk(
                                     color: Colors.white70,
                                     fontSize: 15,
@@ -1085,7 +1085,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               _buildAnswers(
                                 'Are the drones equipped with cameras or tracking devices?',
                                 Text(
-                                  "Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.",
+                                  "Yes, Safer's drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.",
                                   style: GoogleFonts.spaceGrotesk(
                                     color: Colors.white70,
                                     fontSize: 15,
@@ -1411,12 +1411,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                     ],
                   ),
                   SizedBox(height: screenHeight * 0.05),
-                  Positioned(
-                    right: 0,
-                    left: 0,
-                    bottom: 0,
-                    child: _buildFooter(screenHeight, screenWidth),
-                  ),
+                  _buildFooter(screenHeight, screenWidth),
                 ],
               ),
             ),
