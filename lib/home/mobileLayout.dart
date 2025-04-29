@@ -1,8 +1,11 @@
+import 'dart:html' as html;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/our_network/our_network.dart';
+import 'package:giggles_safer_web/services/subscribe_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
@@ -17,18 +20,17 @@ class MobileLayoutHome extends StatefulWidget {
 class _MobileLayoutHomeState extends State<MobileLayoutHome> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
+  bool _isSubmitting = false;
+  final SubscriberService _subscriberService = SubscriberService();
 
-  // void _portraitmode() {
-  //   SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.portraitDown,
-  //     DeviceOrientation.portraitUp,
-  //   ]);
-  // }
+  void _log(String message) {
+    html.window.console.log(message);
+    debugPrint(message);
+  }
 
   @override
   void initState() {
     super.initState();
-    // _portraitmode();
     // Initialize with your video URL
     _introController = VideoPlayerController.asset('assets/video/phVideo2.mp4')
       ..initialize().then((_) {
@@ -42,6 +44,32 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
         _introController.play();
       }
     });
+    _testSupabaseConnection();
+  }
+
+  @override
+  void dispose() {
+    _introController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _testSupabaseConnection() async {
+    try {
+      await _subscriberService.testConnection();
+    } catch (e) {
+      _log('Failed to connect to Supabase: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Warning: Database connection issue. Please try again later.',
+            ),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 5),
+          ),
+        );
+      }
+    }
   }
 
   void playpause() {
@@ -92,13 +120,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
     }
   }
 
-  @override
-  void dispose() {
-    _introController.dispose();
-    super.dispose();
-  }
-
-  TextEditingController subEmail = TextEditingController();
+  TextEditingController _subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -1224,7 +1246,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                           child: Padding(
                                             padding: EdgeInsets.only(right: 10),
                                             child: TextField(
-                                              controller: subEmail,
+                                              controller: _subEmail,
                                               style: TextStyle(
                                                 color: Colors.white70,
                                               ),
@@ -1280,7 +1302,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                             ),
                                           ),
                                           onPressed: () {
-                                            subEmail.clear();
+                                            _submitSubscriber();
                                           },
                                           child: Text(
                                             "Subscribe",
@@ -1405,6 +1427,54 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
         );
       },
     );
+  }
+
+  void _submitSubscriber() async {
+    _log('Submit button pressed');
+
+    if (_isSubmitting) {
+      _log('Already submitting, ignoring click');
+      return;
+    }
+
+    setState(() {
+      _isSubmitting = true;
+    });
+    _log('Set isSubmitting to true');
+
+    try {
+      _log('Starting form submission');
+
+      await _subscriberService.submitServiceForm(emailId: _subEmail.text);
+
+      _log('Form submitted successfully');
+
+      if (!mounted) {
+        _log('Widget not mounted after submission');
+        return;
+      }
+
+      // Clear the form
+      _subEmail.clear();
+    } catch (e) {
+      _log('Error submitting form: $e');
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to submit form: ${e.toString()}'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 5),
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+        _log('Set isSubmitting back to false');
+      }
+    }
   }
 
   Widget _buildAnswers(String question, Widget answerwidget) {

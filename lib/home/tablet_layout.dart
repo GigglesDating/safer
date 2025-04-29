@@ -1,7 +1,10 @@
+import 'dart:html' as html;
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/our_network/our_network.dart';
+import 'package:giggles_safer_web/services/subscribe_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
@@ -16,13 +19,13 @@ class TabletLayoutHome extends StatefulWidget {
 class _TabletLayoutHomeState extends State<TabletLayoutHome> {
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
+  bool _isSubmitting = false;
+  final SubscriberService _subscriberService = SubscriberService();
 
-  // void _portraitmode() {
-  //   SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.portraitDown,
-  //     DeviceOrientation.portraitUp,
-  //   ]);
-  // }
+  void _log(String message) {
+    html.window.console.log(message);
+    debugPrint(message);
+  }
 
   @override
   void initState() {
@@ -41,12 +44,32 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
         _introController.play();
       }
     });
+    _testSupabaseConnection();
   }
 
   @override
   void dispose() {
     _introController.dispose();
     super.dispose();
+  }
+
+  Future<void> _testSupabaseConnection() async {
+    try {
+      await _subscriberService.testConnection();
+    } catch (e) {
+      _log('Failed to connect to Supabase: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Warning: Database connection issue. Please try again later.',
+            ),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 5),
+          ),
+        );
+      }
+    }
   }
 
   void playpause() {
@@ -97,7 +120,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
     }
   }
 
-  TextEditingController subEmail = TextEditingController();
+  TextEditingController _subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -1114,7 +1137,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                               right: 220,
                                             ),
                                             child: TextField(
-                                              controller: subEmail,
+                                              controller: _subEmail,
                                               style: TextStyle(
                                                 color: Colors.white70,
                                               ),
@@ -1170,7 +1193,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                             ),
                                           ),
                                           onPressed: () {
-                                            subEmail.clear();
+                                            _submitSubscriber();
                                           },
                                           child: Text(
                                             "Subscribe",
@@ -1291,6 +1314,54 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
         );
       },
     );
+  }
+
+  void _submitSubscriber() async {
+    _log('Submit button pressed');
+
+    if (_isSubmitting) {
+      _log('Already submitting, ignoring click');
+      return;
+    }
+
+    setState(() {
+      _isSubmitting = true;
+    });
+    _log('Set isSubmitting to true');
+
+    try {
+      _log('Starting form submission');
+
+      await _subscriberService.submitServiceForm(emailId: _subEmail.text);
+
+      _log('Form submitted successfully');
+
+      if (!mounted) {
+        _log('Widget not mounted after submission');
+        return;
+      }
+
+      // Clear the form
+      _subEmail.clear();
+    } catch (e) {
+      _log('Error submitting form: $e');
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to submit form: ${e.toString()}'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 5),
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+        _log('Set isSubmitting back to false');
+      }
+    }
   }
 
   Widget _buildCarouselItem(String text, double screenWidth) {
