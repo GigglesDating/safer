@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:html' as html;
 
 import 'package:giggles_safer_web/confirm_Page/confirmPage.dart';
+import 'package:giggles_safer_web/services/volunteer_service.dart';
 
 class Volunteerform extends StatefulWidget {
   const Volunteerform({super.key});
@@ -18,6 +20,12 @@ class _DesktopLayoutState extends State<Volunteerform> {
   final TextEditingController answer = TextEditingController();
   String? city = 'Chennai';
   bool _isFormValid = false;
+  bool _isSubmitting = false;
+  final VolunteerService _volunteerService = VolunteerService();
+
+  void _log(String message) {
+    html.window.console.log(message);
+  }
 
   @override
   void initState() {
@@ -27,6 +35,9 @@ class _DesktopLayoutState extends State<Volunteerform> {
     _emailController.addListener(_checkFormValidity);
     _ageController.addListener(_checkFormValidity);
     answer.addListener(_checkFormValidity);
+
+    // Test Supabase connection
+    _testSupabaseConnection();
   }
 
   @override
@@ -40,14 +51,39 @@ class _DesktopLayoutState extends State<Volunteerform> {
   }
 
   void _checkFormValidity() {
-    setState(() {
-      _isFormValid =
-          _nameController.text.isNotEmpty &&
-          _emailController.text.isNotEmpty &&
-          _ageController.text.isNotEmpty &&
-          answer.text.isNotEmpty &&
-          city != null;
-    });
+    if (!mounted) return;
+
+    final isValid =
+        _nameController.text.isNotEmpty &&
+        _emailController.text.isNotEmpty &&
+        _ageController.text.isNotEmpty &&
+        answer.text.isNotEmpty &&
+        city != null;
+
+    if (isValid != _isFormValid) {
+      setState(() {
+        _isFormValid = isValid;
+      });
+    }
+  }
+
+  Future<void> _testSupabaseConnection() async {
+    try {
+      await _volunteerService.testConnection();
+    } catch (e) {
+      _log('Failed to connect to Supabase: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Warning: Database connection issue. Please try again later.',
+            ),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 5),
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -527,19 +563,34 @@ class _DesktopLayoutState extends State<Volunteerform> {
                           ),
                         ),
                         onPressed:
-                            _isFormValid
+                            _isFormValid && !_isSubmitting
                                 ? () {
                                   _showConfirmPage();
                                 }
                                 : null,
-                        child: Text(
-                          "Submit",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: _isFormValid ? Colors.black : Colors.white54,
-                            fontSize: screenWidth * 0.012,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                        child:
+                            _isSubmitting
+                                ? SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.black,
+                                    ),
+                                  ),
+                                )
+                                : Text(
+                                  "Submit",
+                                  style: GoogleFonts.spaceGrotesk(
+                                    color:
+                                        _isFormValid
+                                            ? Colors.black
+                                            : Colors.white54,
+                                    fontSize: screenWidth * 0.012,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                       ),
                     ),
                   ),
@@ -552,7 +603,72 @@ class _DesktopLayoutState extends State<Volunteerform> {
     );
   }
 
-  void _showConfirmPage() {
-    showDialog(context: context, builder: (context) => ConfirmPage());
+  void _showConfirmPage() async {
+    _log('Submit button pressed');
+
+    if (_isSubmitting) {
+      _log('Already submitting, ignoring click');
+      return;
+    }
+
+    if (!_isFormValid) {
+      _log('Form is not valid, ignoring submission');
+      return;
+    }
+
+    setState(() {
+      _isSubmitting = true;
+    });
+    _log('Set isSubmitting to true');
+
+    try {
+      _log('Starting form submission');
+
+      await _volunteerService.submitVolunteerForm(
+        fullName: _nameController.text,
+        location: city ?? '',
+        emailId: _emailController.text,
+        age: int.parse(_ageController.text),
+        phoneNumber: _phonenumberController.text,
+        whyDoYouWantToBeAVolunteer: answer.text,
+      );
+
+      _log('Form submitted successfully');
+
+      if (!mounted) {
+        _log('Widget not mounted after submission');
+        return;
+      }
+
+      // Clear the form
+      _nameController.clear();
+      _emailController.clear();
+      _ageController.clear();
+      _phonenumberController.clear();
+      answer.clear();
+      setState(() {
+        city = 'Chennai';
+      });
+
+      showDialog(context: context, builder: (context) => ConfirmPage());
+    } catch (e) {
+      _log('Error submitting form: $e');
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to submit form: ${e.toString()}'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 5),
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+        _log('Set isSubmitting back to false');
+      }
+    }
   }
 }

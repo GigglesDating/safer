@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:giggles_safer_web/confirm_Page/confirm_mobile.dart';
+import 'package:giggles_safer_web/services/volunteer_service.dart';
 
 class VolunteerformMobile extends StatefulWidget {
   const VolunteerformMobile({super.key});
@@ -18,6 +19,8 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
   final TextEditingController answer = TextEditingController();
   String? _city;
   bool _isFormValid = false;
+  final VolunteerService _volunteerService = VolunteerService();
+  bool _isSubmitting = false;
 
   @override
   void initState() {
@@ -455,22 +458,35 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
                               ),
                             ),
                             onPressed:
-                                _isFormValid
+                                _isFormValid && !_isSubmitting
                                     ? () {
                                       _showConfirmPage();
                                     }
                                     : null,
-                            child: Text(
-                              "Submit",
-                              style: GoogleFonts.spaceGrotesk(
-                                color:
-                                    _isFormValid
-                                        ? Colors.black
-                                        : Colors.white54,
-                                fontSize: screenWidth * 0.05,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            child:
+                                _isSubmitting
+                                    ? SizedBox(
+                                      width: screenWidth * 0.05,
+                                      height: screenWidth * 0.05,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                              Colors.black,
+                                            ),
+                                      ),
+                                    )
+                                    : Text(
+                                      "Submit",
+                                      style: GoogleFonts.spaceGrotesk(
+                                        color:
+                                            _isFormValid
+                                                ? Colors.black
+                                                : Colors.white54,
+                                        fontSize: screenWidth * 0.05,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
                           ),
                         ),
                         SizedBox(height: screenHeight * 0.05),
@@ -486,7 +502,39 @@ class _DesktopLayoutState extends State<VolunteerformMobile> {
     );
   }
 
-  void _showConfirmPage() {
-    showDialog(context: context, builder: (context) => ConfirmPageMobile());
+  void _showConfirmPage() async {
+    setState(() {
+      _isSubmitting = true;
+    });
+
+    try {
+      await _volunteerService.submitVolunteerForm(
+        fullName: _nameController.text,
+        location: _city ?? '',
+        emailId: _emailController.text,
+        age: int.parse(_ageController.text),
+        phoneNumber: _phonenumberController.text,
+        whyDoYouWantToBeAVolunteer: answer.text,
+      );
+
+      if (mounted) {
+        showDialog(context: context, builder: (context) => ConfirmPageMobile());
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to submit form. Please try again.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+      }
+    }
   }
 }

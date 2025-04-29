@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:giggles_safer_web/confirm_Page/confirm_tablet.dart';
+import 'package:giggles_safer_web/services/volunteer_service.dart';
 
 class VolunteerformTablet extends StatefulWidget {
   const VolunteerformTablet({super.key});
@@ -18,6 +19,8 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
   final TextEditingController answer = TextEditingController();
   String? _city;
   bool _isFormValid = false;
+  final VolunteerService _volunteerService = VolunteerService();
+  bool _isSubmitting = false;
 
   // void makeSuggestion(String input) async {
   //   String googlePlacesApiKey =
@@ -222,7 +225,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                               ),
                             ),
                             SizedBox(width: screenWidth * 0.028),
-                            SizedBox( 
+                            SizedBox(
                               width: screenWidth * 0.35,
                               child: DropdownButtonFormField<String>(
                                 value: _city,
@@ -523,19 +526,34 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                           ),
                         ),
                         onPressed:
-                            _isFormValid
+                            _isFormValid && !_isSubmitting
                                 ? () {
                                   _showConfirmPage();
                                 }
                                 : null,
-                        child: Text(
-                          "Submit",
-                          style: GoogleFonts.spaceGrotesk(
-                            color: _isFormValid ? Colors.black : Colors.white54,
-                            fontSize: screenWidth * 0.012,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                        child:
+                            _isSubmitting
+                                ? SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.black,
+                                    ),
+                                  ),
+                                )
+                                : Text(
+                                  "Submit",
+                                  style: GoogleFonts.spaceGrotesk(
+                                    color:
+                                        _isFormValid
+                                            ? Colors.black
+                                            : Colors.white54,
+                                    fontSize: screenWidth * 0.012,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                       ),
                     ),
                   ),
@@ -548,7 +566,39 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
     );
   }
 
-  void _showConfirmPage() {
-    showDialog(context: context, builder: (context) => ConfirmPageTablet());
+  void _showConfirmPage() async {
+    setState(() {
+      _isSubmitting = true;
+    });
+
+    try {
+      await _volunteerService.submitVolunteerForm(
+        fullName: _nameController.text,
+        location: _city ?? '',
+        emailId: _emailController.text,
+        age: int.parse(_ageController.text),
+        phoneNumber: _phonenumberController.text,
+        whyDoYouWantToBeAVolunteer: answer.text,
+      );
+
+      if (mounted) {
+        showDialog(context: context, builder: (context) => ConfirmPageTablet());
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to submit form. Please try again.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+      }
+    }
   }
 }
