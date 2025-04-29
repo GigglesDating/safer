@@ -25,6 +25,7 @@ class _DesktopLayoutState extends State<Volunteerform> {
 
   void _log(String message) {
     html.window.console.log(message);
+    debugPrint(message);
   }
 
   @override

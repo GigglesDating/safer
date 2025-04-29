@@ -7,6 +7,7 @@ class VolunteerService {
 
   void _log(String message) {
     html.window.console.log(message);
+    debugPrint(message);
   }
 
   // Test function to verify Supabase connectivity
@@ -44,7 +45,7 @@ class VolunteerService {
         'email_id': emailId,
         'age': age,
         'phone_number': phoneNumber,
-        'why_do_u_want_to': whyDoYouWantToBeAVolunteer,
+        'why_do_u_want_to_b_volunteer': whyDoYouWantToBeAVolunteer,
       };
 
       _log('Sending data to Supabase: ${data.toString()}');
