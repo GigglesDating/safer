@@ -14,7 +14,6 @@ class TabletLayoutNetwork extends StatefulWidget {
 }
 
 class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
-
   final Uri _instagramUrl = Uri.parse(
     'https://www.instagram.com/gigglessafer/',
   );
