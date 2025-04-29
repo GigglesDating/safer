@@ -222,7 +222,7 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                               ),
                             ),
                             SizedBox(width: screenWidth * 0.028),
-                            SizedBox(
+                            SizedBox( 
                               width: screenWidth * 0.35,
                               child: DropdownButtonFormField<String>(
                                 value: _city,
@@ -283,21 +283,6 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
                               ),
                               child: Text(
                                 "Email Id",
-                                style: GoogleFonts.spaceGrotesk(
-                                  color: Colors.white,
-                                  fontSize: screenWidth * 0.014,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: screenWidth * 0.32,
-                                bottom: screenHeight * 0.001,
-                                top: screenHeight * 0.025,
-                              ),
-                              child: Text(
-                                "Why do you want to be a volunteer?",
                                 style: GoogleFonts.spaceGrotesk(
                                   color: Colors.white,
                                   fontSize: screenWidth * 0.014,
@@ -455,6 +440,18 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
 
                         SizedBox(height: screenHeight * 0.2),
                       ],
+                    ),
+                  ),
+                  Positioned(
+                    top: screenHeight * 0.12,
+                    right: screenWidth * 0.14,
+                    child: Text(
+                      "Why do you want to be a volunteer?",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.014,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
 
