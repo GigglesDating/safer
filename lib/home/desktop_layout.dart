@@ -20,7 +20,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
   }
 
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/giggles_safer/',
+    'https://www.instagram.com/gigglessafer/',
   );
 
   Future<void> _launchInstagram() async {
@@ -166,15 +166,17 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                 fit: BoxFit.fill,
                               ),
                             ),
-                            Positioned(
-                              left: screenWidth * 0.060,
-                              top: screenHeight * 0.20,
-                              child: Text(
-                                "Empowering  Safety,  Anytime,  Anywhere.",
-                                style: GoogleFonts.spaceMono(
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 150,left: 150),
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Text(
+                                  "Empowering  Safety,  Anytime,  Anywhere.",
+                                  style: GoogleFonts.spaceMono(
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),

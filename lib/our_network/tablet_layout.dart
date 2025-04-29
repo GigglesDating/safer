@@ -14,21 +14,9 @@ class TabletLayoutNetwork extends StatefulWidget {
 }
 
 class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
-  // void _portraitmode() {
-  //   SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.portraitDown,
-  //     DeviceOrientation.portraitUp,
-  //   ]);
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // _portraitmode();
-  // }
 
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/giggles_safer/',
+    'https://www.instagram.com/gigglessafer/',
   );
 
   Future<void> _launchInstagram() async {

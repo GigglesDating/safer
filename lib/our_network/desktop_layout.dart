@@ -15,7 +15,7 @@ class DesktopLayoutNetwork extends StatefulWidget {
 
 class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/giggles_safer/',
+    'https://www.instagram.com/gigglessafer/',
   );
 
   Future<void> _launchInstagram() async {

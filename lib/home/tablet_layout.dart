@@ -65,7 +65,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
   }
 
   final Uri _instagramUrl = Uri.parse(
-    'https://www.instagram.com/giggles_safer/',
+    'https://www.instagram.com/gigglessafer/',
   );
 
   Future<void> _launchInstagram() async {
