@@ -345,57 +345,43 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                           SizedBox(
                             child: Container(
                               width: screenWidth,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
+                              height: 60,
+                              decoration: BoxDecoration(color: Colors.white10),
                               child: CarouselSlider(
                                 items: [
                                   _buildCarouselItem(
                                     ' CONFIDENCE',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     '     SAFETY',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     '      TRUST',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     ' INNOVATION',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     '   SECURITY',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     ' RELIABILITY',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
                                   _buildCarouselItem(
                                     ' ASSISTANCE',
-                                    Colors.white10,
                                     screenWidth,
                                   ),
-                                  _buildCarouselItem(
-                                    ' COMMUNITY',
-                                    Colors.white10,
-                                    screenWidth,
-                                  ),
+                                  _buildCarouselItem(' COMMUNITY', screenWidth),
                                 ],
                                 options: CarouselOptions(
                                   height: 60,
-                                  // viewportFraction: 0.12815,
-                                  viewportFraction: 0.225,
+                                  viewportFraction: 0.145,
                                   autoPlay: true,
                                   autoPlayInterval: Duration(
                                     milliseconds: 1000,
@@ -924,7 +910,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               SizedBox(height: screenHeight * 0.02),
                               _buildTestimonial(
                                 'assets/images/Test1.jpg',
-                              "Knowing there's a secure hub\nnearby makes me feel safer when\nI'm out alone.",
+                                "Knowing there's a secure hub\nnearby makes me feel safer when\nI'm out alone.",
                                 '-shreya Sharma',
                               ),
                               SizedBox(height: screenHeight * 0.05),
@@ -1512,14 +1498,12 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
     );
   }
 
-  Widget _buildCarouselItem(String text, Color color, double screenWidth) {
+  Widget _buildCarouselItem(String text, double screenWidth) {
     return Row(
       children: [
         Container(
           height: double.infinity,
-          // width: screenWidth * 0.10312,
-          width: screenWidth * 0.2,
-          color: color,
+          color: Colors.transparent,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -1532,15 +1516,14 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                     color: Colors.white,
                   ),
                 ),
-                // SizedBox(width: 10),
+                SizedBox(width: 10),
               ],
             ),
           ),
         ),
         Container(
           height: double.infinity,
-          width: screenWidth * 0.025,
-          color: Colors.white10,
+          color: Colors.transparent,
           child: SvgPicture.asset(
             'assets/images/flowers.svg',
             fit: BoxFit.contain,

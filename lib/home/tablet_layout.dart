@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
-
 class TabletLayoutHome extends StatefulWidget {
   const TabletLayoutHome({super.key});
 
@@ -358,55 +357,20 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                           child: Container(
                             width: screenWidth,
                             height: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                            ),
+                            decoration: BoxDecoration(color: Colors.white10),
                             child: CarouselSlider(
                               items: [
-                                _buildCarouselItem(
-                                  ' CONFIDENCE',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  '     SAFETY',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  '      TRUST',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  ' INNOVATION',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  '   SECURITY',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  ' RELIABILITY',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  ' ASSISTANCE',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
-                                _buildCarouselItem(
-                                  ' COMMUNITY',
-                                  Colors.white10,
-                                  screenWidth,
-                                ),
+                                _buildCarouselItem(' CONFIDENCE', screenWidth),
+                                _buildCarouselItem('     SAFETY', screenWidth),
+                                _buildCarouselItem('      TRUST', screenWidth),
+                                _buildCarouselItem(' INNOVATION', screenWidth),
+                                _buildCarouselItem('   SECURITY', screenWidth),
+                                _buildCarouselItem(' RELIABILITY', screenWidth),
+                                _buildCarouselItem(' ASSISTANCE', screenWidth),
+                                _buildCarouselItem(' COMMUNITY', screenWidth),
                               ],
                               options: CarouselOptions(
                                 height: 60,
-                                // viewportFraction: 0.12815,
                                 viewportFraction: 0.145,
                                 autoPlay: true,
                                 autoPlayInterval: Duration(milliseconds: 1000),
@@ -1369,14 +1333,12 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
     );
   }
 
-  Widget _buildCarouselItem(String text, Color color, double screenWidth) {
+  Widget _buildCarouselItem(String text, double screenWidth) {
     return Row(
       children: [
         Container(
           height: double.infinity,
-          // width: screenWidth * 0.10312,
-          width: screenWidth * 0.12,
-          color: color,
+          color: Colors.transparent,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -1389,15 +1351,14 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                     color: Colors.white,
                   ),
                 ),
-                // SizedBox(width: 10),
+                SizedBox(width: 10),
               ],
             ),
           ),
         ),
         Container(
           height: double.infinity,
-          width: screenWidth * 0.025,
-          color: Colors.white10,
+          color: Colors.transparent,
           child: SvgPicture.asset(
             'assets/images/flowers.svg',
             fit: BoxFit.contain,

@@ -167,7 +167,10 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 150,left: 150),
+                              padding: const EdgeInsets.only(
+                                top: 150,
+                                left: 150,
+                              ),
                               child: Container(
                                 color: Colors.transparent,
                                 child: Text(
@@ -300,49 +303,17 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                       child: Container(
                         width: screenWidth,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.transparent),
+                        decoration: BoxDecoration(color: Colors.white10),
                         child: CarouselSlider(
                           items: [
-                            _buildCarouselItem(
-                              'CONFIDENCE',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              '   SAFETY',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              '   TRUST',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              'INNOVATION',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              'SECURITY',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              'RELIABILITY',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              'ASSISTANCE',
-                              Colors.white10,
-                              screenWidth,
-                            ),
-                            _buildCarouselItem(
-                              'COMMUNITY',
-                              Colors.white10,
-                              screenWidth,
-                            ),
+                            _buildCarouselItem('CONFIDENCE', screenWidth),
+                            _buildCarouselItem('   SAFETY', screenWidth),
+                            _buildCarouselItem('   TRUST', screenWidth),
+                            _buildCarouselItem('INNOVATION', screenWidth),
+                            _buildCarouselItem('SECURITY', screenWidth),
+                            _buildCarouselItem('RELIABILITY', screenWidth),
+                            _buildCarouselItem('ASSISTANCE', screenWidth),
+                            _buildCarouselItem('COMMUNITY', screenWidth),
                           ],
                           options: CarouselOptions(
                             height: 50,
@@ -878,7 +849,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                         children: [
                           _buildTestimonial(
                             'assets/images/Test1.jpg',
-                            '"Knowing there’s a secure hub\nnearby makes me feel safer when\nI’m out alone."',
+                            '"Knowing there\'s a secure hub\nnearby makes me feel safer when\nI\'m out alone."',
                             '-shreya Sharma',
                           ),
                           SizedBox(width: 50),
@@ -890,7 +861,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                           SizedBox(width: 50),
                           _buildTestimonial(
                             'assets/images/Test3.jpg',
-                            '"The drone assistance feature is\na game-changer for women’s\nsafety. Thank you, Safer!"',
+                            '"The drone assistance feature is\na game-changer for women\'s\nsafety. Thank you, Safer!"',
                             '-Arpita Singh',
                           ),
                         ],
@@ -1040,7 +1011,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                     _buildAnswers(
                       'What is a secure hub, and how do i locate one near me?',
                       Text(
-                        "A secure hub is Safer’s on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.",
+                        "A secure hub is Safer's on-ground interconnected support team, ready to assist users during emergencies or unsafe situations. To find one near you, simply press the SOS button in the Safer App, and help will be dispatched to your location.",
                         style: GoogleFonts.spaceGrotesk(
                           color: Colors.white70,
                           fontSize: 15,
@@ -1051,7 +1022,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                     _buildAnswers(
                       'Are the drones equipped with cameras or tracking devices?',
                       Text(
-                        " Yes, Safer’s drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.",
+                        " Yes, Safer's drones are equipped with cameras and tracking devices. Once the drone identifies you, it will follow you to ensure continuous monitoring, capturing footage for legal evidence, and helping responders locate you quickly and accurately.",
                         style: GoogleFonts.spaceGrotesk(
                           color: Colors.white70,
                           fontSize: 15,
@@ -1558,13 +1529,12 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
   }
 }
 
-Widget _buildCarouselItem(String text, Color color, double screenWidth) {
+Widget _buildCarouselItem(String text, double screenWidth) {
   return Row(
     children: [
       Container(
         height: double.infinity,
-        width: screenWidth * 0.10312,
-        color: color,
+        color: Colors.transparent,
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -1578,15 +1548,14 @@ Widget _buildCarouselItem(String text, Color color, double screenWidth) {
                   color: Colors.white,
                 ),
               ),
-              // SizedBox(width: 10),
+              SizedBox(width: 10),
             ],
           ),
         ),
       ),
       Container(
         height: double.infinity,
-        width: screenWidth * 0.025,
-        color: Colors.white10,
+        color: Colors.transparent,
         child: SvgPicture.asset(
           'assets/images/flowers.svg',
           fit: BoxFit.contain,
