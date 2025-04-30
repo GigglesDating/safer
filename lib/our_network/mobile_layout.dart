@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:giggles_safer_web/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -513,6 +515,86 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
     );
   }
 
+  Future<void> _showLegalBottomSheet({
+    required String title,
+    required String assetPath,
+  }) async {
+    String content = '';
+    try {
+      content = await rootBundle.loadString(assetPath);
+    } catch (e) {
+      content = 'Failed to load document. Please try again later.';
+    }
+
+    if (!mounted) return;
+
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder:
+          (context) => Container(
+            height: MediaQuery.of(context).size.height * 0.85,
+            decoration: BoxDecoration(
+              color: const Color(0xFF1A1221),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(20),
+              ),
+              border: Border.all(
+                color: const Color.fromARGB(255, 223, 126, 240).withAlpha(30),
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(255, 223, 126, 240).withAlpha(10),
+                  blurRadius: 20,
+                  spreadRadius: 5,
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                // Handle bar
+                Container(
+                  margin: const EdgeInsets.only(top: 12),
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withAlpha(40),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                // Title
+                Text(
+                  title,
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 223, 126, 240),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                // Content
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Text(
+                      content,
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+              ],
+            ),
+          ),
+    );
+  }
+
   Widget _buildFooter(double screenHeight, double screenWidth) {
     return Container(
       // height: screenHeight * 0.3,
@@ -591,12 +673,61 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                   SizedBox(height: screenHeight * 0.02),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Text(
-                      "© 2025 Safer | Privacy Policy | Terms of Service",
-                      style: GoogleFonts.spaceGrotesk(
-                        fontSize: screenWidth * 0.04,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
+                    child: 
+                    // Text(
+                    //   "© 2025 Safer | Privacy Policy | Terms of Service",
+                    //   style: GoogleFonts.spaceGrotesk(
+                    //     fontSize: screenWidth * 0.04,
+                    //     fontWeight: FontWeight.w400,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '© 2025 Safer | ',
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: screenWidth * 0.04,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Privacy Policy | ',
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: screenWidth * 0.04,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _showLegalBottomSheet(
+                                      title: 'Privacy Policy',
+                                      assetPath:
+                                          'assets/legal/privacy_policy.txt',
+                                    );
+                                  },
+                          ),
+                          TextSpan(
+                            text: 'Terms of Service',
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: screenWidth * 0.04,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _showLegalBottomSheet(
+                                      title: 'Terms & Conditions',
+                                      assetPath:
+                                          'assets/legal/terms_and_conditions.txt',
+                                    );
+                                  },
+                          ),
+                        ],
                       ),
                     ),
                   ),
