@@ -1160,7 +1160,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                           ),
                           SizedBox(height: screenHeight * 0.02),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Container(
                               height: screenHeight * 0.4,
                               width: double.infinity,
@@ -1187,7 +1187,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 40),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Container(
                               // height: screenHeight * 0.45,
                               width: double.infinity,
@@ -1318,6 +1318,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                         SizedBox(height: screenHeight * 0.02),
                                         Text(
                                           "Your information will remain 100%\nsecure and confidential,protected\nwith the highest standards of\nprivacy and security.",
+                                          textAlign: TextAlign.start,
                                           style: GoogleFonts.spaceGrotesk(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
