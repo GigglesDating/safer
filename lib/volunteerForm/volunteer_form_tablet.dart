@@ -22,10 +22,6 @@ class _DesktopLayoutState extends State<VolunteerformTablet> {
   final VolunteerService _volunteerService = VolunteerService();
   bool _isSubmitting = false;
 
-  // void makeSuggestion(String input) async {
-  //   String googlePlacesApiKey =
-  // }
-
   @override
   void initState() {
     super.initState();

@@ -43,7 +43,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: screenHeight,
               width: screenWidth,
               child: Stack(

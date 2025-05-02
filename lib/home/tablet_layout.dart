@@ -122,7 +122,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
     }
   }
 
-  TextEditingController _subEmail = TextEditingController();
+  final TextEditingController _subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -1641,14 +1641,6 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
               ),
               child: Row(
                 children: [
-                  // Text(
-                  //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                  //   style: GoogleFonts.spaceGrotesk(
-                  //     fontSize: 15,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: Colors.white,
-                  //   ),
-                  // ),
                   Text.rich(
                     TextSpan(
                       children: [

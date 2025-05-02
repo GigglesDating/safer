@@ -58,7 +58,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
     }
   }
 
-  TextEditingController _subEmail = TextEditingController();
+  final TextEditingController _subEmail = TextEditingController();
 
   late VideoPlayerController _introController;
   bool _isIntroPlaying = false;
@@ -1604,14 +1604,6 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
               ),
               child: Row(
                 children: [
-                  // Text(
-                  //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                  //   style: GoogleFonts.spaceGrotesk(
-                  //     fontSize: 15,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: Colors.white,
-                  //   ),
-                  // ),
                   Text.rich(
                     TextSpan(
                       children: [

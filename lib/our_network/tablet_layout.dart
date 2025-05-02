@@ -643,14 +643,6 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
               ),
               child: Row(
                 children: [
-                  // Text(
-                  //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                  //   style: GoogleFonts.spaceGrotesk(
-                  //     fontSize: 15,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: Colors.white,
-                  //   ),
-                  // ),
                   Text.rich(
                     TextSpan(
                       children: [

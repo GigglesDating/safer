@@ -122,7 +122,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
     }
   }
 
-  TextEditingController _subEmail = TextEditingController();
+  final TextEditingController _subEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -146,20 +146,6 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                           height: 600,
                         ),
                       ),
-
-                      // Row(
-                      //   children: [
-                      //     Spacer(),
-                      //     Padding(
-                      //       padding: const EdgeInsets.only(top: 1890),
-                      //       child: SvgPicture.asset(
-                      //         'assets/images/network_2.svg',
-                      //         width: 600,
-                      //         height: 600,
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
                       Padding(
                         padding: const EdgeInsets.only(top: 1750, left: 940),
                         child: SvgPicture.asset(
@@ -1766,14 +1752,6 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                   SizedBox(height: screenHeight * 0.02),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    // child: Text(
-                    //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                    //   style: GoogleFonts.spaceGrotesk(
-                    //     fontSize: screenWidth * 0.04,
-                    //     fontWeight: FontWeight.w400,
-                    //     color: Colors.white,
-                    //   ),
-                    // ),
                     child: Text.rich(
                       TextSpan(
                         children: [
