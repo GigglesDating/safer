@@ -1744,7 +1744,7 @@ Widget _buildCarouselItem(String text, double screenWidth) {
               Text(
                 text,
                 style: GoogleFonts.spaceGrotesk(
-                  fontSize: 20,
+                  fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
