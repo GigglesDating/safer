@@ -17,7 +17,6 @@ class MobileLayoutNetwork extends StatefulWidget {
 }
 
 class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
-
   final Uri _instagramUrl = Uri.parse(
     'https://www.instagram.com/gigglessafer/',
   );
@@ -638,7 +637,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                               "Home",
                               style: GoogleFonts.spaceGrotesk(
                                 color: Colors.white,
-                                fontSize: screenWidth * 0.045,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -649,7 +648,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                               "Our Network",
                               style: GoogleFonts.spaceGrotesk(
                                 color: const Color.fromARGB(255, 223, 126, 240),
-                                fontSize: screenWidth * 0.045,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -661,22 +660,13 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                   SizedBox(height: screenHeight * 0.02),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: 
-                    // Text(
-                    //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                    //   style: GoogleFonts.spaceGrotesk(
-                    //     fontSize: screenWidth * 0.04,
-                    //     fontWeight: FontWeight.w400,
-                    //     color: Colors.white,
-                    //   ),
-                    // ),
-                    Text.rich(
+                    child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
                             text: '© 2025 Safer | ',
                             style: GoogleFonts.spaceGrotesk(
-                              fontSize: screenWidth * 0.04,
+                              fontSize: screenWidth * 0.03,
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
                             ),
@@ -684,7 +674,7 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                           TextSpan(
                             text: 'Privacy Policy | ',
                             style: GoogleFonts.spaceGrotesk(
-                              fontSize: screenWidth * 0.04,
+                              fontSize: screenWidth * 0.03,
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
                             ),
@@ -699,9 +689,9 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                                   },
                           ),
                           TextSpan(
-                            text: 'Terms of Service',
+                            text: 'Terms of Service | ',
                             style: GoogleFonts.spaceGrotesk(
-                              fontSize: screenWidth * 0.04,
+                              fontSize: screenWidth * 0.03,
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
                             ),
@@ -712,6 +702,23 @@ class _MobileLayoutNetworkState extends State<MobileLayoutNetwork> {
                                       title: 'Terms & Conditions',
                                       assetPath:
                                           'assets/legal/terms_and_conditions.txt',
+                                    );
+                                  },
+                          ),
+                          TextSpan(
+                            text: 'Refund Policy',
+                            style: GoogleFonts.spaceGrotesk(
+                              fontSize: screenWidth * 0.03,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _showLegalBottomSheet(
+                                      title: 'Refund Policy',
+                                      assetPath:
+                                          'assets/legal/refund_policy.txt',
                                     );
                                   },
                           ),

@@ -493,14 +493,6 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
               ),
               child: Row(
                 children: [
-                  // Text(
-                  //   "© 2025 Safer | Privacy Policy | Terms of Service",
-                  //   style: GoogleFonts.spaceGrotesk(
-                  //     fontSize: 15,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: Colors.white,
-                  //   ),
-                  // ),
                   Text.rich(
                     TextSpan(
                       children: [
@@ -530,7 +522,7 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                                 },
                         ),
                         TextSpan(
-                          text: 'Terms of Service',
+                          text: 'Terms of Service | ',
                           style: GoogleFonts.spaceGrotesk(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -543,6 +535,23 @@ class _DesktopLayoutNetworkState extends State<DesktopLayoutNetwork> {
                                     title: 'Terms & Conditions',
                                     assetPath:
                                         'assets/legal/terms_and_conditions.txt',
+                                  );
+                                },
+                        ),
+                        TextSpan(
+                          text: 'Refund Policy',
+                          style: GoogleFonts.spaceGrotesk(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  _showLegalBottomSheet(
+                                    title: 'Refund Policy',
+                                    assetPath:
+                                        'assets/legal/refund_policy.txt',
                                   );
                                 },
                         ),

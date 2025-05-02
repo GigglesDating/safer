@@ -672,7 +672,7 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                                 },
                         ),
                         TextSpan(
-                          text: 'Terms of Service',
+                          text: 'Terms of Service | ',
                           style: GoogleFonts.spaceGrotesk(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -685,6 +685,23 @@ class _TabletLayoutNetworkState extends State<TabletLayoutNetwork> {
                                     title: 'Terms & Conditions',
                                     assetPath:
                                         'assets/legal/terms_and_conditions.txt',
+                                  );
+                                },
+                        ),
+                        TextSpan(
+                          text: 'Refund policy',
+                          style: GoogleFonts.spaceGrotesk(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  _showLegalBottomSheet(
+                                    title: 'Refund Policy',
+                                    assetPath:
+                                        'assets/legal/refund_policy.txt',
                                   );
                                 },
                         ),
