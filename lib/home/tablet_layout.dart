@@ -231,7 +231,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                          top: 70,
+                                          top: 50,
                                           left: 250,
                                         ),
                                         child: TextButton(
@@ -253,7 +253,7 @@ class _TabletLayoutHomeState extends State<TabletLayoutHome> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                          top: 70,
+                                          top: 50,
                                           left: 15,
                                         ),
                                         child: TextButton(
