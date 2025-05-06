@@ -195,7 +195,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                               child: Image.asset(
                                 height: double.infinity,
                                 width: double.infinity,
-                                'assets/images/DesktopLayout.png',
+                                'assets/images/Desktop_layout.png',
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -398,7 +398,8 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                   left: 100,
                                 ),
                                 child: Text(
-                                  "We're Safer, a technology-driven safety platform\ndedicated to empowering women. Our journey began\nwith the vision to provide real-time assistance\nthrough drones and secure hubs, ensuring no woman\never feels unsafe. We're not just building a product—\nwe're building trust, security, and a community that\nstands together for women's safety.",
+                                  // "We're Safer, a technology-driven safety platform\ndedicated to empowering women. Our journey began\nwith the vision to provide real-time assistance\nthrough drones and secure hubs, ensuring no woman\never feels unsafe. We're not just building a product—\nwe're building trust, security, and a community that\nstands together for women's safety.",
+                                  "We are Safer, a women-first safety network built to respond when it matters most. Born out of the urgent need for real-time safety solutions, Safer is more than just an app, it’s a promise. A promise that no woman should ever feel alone or helpless in a moment of fear or danger. Whether it’s an emergency on the street, during a commute, or in a public space, help is always just a tap away.",
                                   style: GoogleFonts.spaceGrotesk(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
@@ -431,7 +432,8 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                   left: 100,
                                 ),
                                 child: Text(
-                                  "To make safety accessible, reliable, and innovative for\nevery woman, everywhere.",
+                                  // "To make safety accessible, reliable, and innovative for\nevery woman, everywhere.",
+                                  "At Safer, we understand that safety shouldn’t be a luxury, it should be a guarantee. Our mission is simple: to make sure that every woman has help just a tap away, whenever and wherever she needs it. When a woman reaches out for help, we ensure that someone is always there to respond fast, and without a question.",
                                   style: GoogleFonts.spaceGrotesk(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
@@ -816,7 +818,8 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                               ),
                               SizedBox(width: screenWidth * 0.08),
                               Text(
-                                "Safer operates through a growing network of\nadvanced drones and strategically placed secure\nhubs, ensuring rapid response and reliable support.\nWith coverage expanding across cities, we are\ndedicated to creating a safety net that empowers\nwomen wherever they are.",
+                                // "Safer operates through a growing network of\nadvanced drones and strategically placed secure\nhubs, ensuring rapid response and reliable support.\nWith coverage expanding across cities, we are\ndedicated to creating a safety net that empowers\nwomen wherever they are.",
+                                "Across the city, our secure hubs operate 24/7\nwith trained security personnel who can reach the\nscene within minutes. If there’s a delay or the\nlocation is hard to access, our verified volunteers\n— trusted members of the community — step in\nto support. In situations where visibility is limited or\nimmediate assessment is needed, our drone units provide\nlive visual coverage from above. And behind every SOS\nalert is a customer support team that responds right\naway,confirms the situation, and coordinates\nhelp without hesitation.",
                                 style: GoogleFonts.spaceGrotesk(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w400,
@@ -881,19 +884,19 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                       child: Row(
                         children: [
                           _buildTestimonial(
-                            'assets/images/Test1.jpg',
+                            'assets/images/testimonial1.jpg',
                             '"Knowing there\'s a secure hub\nnearby makes me feel safer when\nI\'m out alone."',
                             '-shreya Sharma',
                           ),
                           SizedBox(width: 50),
                           _buildTestimonial(
-                            'assets/images/Test2.jpg',
+                            'assets/images/testimonial2.jpg',
                             '"Safer gave me peace of mind\nduring a late-night commute. The\nquick response was incredible!"',
                             '-Neha Sharma',
                           ),
                           SizedBox(width: 50),
                           _buildTestimonial(
-                            'assets/images/Test3.jpg',
+                            'assets/images/testimonial3.jpg',
                             '"The drone assistance feature is\na game-changer for women\'s\nsafety. Thank you, Safer!"',
                             '-Arpita Singh',
                           ),
@@ -951,7 +954,7 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                       bottomRight: Radius.circular(150),
                                     ),
                                     child: Image.asset(
-                                      'assets/images/Our Network.jpg',
+                                      'assets/images/Download_app.jpg',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -975,9 +978,10 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                   color: Colors.white,
                                 ),
                               ),
-                              SizedBox(width: screenWidth * 0.08),
+                              SizedBox(width: screenWidth * 0.10),
                               Text(
-                                "Your safety is just a tap away! Download the Safer\napp now on the Play Store and App Store to\naccess real-time assistance, secure hubs, and\nmore—anytime, anywhere.",
+                                // "Your safety is just a tap away! Download the Safer\napp now on the Play Store and App Store to\naccess real-time assistance, secure hubs, and\nmore—anytime, anywhere.",
+                                "Thousands are already on Safer. Are you?\n\nJoin the growing network of women who refuse\nto walk alone. One tap connects you to real-time help",
                                 style: GoogleFonts.spaceGrotesk(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w400,
@@ -1208,7 +1212,8 @@ class _DesktopLayoutState extends State<DesktopLayoutHome> {
                                       right: 20,
                                     ),
                                     child: Text(
-                                      "Subscribe to Safer for updates, safety tips, and the latest features.\nJoin our mission to create a safer world—one step at a time!",
+                                      // "Subscribe to Safer for updates, safety tips, and the latest features.\nJoin our mission to create a safer world—one step at a time!",
+                                      "Be the first to know about new features, safety tips, and city-wide\nupdates. We don’t spam, just the stuff that matters.",
                                       style: GoogleFonts.spaceGrotesk(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w400,

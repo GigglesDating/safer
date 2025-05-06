@@ -192,7 +192,7 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                     height: screenHeight * 0.95,
                                     width: screenWidth * 0.964,
                                     child: Image.asset(
-                                      'assets/images/TabletLayout.png',
+                                      'assets/images/Mobile_layout.png',
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -535,13 +535,18 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                   SizedBox(width: screenWidth * 0.088),
                                   SizedBox(
                                     width: screenWidth * 0.9,
-                                    child: Text(
-                                      "We're Safer, a technology-driven safety platform dedicated to empowering women. Our journey began with the vision to provide real-time assistance through drones and secure hubs,ensuring no woman ever feels unsafe. We're not just building a product— we're building trust,security, and a community that stands together for women's safety.",
-                                      textAlign: TextAlign.start,
-                                      style: GoogleFonts.spaceGrotesk(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white,
+                                    child: Container(
+                                      color: Colors.transparent,
+                                      width: screenWidth * 0.8,
+                                      child: Text(
+                                        // "We're Safer, a technology-driven safety platform dedicated to empowering women. Our journey began with the vision to provide real-time assistance through drones and secure hubs,ensuring no woman ever feels unsafe. We're not just building a product— we're building trust,security, and a community that stands together for women's safety.",
+                                        "We are Safer, a women-first safety network built to respond when it matters most. Born out of the urgent need for real-time safety solutions, Safer is more than just an app, it’s a promise. A promise that no woman should ever feel alone or helpless in a moment of fear or danger. Whether it’s an emergency on the street, during a commute, or in a public space, help is always just a tap away.",
+                                        textAlign: TextAlign.start,
+                                        style: GoogleFonts.spaceGrotesk(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -565,12 +570,18 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               Row(
                                 children: [
                                   SizedBox(width: screenWidth * 0.088),
-                                  Text(
-                                    "To make safety accessible, reliable, and\ninnovative for every woman,everywhere.",
-                                    style: GoogleFonts.spaceGrotesk(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white,
+                                  Container(
+                                    color: Colors.transparent,
+                                    width: screenWidth * 0.8,
+                                    child: Text(
+                                      // "To make safety accessible, reliable, and\ninnovative for every woman,everywhere.",
+                                      "At Safer, we understand that safety shouldn’t be a luxury, it should be a guarantee. Our mission is simple: to make sure that every woman has help just a tap away, whenever and wherever she needs it. When a woman reaches out for help, we ensure that someone is always there to respond fast, and without a question.",
+
+                                      style: GoogleFonts.spaceGrotesk(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -848,14 +859,21 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               Row(
                                 children: [
                                   SizedBox(width: screenWidth * 0.088),
-                                  SizedBox(
-                                    width: screenWidth * 0.9,
-                                    child: Text(
-                                      "Safer operates through a growing network of advanced drones and strategically placed secure hubs, ensuring rapid response and reliable support. With coverage expanding across cities, we are dedicated to creating a safety net that empowers women wherever they are.",
-                                      style: GoogleFonts.spaceGrotesk(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                    ),
+                                    child: Container(
+                                      color: Colors.transparent,
+                                      width: screenWidth * 0.8,
+                                      child: Text(
+                                        // "Safer operates through a growing network of advanced drones and strategically placed secure hubs, ensuring rapid response and reliable support. With coverage expanding across cities, we are dedicated to creating a safety net that empowers women wherever they are.",
+                                        "Across the city, our secure hubs operate 24/7 with trained security personnel who can reach the scene within minutes. If there’s a delay or the location is hard to access, our verified volunteers — trusted members of the community — step in to support. In situations where visibility is limited or immediate assessment is needed, our drone units provide live visual coverage from above. And behind every SOS alert is a customer support team that responds right away,confirms the situation, and coordinates help without hesitation.",
+                                        style: GoogleFonts.spaceGrotesk(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -919,19 +937,19 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                               ),
                               SizedBox(height: screenHeight * 0.02),
                               _buildTestimonial(
-                                'assets/images/Test1.jpg',
+                                'assets/images/testimonial1.jpg',
                                 "Knowing there's a secure hub\nnearby makes me feel safer when\nI'm out alone.",
                                 '-shreya Sharma',
                               ),
                               SizedBox(height: screenHeight * 0.05),
                               _buildTestimonial(
-                                'assets/images/Test2.jpg',
+                                'assets/images/testimonial2.jpg',
                                 '"Safer gave me peace of mind\nduring a late-night commute. The\nquick response was incredible!"',
                                 '-Neha Sharma',
                               ),
                               SizedBox(height: screenHeight * 0.05),
                               _buildTestimonial(
-                                'assets/images/Test3.jpg',
+                                'assets/images/testimonial3.jpg',
                                 "The drone assistance feature is\na game-changer for women's\nsafety. Thank you, Safer!",
                                 '-Arpita Singh',
                               ),
@@ -1005,12 +1023,17 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                   color: Colors.white,
                                 ),
                               ),
-                              Text(
-                                "Your safety is just a tap away! Download the\nSafer app now on the Play Store and App Store\nto access real-time assistance, secure hubs,and\nmore—anytime, anywhere.",
-                                style: GoogleFonts.spaceGrotesk(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.white,
+                              Container(
+                                color: Colors.transparent,
+                                width: screenWidth * 0.8,
+                                child: Text(
+                                  // "Your safety is just a tap away! Download the\nSafer app now on the Play Store and App Store\nto access real-time assistance, secure hubs,and\nmore—anytime, anywhere.",
+                                  "Thousands are already on Safer. Are you?\n\nJoin the growing network of women who refuse to walk alone. One tap connects you to real-time help",
+                                  style: GoogleFonts.spaceGrotesk(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ],
@@ -1219,12 +1242,17 @@ class _MobileLayoutHomeState extends State<MobileLayoutHome> {
                                         ),
                                         Container(
                                           color: Colors.transparent,
-                                          child: Text(
-                                            "Subscribe to Safer for updates,safety tips, and the latest features.Join our mission to create a safer world—one step at a time!",
-                                            style: GoogleFonts.spaceGrotesk(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.white,
+                                          child: Container(
+                                            color: Colors.transparent,
+                                            width: screenWidth * 0.8,
+                                            child: Text(
+                                              // "Subscribe to Safer for updates,safety tips, and the latest features.Join our mission to create a safer world—one step at a time!",
+                                              "Be the first to know about new features, safety tips, and city-wide updates. We don’t spam, just the stuff that matters.",
+                                              style: GoogleFonts.spaceGrotesk(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
